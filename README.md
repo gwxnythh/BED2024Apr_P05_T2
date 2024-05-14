@@ -4,7 +4,7 @@
     S10262576 | Ggwendolynn Lee Rasni
     S10262569 | Jovan Tan Hao
     S10262840 | Daphne Cheng Pei En
-    S | Tan Han Yan
+    S10262621 | Tan Han Yan
 
 > [!NOTE]
 > Topic 2: Social Impact
@@ -28,7 +28,7 @@ Episteme is a cutting-edge virtual learning tool created to enable individuals i
 #### ***S10262840 | Daphne Cheng Pei En***
     1. Lorem Ipsum - etc
 
-#### ***S | Tan Han Yan***
+#### ***S10262621 | Tan Han Yan***
     1. Lorem Ipsum - etc
 
 ## Technologies Used
