@@ -19,16 +19,18 @@ Episteme is a cutting-edge virtual learning tool created to enable individuals i
 
 ## Features
 
-#### ***S10262576 | Ggwendolynn Lee Rasni***
+#### ***S10262576 | Ggwendolynn Lee Rasni | Instructor***
+    1. POST - Create New Content/Playlist.
+    2. DELETE - Delete Playlist
+
+#### ***S10262569 | Jovan Tan Hao | ***
     1. Lorem Ipsum - etc
 
-#### ***S10262569 | Jovan Tan Hao***
-    1. Lorem Ipsum - etc
+#### ***S10262840 | Daphne Cheng Pei En | User/Member***
+    1. GET | Retrieve User's Info for Profile
+    2. POST | Create User's Profile
 
-#### ***S10262840 | Daphne Cheng Pei En***
-    1. Lorem Ipsum - etc
-
-#### ***S10262621 | Tan Han Yan***
+#### ***S10262621 | Tan Han Yan | ***
     1. Lorem Ipsum - etc
 
 ## Technologies Used
