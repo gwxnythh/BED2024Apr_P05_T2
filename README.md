@@ -15,7 +15,7 @@ Tagline: Just Gaining Knowledge in HD
 
 Episteme is a cutting-edge virtual learning tool created to enable individuals in their quest for education and career advancement. Episteme offers a variety of expert-led courses and tutorials in business, technology, creative fields, and personal development, creating a dynamic learning experience designed for today's learner. Our platform prioritizes accessibility and excellence, providing users with the necessary skills and insights to succeed in today's competitive environment. Episteme empowers individuals to realize their complete potential and reach their professional goals with a carefully crafted curriculum and engaging learning resources.
 
-![Mood Board](./public/images/mood-board)
+![Mood Board](./public/images/mood-board.png)
 
 ## Features
 
