@@ -9,6 +9,8 @@
 > [!NOTE]
 > Topic 2: Social Impact
 
+![Logo](./public/images/logo.png)
+
 Episteme [ep-is-teem] | knowledge; specifically : intellectually certain knowledge.
 
 Tagline: Just Gaining Knowledge in HD
