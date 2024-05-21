@@ -31,7 +31,7 @@ Episteme is a cutting-edge virtual learning tool created to enable individuals i
     1. GET - Retrieve User's Info for Profile.
     2. POST - Create User's Profile.
 
-#### ***S10262621 | Tan Han Yan |  ***
+#### ***S10262621 | Tan Han Yan |  Customer Service Staff***
     1. GET - Retrieve customer feedback. 
     2. DELETE - Delete Feedback. 
 
