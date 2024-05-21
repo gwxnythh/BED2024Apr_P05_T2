@@ -15,23 +15,25 @@ Tagline: Just Gaining Knowledge in HD
 
 Episteme is a cutting-edge virtual learning tool created to enable individuals in their quest for education and career advancement. Episteme offers a variety of expert-led courses and tutorials in business, technology, creative fields, and personal development, creating a dynamic learning experience designed for today's learner. Our platform prioritizes accessibility and excellence, providing users with the necessary skills and insights to succeed in today's competitive environment. Episteme empowers individuals to realize their complete potential and reach their professional goals with a carefully crafted curriculum and engaging learning resources.
 
-![Mood Board](assets/images/mood_board)
+![Mood Board](public/images/mood-board)
 
 ## Features
 
 #### ***S10262576 | Ggwendolynn Lee Rasni | Instructor***
     1. POST - Create New Content/Playlist.
-    2. DELETE - Delete Playlist
+    2. DELETE - Delete Playlist.
 
-#### ***S10262569 | Jovan Tan Hao | ***
-    1. Lorem Ipsum - etc
+#### ***S10262569 | Jovan Tan Hao | Examiner***
+    1. GET - Recently did Quiz.
+    2. POST - Create Quiz.
 
 #### ***S10262840 | Daphne Cheng Pei En | User/Member***
-    1. GET | Retrieve User's Info for Profile
-    2. POST | Create User's Profile
+    1. GET - Retrieve User's Info for Profile.
+    2. POST - Create User's Profile.
 
-#### ***S10262621 | Tan Han Yan | ***
-    1. Lorem Ipsum - etc
+#### ***S10262621 | Tan Han Yan |  ***
+    1. GET - Retrieve customer feedback. 
+    2. DELETE - Delete Feedback. 
 
 ## Technologies Used
 
@@ -45,22 +47,27 @@ Episteme is a cutting-edge virtual learning tool created to enable individuals i
     - CSS is used to define styles for your web pages, including the design, layout and variations in display for different devices and screen sizes.
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript)
     -  Javascript is used for to allow me to implement complex features on my web pages to make the website more functional.
-- [RestDB API](https://restdb.io)
-    - RestDB API is used to allow me to store my customer information from my website into the database, at the same time, i can fetch it to be used for things like tier etc.
+- [ExpressNode.js]()
+    - Lorem Ipsum
+- [SMSS](https://learn.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver16)
+    - SMSS is used to...
 
 ## Testing
 > [!NOTE]
-> NA
+> TBC
+
+- 
 
 ## Credits
 
 Content/Media:
-- [Lottie Animation](https://lottiefiles.com) - index.html
-    - Made my own custom Company lottie.
-- [Logo] | [Banners/Ambassador Images]
+- [Logos]
     - Custom made using Canva/Adobe Photoshop.
-- [Icons](https://ionic.io/ionicons)
-    - icons such as favourites, add to cart and shopping cart etc.
+- [Icons](https://boxicons.com/?query=)
+    - Majority icons are used from boxicons.
 
 Coding Help:
 - [w3schools](https://www.w3schools.com)
+    - Front-End Coding Help.
+- [ExpressNode.js](https://expressjs.com)
+    - Back-End Coding Help.
