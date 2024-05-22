@@ -19,14 +19,27 @@ modeSwitch.addEventListener("click", () =>{
     }
 });
 
-// // Selected User Role
-// function selectUserRole(role) {
-//     // You can do further processing here, such as sending the selected role to the server
-//     console.log("Selected role:", role);
-
-//     // If you want to send the selected role to a form field or input element, you can set its value like this:
-//     // document.getElementById("selectedRoleInput").value = role;
-// };
+// User Role Selector
+function selectUserRole(event, role) {
+    // Log the selected role to the console
+    console.log('Selected role:', role);
+    
+    // Disable click events on all cards and reduce opacity
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        if (card !== event.currentTarget) {
+            card.style.opacity = '0.5';
+            card.removeEventListener('click', selectUserRole);
+            card.style.border = 'none';
+        }
+    });
+    
+    // Highlight the selected card
+    const selectedCard = event.currentTarget;
+    selectedCard.style.opacity = '1';
+    selectedCard.style.border = '3px solid #e79a66';
+    selectedCard.classList.add('selected');
+}
 
 // Upload Profile Picture
 const profilePic = document.getElementById("profile-pic");
@@ -42,6 +55,12 @@ inputFile.addEventListener("change", function() {
             profilePic.src = reader.result;
         });
 
+        reader.addEventListener("error", function(event) {
+            console.error("Error reading the file:", event.target.error);
+        });
+
         reader.readAsDataURL(file);
+    } else {
+        console.error("No file selected.");
     }
 });
