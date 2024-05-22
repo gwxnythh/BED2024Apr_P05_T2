@@ -306,6 +306,8 @@ body.dark .switch::before {
 }
 
 /* ###### Always need to put Section name when new one is made! ###### */
+.sidebar.close~.update-member-profile,
+.sidebar.close~.member-profile,
 .sidebar.close~.footer,
 .sidebar.close~.dashboard-member,
 .sidebar.close~.credits,
@@ -861,7 +863,7 @@ td {
     padding-top: 1.5rem;
 }
 
-.dashboard-member .quickaccess-container .card-container .card .flex a{
+.dashboard-member .quickaccess-container .card-container .card .flex a {
     padding: 10px 15px;
     border-radius: 5px;
     font-size: 16px;
@@ -895,6 +897,7 @@ td {
     margin-right: auto;
     margin-top: 20px;
 }
+
 .dashboard-member .courses-container .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
@@ -949,12 +952,13 @@ td {
 }
 
 .dashboard-member .courses-container .more-btn {
-margin-top: 20px;
-margin-bottom: 20px;
-text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.inline-btn, .inline-option-btn {
+.inline-btn,
+.inline-option-btn {
     border-radius: .5rem;
     padding: 10px 15px;
     font-size: 16px;
@@ -964,7 +968,9 @@ text-align: center;
     text-align: center;
     display: inline-block;
 }
-.inline-btn, .inline-option-btn {
+
+.inline-btn,
+.inline-option-btn {
     background-color: var(--primary-color);
     color: var(--text-color);
     text-decoration: none;
@@ -972,7 +978,8 @@ text-align: center;
     margin-bottom: 10px;
 }
 
-.inline-btn:hover, .inline-option-btn:hover {
+.inline-btn:hover,
+.inline-option-btn:hover {
     background-color: var(--secondary-color);
     color: white;
 }
@@ -1007,13 +1014,13 @@ footer .footer-container .sec h2 {
 }
 
 footer .footer-container .sec p {
-color: var(--text-color);
+    color: var(--text-color);
 }
 
 footer .footer-container .sci {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(4,50px);
+    grid-template-columns: repeat(4, 50px);
 }
 
 footer .footer-container .sci li {
@@ -1054,7 +1061,8 @@ footer .footer-container .contact .info {
 
 footer .footer-container .contact .info li {
     display: grid;
-    grid-template-columns: 30px 1fr;;
+    grid-template-columns: 30px 1fr;
+    ;
     margin-bottom: 16px;
 }
 
@@ -1081,12 +1089,14 @@ footer .footer-container .contact .info li a {
     footer {
         padding: 40px;
     }
+
     footer .footer-container {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 20px;
     }
+
     .copyrightText {
         padding: 20px 40px 30px;
     }
@@ -1099,4 +1109,204 @@ footer .footer-container .contact .info li a {
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 20px;
     }
+}
+
+/* ====== profile-member.html ====== */
+.member-profile {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.member-profile .text {
+    color: var(--text-color);
+}
+
+.member-profile-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.member-profile-container .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+}
+
+.member-profile-container .profile-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.member-profile-container .user-details h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.member-profile-container .user-details p {
+    margin: 0;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.member-profile-container .member-cards-container {
+    display: flex;
+    justify-content: center;
+}
+
+.member-cards-container .card .card-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.member-cards-container .card {
+    width: calc(30% - 10px);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.member-cards-container .card1 {
+    margin-right: 20px;
+}
+
+.member-cards-container .card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+}
+
+.member-cards-container .card h3 {
+    margin-top: 0;
+}
+
+.member-cards-container .card p {
+    margin: 0;
+}
+
+.member-cards-container .card a.inline-btn {
+    display: block;
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.member-cards-container .card a.inline-btn:hover {
+    color: white;
+}
+
+.member-cards-container .card .card-content .card-icon i {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.member-cards-container .card .card-content .card-info {
+    margin-left: 10px;
+    color: var(--text-color);
+}
+
+/* ====== update-member.html ====== */
+.update-member-profile {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.update-memprofile-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.update-memprofile-container input[type="text"],
+.update-memprofile-container input[type="email"],
+.update-memprofile-container input[type="password"],
+.update-memprofile-container select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+input[disabled]::-webkit-input-placeholder {
+    color: #999;
+ }
+
+.update-memprofile-container .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.update-memprofile-container .field-column {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.update-memprofile-container .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.update-memprofile-container .update-mem-info {
+    margin: 20px auto;
+}
+
+
+.update-memprofile-container .update-mem-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.update-memprofile-container .column-1 {
+    margin-right: 20px;
+}
+
+.update-memprofile-container .update-mem-details {
+    text-align: center;
+}
+
+.update-memprofile-container .update-mem-details a {
+    display: inline-block;
+}
+
+.update-memprofile-container .update-mem-details .row label {
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 3px;
+    color: var(--text-color);
+}
+
+.update-memprofile-container h2 a {
+    color: var(--text-color);
 }
