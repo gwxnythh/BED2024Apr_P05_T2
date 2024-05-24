@@ -43,10 +43,16 @@
                 <h3>Register Now!</h3>
 
                 <div class="form-wrapper">
-                    <div class="user-img">
-                        <img src="./public/images/profile.jpg" id="profile-pic">
-                        <label for="input-file" id="uploadbtn"><i class='bx bxs-camera'></i></label>
-                        <input type="file" id="input-file" accept="image/jpeg, image/png, image/jpg">
+                    <div class="user-image">
+                        <!-- ###### User PFP ###### -->
+                        <div class="user-img" id="user-img">
+                            <image id="profile-pic" src="./public/images/profile.jpg" />
+                            <div class="overlay">
+                                <i class='bx bxs-camera camera-icon'></i>
+                            </div>
+                        </div>
+                        <input id="input-file" type="file" name="profile_pic" placeholder="Photo" required=""
+                            accept=".jpg, .jpeg, .png" capture>
                     </div>
                 </div>
 
@@ -89,6 +95,7 @@
 
     <!-- ============ Scripts ============ -->
     <script src="./public/scripts/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 
 </html>

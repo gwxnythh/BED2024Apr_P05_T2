@@ -30,37 +30,29 @@ function selectUserRole(event, role) {
         if (card !== event.currentTarget) {
             card.style.opacity = '0.5';
             card.removeEventListener('click', selectUserRole);
-            card.style.border = 'none';
+            card.style.border = '1px solid var(--secondary-color-light)';
         }
     });
     
     // Highlight the selected card
     const selectedCard = event.currentTarget;
     selectedCard.style.opacity = '1';
-    selectedCard.style.border = '3px solid #e79a66';
+    selectedCard.style.border = '3px solid var(--primary-color)';
     selectedCard.classList.add('selected');
 }
 
 // Upload Profile Picture
-const profilePic = document.getElementById("profile-pic");
-const inputFile = document.getElementById("input-file");
+document.getElementById("profile-pic").addEventListener("click", function() {
+    document.getElementById("input-file").click();
+});
 
-inputFile.addEventListener("change", function() {
-    const file = this.files[0];
-
-    if (file) {
-        const reader = new FileReader();
-
-        reader.addEventListener("load", function() {
-            profilePic.src = reader.result;
-        });
-
-        reader.addEventListener("error", function(event) {
-            console.error("Error reading the file:", event.target.error);
-        });
-
-        reader.readAsDataURL(file);
-    } else {
-        console.error("No file selected.");
+document.getElementById("input-file").addEventListener("change", function() {
+    var input = this;
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("profile-pic").src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
     }
 });
