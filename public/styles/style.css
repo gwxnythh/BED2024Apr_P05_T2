@@ -1,6 +1,5 @@
 /*
 ====== loremipsum.html ======
-    every new section add this:
     position: relative;
     left: 250px;
     width: calc(100% - 250px);
@@ -307,6 +306,8 @@ body.dark .switch::before {
 }
 
 /* ###### Always need to put Section name when new one is made! ###### */
+.sidebar.close~.dashboard-instructor,
+.sidebar.close~.about-us,
 .sidebar.close~.contact-us,
 .sidebar.close~.quizzes-member,
 .sidebar.close~.instructors-member,
@@ -1787,4 +1788,107 @@ input[disabled]::-webkit-input-placeholder {
     font-size: 16px;
     color: var(--text-color);
     font-family: "Poppins-Regular";
+}
+
+/* ====== aboutus.html ====== */
+.about-us {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+    margin: 0;
+}
+
+.aboutus-container .aboutus-img p {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+.aboutus-container .aboutus-img img {
+    margin: 0 auto;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px;
+}
+
+.aboutus-container .aboutus-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.aboutus-container .aboutus-info .card {
+    background-color: var(--primary-color-light);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aboutus-container .aboutus-info .card:hover {
+    background-color: var(--primary-color);
+    transition: var(--tran-05);
+}
+
+.aboutus-container .aboutus-info .title {
+    color: var(--text-color);
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.aboutus-container .aboutus-info p {
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ====== instructor-index.html ====== */
+.dashboard-instructor {
+position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.dashboard-instructor .quickaccess-container .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 20px;
+}
+
+.dashboard-instructor .quickaccess-container .card-container2 {
+    margin-bottom: 20px;
+}
+
+.dashboard-instructor .quickaccess-container .card-container .card {
+    text-align: center;
+    background-color: var(--primary-color-light);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+.dashboard-instructor .quickaccess-container .card-container .card .title {
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.dashboard-instructor .quickaccess-container .card-container .card .qap-text {
+    width: 100%;
+    color: var(--text-color);
+    background-color: var(--sidebar-color);
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: .5rem;
+}
+
+.dashboard-instructor .quickaccess-container .card-container .card .inline-btn {
+    width: 100%;
 }
