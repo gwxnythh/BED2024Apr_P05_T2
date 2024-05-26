@@ -9,7 +9,7 @@
 > [!NOTE]
 > Topic 2: Social Impact
 
-![Logo](./public/images/logo-icon.png)
+![Logo](./public/images/logo-icon-2.png)
 
 Episteme [ep-is-teem] | knowledge; specifically : intellectually certain knowledge.
 
@@ -22,8 +22,10 @@ Episteme is a cutting-edge virtual learning tool created to enable individuals i
 ## Features
 
 #### ***S10262576 | Ggwendolynn Lee Rasni | Instructor***
-    1. POST - Create New Content/Playlist.
-    2. DELETE - Delete Playlist.
+    1. GET - Retrieve Video/Playlist Content.
+    2. DELETE - Delete Playlist/Video.
+    3. PUT - Update Playlist/Video.
+    4. POST - Create Playlist/Video.
 
 #### ***S10262569 | Jovan Tan Hao | Examiner***
     1. GET - Recently did Quiz.
@@ -34,8 +36,9 @@ Episteme is a cutting-edge virtual learning tool created to enable individuals i
     2. POST - Create User's Profile.
 
 #### ***S10262621 | Tan Han Yan |  Customer Service Staff***
-    1. GET - Retrieve customer feedback. 
-    2. DELETE - Delete Feedback. 
+    1. GET - Retrieve customer issues.
+    2. PUT - Reply and update customer issue.
+    3. DELETE - Delete customer issue.
 
 ## Technologies Used
 
