@@ -1,0 +1,194 @@
+/* ====== profile-examiner.html (examiner) ====== */
+.examiner-profile {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.examiner-profile .text {
+    color: var(--text-color);
+}
+
+.examiner-profile-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.examiner-profile-container .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+}
+
+.examiner-profile-container .profile-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.examiner-profile-container .user-details h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.examiner-profile-container .user-details p {
+    margin: 0;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.examiner-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 0 200px;
+}
+
+.examiner-cards-container .card .card-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.examiner-cards-container .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: var(--body-color);
+}
+
+.examiner-cards-container .card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+}
+
+.examiner-cards-container .card h3 {
+    margin-top: 0;
+}
+
+.examiner-cards-container .card p {
+    margin: 0;
+}
+
+.examiner-cards-container .card a.inline-btn {
+    display: block;
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.examiner-cards-container .card a.inline-btn:hover {
+    color: white;
+}
+
+.examiner-cards-container .card .card-content .card-icon i {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.examiner-cards-container .card .card-content .card-info {
+    margin-left: 10px;
+    color: var(--text-color);
+}
+
+/* ====== update-examiner.html ====== */
+.update-examiner-profile {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.update-examinerprofile-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.update-examinerprofile-container input[type="text"],
+.update-examinerprofile-container input[type="email"],
+.update-examinerprofile-container input[type="password"],
+.update-examinerprofile-container select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.update-examinerprofile-container .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.update-examinerprofile-container .field-column {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.update-examinerprofile-container .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.update-examinerprofile-container .update-mem-info {
+    margin: 20px auto;
+}
+
+
+.update-examinerprofile-container .update-mem-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.update-examinerprofile-container .column-1 {
+    margin-right: 20px;
+}
+
+.update-examinerprofile-container .update-mem-details {
+    text-align: center;
+}
+
+.update-examinerprofile-container .update-mem-details a {
+    display: inline-block;
+}
+
+.update-examinerprofile-container .update-mem-details .row label {
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 3px;
+    color: var(--text-color);
+}
+
+.update-examinerprofile-container h2 a {
+    color: var(--text-color);
+}

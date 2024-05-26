@@ -1,0 +1,193 @@
+/* ====== profile-csstaff.html (customer service) ====== */
+.csstaff-profile {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.csstaff-profile .text {
+    color: var(--text-color);
+}
+
+.csstaff-profile-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.csstaff-profile-container .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+}
+
+.csstaff-profile-container .profile-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.csstaff-profile-container .user-details h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.csstaff-profile-container .user-details p {
+    margin: 0;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.csstaff-cards-container {
+    display: flex;
+    justify-content: center;
+}
+
+.csstaff-cards-container .card .card-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.csstaff-cards-container .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: var(--body-color);
+    width: 400px;
+}
+
+.csstaff-cards-container .card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+}
+
+.csstaff-cards-container .card h3 {
+    margin-top: 0;
+}
+
+.csstaff-cards-container .card p {
+    margin: 0;
+}
+
+.csstaff-cards-container .card a.inline-btn {
+    display: block;
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.csstaff-cards-container .card a.inline-btn:hover {
+    color: white;
+}
+
+.csstaff-cards-container .card .card-content .card-icon i {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.csstaff-cards-container .card .card-content .card-info {
+    margin-left: 10px;
+    color: var(--text-color);
+}
+
+/* ====== update-csstaff.html ====== */
+.update-csstaff-profile {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.update-csstaffprofile-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.update-csstaffprofile-container input[type="text"],
+.update-csstaffprofile-container input[type="email"],
+.update-csstaffprofile-container input[type="password"],
+.update-csstaffprofile-container select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.update-csstaffprofile-container .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.update-csstaffprofile-container .field-column {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.update-csstaffprofile-container .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.update-csstaffprofile-container .update-mem-info {
+    margin: 20px auto;
+}
+
+
+.update-csstaffprofile-container .update-mem-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.update-csstaffprofile-container .column-1 {
+    margin-right: 20px;
+}
+
+.update-csstaffprofile-container .update-mem-details {
+    text-align: center;
+}
+
+.update-csstaffprofile-container .update-mem-details a {
+    display: inline-block;
+}
+
+.update-csstaffprofile-container .update-mem-details .row label {
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 3px;
+    color: var(--text-color);
+}
+
+.update-csstaffprofile-container h2 a {
+    color: var(--text-color);
+}
