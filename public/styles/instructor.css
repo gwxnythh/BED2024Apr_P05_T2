@@ -1,0 +1,402 @@
+/* ====== instructor-index.html ====== */
+.dashboard-instructor {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.dashboard-instructor .quickaccess-container .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 20px;
+}
+
+.dashboard-instructor .quickaccess-container .card-container2 {
+    margin-bottom: 20px;
+}
+
+.dashboard-instructor .quickaccess-container .card-container .card {
+    text-align: center;
+    background-color: var(--primary-color-light);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+.csstaff-profile .csstaff-cards-container .card .title,
+.examiner-profile .examiner-cards-container .card .title,
+.instructor-profile .instructor-cards-container .card .title,
+.dashboard-instructor .quickaccess-container .card-container .card .title {
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.csstaff-profile .csstaff-cards-container .card .qap-text,
+.examiner-profile .examiner-cards-container .card .qap-text,
+.instructor-profile .instructor-cards-container .card .qap-text,
+.dashboard-instructor .quickaccess-container .card-container .card .qap-text {
+    width: 100%;
+    color: var(--text-color);
+    background-color: var(--sidebar-color);
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: .5rem;
+    text-align: center;
+}
+
+.dashboard-instructor .quickaccess-container .card-container .card .inline-btn {
+    width: 100%;
+}
+
+
+/* ====== profile-instructor.html ====== */
+.instructor-profile {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.instructor-profile .text {
+    color: var(--text-color);
+}
+
+.instructor-profile-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.instructor-profile-container .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+}
+
+.instructor-profile-container .profile-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.instructor-profile-container .user-details h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.instructor-profile-container .user-details p {
+    margin: 0;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.instructor-profile-container .member-cards-container {
+    display: flex;
+    justify-content: center;
+}
+
+.instructor-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 20px;
+
+}
+
+.instructor-cards-container .card .card-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.instructor-cards-container .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: var(--body-color);
+}
+
+.instructor-cards-container .card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+}
+
+.instructor-cards-container .card h3 {
+    margin-top: 0;
+}
+
+.instructor-cards-container .card p {
+    margin: 0;
+}
+
+.instructor-cards-container .card a.inline-btn {
+    display: block;
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.instructor-cards-container .card a.inline-btn:hover {
+    color: white;
+}
+
+.instructor-cards-container .card .card-content .card-icon i {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.instructor-cards-container .card .card-content .card-info {
+    margin-left: 10px;
+    color: var(--text-color);
+}
+
+/* ====== update-instructor.html ====== */
+.update-instructor-profile {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.update-instructorprofile-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.update-instructorprofile-container input[type="text"],
+.update-instructorprofile-container input[type="email"],
+.update-instructorprofile-container input[type="password"],
+.update-instructorprofile-container select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.update-instructorprofile-container .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.update-instructorprofile-container .field-column {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.update-instructorprofile-container .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.update-instructorprofile-container .update-mem-info {
+    margin: 20px auto;
+}
+
+
+.update-instructorprofile-container .update-mem-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.update-instructorprofile-container .column-1 {
+    margin-right: 20px;
+}
+
+.update-instructorprofile-container .update-mem-details {
+    text-align: center;
+}
+
+.update-instructorprofile-container .update-mem-details a {
+    display: inline-block;
+}
+
+.update-instructorprofile-container .update-mem-details .row label {
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 3px;
+    color: var(--text-color);
+}
+
+.update-instructorprofile-container h2 a {
+    color: var(--text-color);
+}
+
+/* ====== likes-instructor.html (instructor) ====== */
+.likes-instructor {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.likes-instructor .likes-instructor-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.likes-instructor .likes-instructor-container .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.likes-instructor .likes-instructor-container .card-container .card {
+    border-radius: .5rem;
+    background-color: var(--primary-color-light);
+    padding: 15px;
+}
+
+.likes-instructor .likes-instructor-container .card-container .card .thumb {
+    width: 100%;
+    border-radius: .5rem;
+    height: 15rem;
+    object-fit: cover;
+}
+
+.likes-instructor .likes-instructor-container .card-container .card .title {
+    font-size: 16px;
+    color: var(--text-color);
+    padding: 6px 0;
+}
+
+.likes-instructor .likes-instructor-container .card-container .card .inline-btn {
+    margin: 0;
+}
+
+.likes-instructor .likes-instructor-container .card-container .card .tutor {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.likes-instructor .likes-instructor-container .card-container .card .tutor img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.likes-instructor .likes-instructor-container .card-container .card .tutor h3 {
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: .2rem;
+}
+
+.likes-instructor .likes-instructor-container .card-container .card .tutor span {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.likes-instructor .likes-instructor-container .card-container .card .thumb {
+    width: 100%;
+    border-radius: .5rem;
+    height: 15rem;
+    object-fit: cover;
+}
+
+.likes-instructor .likes-instructor-container .card-container .card .title {
+    font-size: 20px;
+    color: var(--text-color);
+    padding: 6px 0;
+}
+
+.likes-instructor .likes-instructor-container .card-container .card .card-container-btn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+/* ====== contents-instructor.html (instructor) ====== */
+.instructor-content {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+}
+
+.instructor-content .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.instructor-content .content-header .inline-btn {
+    margin-left: auto;
+}
+
+.instructor-content .content-info .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.instructor-content .content-info .card-container .card {
+    background-color: var(--primary-color-light);
+    padding: 2rem;
+    border-radius: .5rem;
+}
+
+.instructor-content .content-info .card-container .card img {
+    width: 100%;
+    border-radius: 0.5rem;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.instructor-content .content-info .card-container .card .date {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.instructor-content .content-info .card-container .card .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.instructor-content .content-info .card-container .card .view-button .inline-btn {
+    width: 100%;
+}

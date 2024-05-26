@@ -1,11 +1,11 @@
-<!-- Home Page/Dashboard | Instructor -->
+<!-- Instructor's Likes Page -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dashboard | Episteme</title>
+    <title>Likes | Episteme</title>
     <!-- ============ Favicon ============ -->
     <link rel="icon" type="image/x-icon" href="../public/images/logo-icon.png">
     <!-- ============ Styles ============ -->
@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
 
 <body>
     <!-- ============ Navigation ============ -->
@@ -60,7 +59,7 @@
 
                     <!-- ###### Likes ###### -->
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./likes-instructor.html">
                             <i class='bx bx-heart icon'></i>
                             <span class="text nav-text">Likes</span>
                         </a>
@@ -68,7 +67,7 @@
 
                     <!-- ###### Courses ###### -->
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./member/">
                             <i class='bx bxs-graduation icon'></i>
                             <span class="text nav-text">Courses</span>
                         </a>
@@ -76,7 +75,7 @@
 
                     <!-- ###### Quizzes ###### -->
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./member/">
                             <i class='bx bx-pencil icon'></i>
                             <span class="text nav-text">Quizzes</span>
                         </a>
@@ -84,7 +83,7 @@
 
                     <!-- ###### Instructors ###### -->
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./member/">
                             <i class='bx bx-book-reader icon'></i>
                             <span class="text nav-text">Instructors</span>
                         </a>
@@ -92,7 +91,7 @@
 
                     <!-- ###### About Us ###### -->
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./member/">
                             <i class='bx bx-group icon icon'></i>
                             <span class="text nav-text">About Us</span>
                         </a>
@@ -100,7 +99,7 @@
 
                     <!-- ###### Contact Us ###### -->
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./member/">
                             <i class='bx bx-support icon icon'></i>
                             <span class="text nav-text">Contact Us</span>
                         </a>
@@ -108,7 +107,7 @@
 
                     <!-- ###### Settings ###### -->
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./member/">
                             <i class='bx bx-cog icon'></i>
                             <span class="text nav-text">Settings</span>
                         </a>
@@ -127,7 +126,7 @@
             <div class="bottom-content">
                 <!-- ###### Profile Details ###### -->
                 <li class="">
-                    <a href="./profile-instructor.html">
+                    <a href="./member/profile.html">
                         <i class='bx bx-image icon'></i> <!-- Change to user's profile pic -->
                         <span class="text nav-text">Guest</span>
                     </a>
@@ -159,134 +158,66 @@
     </nav>
 
     <section class="home">
-        <div class="text">Dashboard</div>
+        <div class="text">Likes</div>
     </section>
 
-
-    <section class="dashboard-instructor">
-        <!-- ============ Instructor Dashboard ============ -->
-        <!-- ============ Quick Access ============ -->
-        <div class="quickaccess-container">
-            <h2>Quick Access</h2>
+    <!-- ============ All Likes ============ -->
+    <section class="likes-instructor">
+        <div class="likes-instructor-container">
+            <h2>Liked Videos</h2>
             <hr>
             <div class="card-container">
                 <!-- ###### First Card ###### -->
                 <div class="card">
-                    <h3 class="title">Welcome!</h3>
-                    <p class="qap-text"><b><span>Guest</span></b></p>
-                    <a href="profile-instructor.html" class="inline-btn">View Profile</a>
+                    <div class="tutor">
+                        <img src="../public/images/instructor.png" alt="tutorpic">
+                        <div>
+                            <h3>John Doe</h3>
+                            <span>21-25-2024</span>
+                        </div>
+                    </div>
+                    <img src="../public/images/thumbnail.png" class="thumb" alt="thumbnail">
+                    <h3 class="title">Playlist #1</h3>
+                    <div class="card-container-btn">
+                        <a href="#" class="inline-btn">Watch Video</a>
+                        <a href="#" class="inline-btn">Remove</a>
+                    </div>
                 </div>
 
                 <!-- ###### Second Card ###### -->
                 <div class="card">
-                    <h3 class="title"><span>0</span></h3>
-                    <p class="qap-text">Total Contents</p>
-                    <a href="#" class="inline-btn">View Contents</a>
+                    <div class="tutor">
+                        <img src="../public/images/instructor.png" alt="tutorpic">
+                        <div>
+                            <h3>John Doe</h3>
+                            <span>21-25-2024</span>
+                        </div>
+                    </div>
+                    <img src="../public/images/thumbnail.png" class="thumb" alt="thumbnail">
+                    <h3 class="title">Playlist #2</h3>
+                    <div class="card-container-btn">
+                        <a href="#" class="inline-btn">Watch Video</a>
+                        <a href="#" class="inline-btn">Remove</a>
+                    </div>
                 </div>
 
                 <!-- ###### Third Card ###### -->
                 <div class="card">
-                    <h3 class="title"><span>0</span></h3>
-                    <p class="qap-text">Total Playlists</p>
-                    <a href="#" class="inline-btn">View Playlists</a>
-                </div>
-
-            </div>
-
-            <div class="card-container card-container2">
-                <!-- ###### First Card ###### -->
-                <div class="card">
-                    <h3 class="title"><span>0</span></h3>
-                    <p class="qap-text">Total Likes</p>
-                    <a href="#" class="inline-btn">View Contents</a>
-                </div>
-
-                <!-- ###### Second Card ###### -->
-                <div class="card">
-                    <h3 class="title"><span>0</span></h3>
-                    <p class="qap-text">Total Comments</p>
-                    <a href="#" class="inline-btn">View Comments</a>
-                </div>
-
-                <!-- ###### Third Card ###### -->
-                <div class="card">
-                    <h3 class="title">Learnt Something New?</h3>
-                    <p class="qap-text">Share Your Knowledge!</p>
-                    <a href="#" class="inline-btn">Add New Content</a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ Footer ============ -->
-    <section class="footer">
-        <footer>
-            <div class="footer-container">
-                <!-- ###### Part 1 ###### -->
-                <div class="sec aboutus">
-                    <h2><img src="../public/images/logo-icon.png"></h2>
-                    <p>Follow Us To Get Updated!</p>
-                    <ul class="sci">
-                        <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
-                        <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
-                        <li><a href="#"><i class='bx bxl-instagram'></i></i></a></li>
-                    </ul>
-                </div>
-
-                <!-- ###### Part 2 ###### -->
-                <div class="sec quicklinks">
-                    <h2>Navigation</h2>
-                    <ul>
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Courses</a></li>
-                        <li><a href="#">Instructors</a></li>
-                        <li><a href="#">Quizzes</a></li>
-                    </ul>
-                </div>
-
-                <!-- ###### Part 3 ###### -->
-                <div class="sec quicklinks">
-                    <h2>Information</h2>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Credits</a></li>
-                    </ul>
-                </div>
-
-                <!-- ###### Part 4 ###### -->
-                <div class="sec quicklinks">
-                    <h2>User Options</h2>
-                    <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Likes</a></li>
-                    </ul>
-                </div>
-
-                <!-- ###### Part 5 ###### -->
-                <div class="sec contact">
-                    <h2>Hit Us up!</h2>
-                    <ul class="info">
-                        <li>
-                            <span>
-                                <i class='bx bxs-phone'></i>
-                            </span>
-                            <p><a href="tel:+65 9772 2908">+65 9772 2908</a></p>
-                        </li>
-                        <li>
-                            <span>
-                                <i class='bx bx-envelope'></i>
-                            </span>
-                            <p><a href="mailto:epistemebed@gmail.com">epistemebed@gmail.com</a></p>
-                        </li>
-                    </ul>
+                    <div class="tutor">
+                        <img src="../public/images/instructor.png" alt="tutorpic">
+                        <div>
+                            <h3>John Doe</h3>
+                            <span>21-25-2024</span>
+                        </div>
+                    </div>
+                    <img src="../public/images/thumbnail.png" class="thumb" alt="thumbnail">
+                    <h3 class="title">Playlist #3</h3>
+                    <div class="card-container-btn">
+                        <a href="#" class="inline-btn">Watch Video</a>
+                        <a href="#" class="inline-btn">Remove</a>
+                    </div>
                 </div>
             </div>
-        </footer>
-        <div class="copyrightText">
-            <p>Copyright &copy; BED_P05_2. All Rights Reserved. 2024</p>
         </div>
     </section>
 

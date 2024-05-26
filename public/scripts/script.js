@@ -40,19 +40,3 @@ function selectUserRole(event, role) {
     selectedCard.style.border = '3px solid var(--primary-color)';
     selectedCard.classList.add('selected');
 }
-
-// Upload Profile Picture
-document.getElementById("profile-pic").addEventListener("click", function() {
-    document.getElementById("input-file").click();
-});
-
-document.getElementById("input-file").addEventListener("change", function() {
-    var input = this;
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            document.getElementById("profile-pic").src = e.target.result;
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-});
