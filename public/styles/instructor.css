@@ -344,7 +344,8 @@
     gap: 10px;
 }
 
-/* ====== contents-instructor.html (instructor) ====== */
+/* ====== palylsits + contents-instructor.html (instructor) ====== */
+.instructor-playlist,
 .instructor-content {
     position: relative;
     left: 250px;
@@ -352,44 +353,44 @@
     transition: var(--tran-05);
     padding: 0 10%;
 }
-
+.instructor-playlist .content-header,
 .instructor-content .content-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
+.instructor-playlist .content-header .inline-btn,
 .instructor-content .content-header .inline-btn {
     margin-left: auto;
 }
-
+.instructor-playlist .content-info .card-container,
 .instructor-content .content-info .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
-
+.instructor-playlist .content-info .card-container .card,
 .instructor-content .content-info .card-container .card {
     background-color: var(--primary-color-light);
     padding: 2rem;
     border-radius: .5rem;
 }
-
+.instructor-playlist .content-info .card-container .card img,
 .instructor-content .content-info .card-container .card img {
     width: 100%;
     border-radius: 0.5rem;
     height: 20rem;
     object-fit: cover;
 }
-
+.instructor-playlist .content-info .card-container .card .date,
 .instructor-content .content-info .card-container .card .date {
     display: flex;
     justify-content: right;
     align-items: center;
     margin-bottom: 5px;
 }
-
+.instructor-playlist .content-info .card-container .card .buttons,
 .instructor-content .content-info .card-container .card .buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -397,6 +398,211 @@
     margin-top: 10px;
 }
 
+.instructor-playlist .content-info .card-container .card .view-button .inline-btn,
 .instructor-content .content-info .card-container .card .view-button .inline-btn {
     width: 100%;
+}
+
+/* ====== Instructor's New Content ====== */
+.instructor-new-content {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 30%;
+}
+
+.instructor-new-content .new-content-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.instructor-new-content .new-content-container .new-content-form {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.instructor-new-content .new-content-container .new-content-form .inline-btn {
+    border: none;
+    width: 100%;
+}
+
+.new-content-form textarea,
+.new-content-form input[type="file"],
+.new-content-form input[type="text"],
+.new-content-form input[type="email"],
+.new-content-form input[type="password"],
+.new-content-form select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.new-content-form label {
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 3px;
+    color: var(--text-color);
+}
+
+.new-content-container h2 a, .new-content-form input[type="file"] {
+    color: var(--text-color);
+}
+
+/* ====== Instructor's Update Content ====== */
+.instructor-update-content {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 30%;
+}
+
+.instructor-update-content .update-content-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.instructor-update-content .update-content-container .update-content-form {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.instructor-update-content .update-content-container .update-content-form .inline-btn {
+    border: none;
+    width: 100%;
+}
+
+.update-content-form textarea,
+.update-content-form input[type="file"],
+.update-content-form input[type="text"],
+.update-content-form input[type="email"],
+.update-content-form input[type="password"],
+.update-content-form select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.update-content-form label {
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 3px;
+    color: var(--text-color);
+}
+
+.update-content-container h2 a, .update-content-form input[type="file"] {
+    color: var(--text-color);
+}
+
+/* ====== Instructor's New Playlist ====== */
+.instructor-new-playlist {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 30%;
+}
+
+.instructor-new-playlist .new-playlist-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.instructor-new-playlist .new-playlist-container .new-playlist-form {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.instructor-new-playlist .new-playlist-container .new-playlist-form .inline-btn {
+    border: none;
+    width: 100%;
+}
+
+.new-playlist-form textarea,
+.new-playlist-form input[type="file"],
+.new-playlist-form input[type="text"],
+.new-playlist-form input[type="email"],
+.new-playlist-form input[type="password"],
+.new-playlist-form select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.new-playlist-form label {
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 3px;
+    color: var(--text-color);
+}
+
+.new-playlist-container h2 a, .new-playlist-form input[type="file"] {
+    color: var(--text-color);
+}
+
+/* ====== Instructor's Update Playlist ====== */
+.instructor-update-playlist {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 30%;
+}
+
+.instructor-update-playlist .update-playlist-container {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.instructor-update-playlist .update-playlist-container .update-playlist-form {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.instructor-update-playlist .update-playlist-container .update-playlist-form .inline-btn {
+    border: none;
+    width: 100%;
+}
+
+.update-playlist-form textarea,
+.update-playlist-form input[type="file"],
+.update-playlist-form input[type="text"],
+.update-playlist-form input[type="email"],
+.update-playlist-form input[type="password"],
+.update-playlist-form select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.update-playlist-form label {
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 3px;
+    color: var(--text-color);
+}
+
+.update-playlist-container h2 a, .update-playlist-form input[type="file"] {
+    color: var(--text-color);
 }

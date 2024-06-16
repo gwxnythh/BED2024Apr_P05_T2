@@ -19,28 +19,30 @@
         <div class="inner">
             <div class="image-holder">
                 <div class="user-cards">
+                    <input type="hidden" id="role" name="role">
+
                     <div class="card" onclick="selectUserRole(event, 'Member')">
-                        <img src="./public/images/member.png" alt="member">
+                        <img src="./public/images/member.png" alt="member" draggable="false">
                         <h4>Member</h4>
                     </div>
                     <div class="card" onclick="selectUserRole(event, 'Instructor')">
-                        <img src="./public/images/instructor.png" alt="instructor">
+                        <img src="./public/images/instructor.png" alt="instructor" draggable="false">
                         <h4>Instructor</h4>
                     </div>
                     <div class="card" onclick="selectUserRole(event, 'Examiner')">
-                        <img src="./public/images/examiner.png" alt="examiner">
+                        <img src="./public/images/examiner.png" alt="examiner" draggable="false">
                         <h4>Examiner</h4>
                     </div>
                     <div class="card" onclick="selectUserRole(event, 'C.S Staff')">
-                        <img src="./public/images/customerservicestaff.png" alt="csstaff">
+                        <img src="./public/images/customerservicestaff.png" alt="csstaff" draggable="false">
                         <h4>C.S Staff</h4>
                     </div>
                 </div>
                 <p><a href="login.html">Already a Member?</a></p>
             </div>
 
-            <form action="">
-                <center><img src="./public/images/logo-icon.png" alt="logo" class="logo"></center>
+            <form action="" id="register-form">
+                <center><img src="./public/images/logo-icon.png" alt="logo" class="logo" draggable="false"></center>
                 <h3>Register Now!</h3>
                 <!-- <button id="popoverBtn">Show Popover</button>
                 <div id="popoverContent" class="popover-content hidden">
@@ -52,40 +54,40 @@
                         <!-- ###### User PFP ###### -->
                         <div class="user-img" id="user-img">
                             <div id="popoverbtn">
-                                <img id="profile-pic" src="./public/images/profile.jpg" />
+                                <img id="profile-pic" src="./public/images/profile.jpg"  draggable="false" />
                                 <div class="overlay">
                                     <i class='bx bxs-camera camera-icon'></i>
                                 </div>
                             </div>
                         </div>
-                        <input id="input-file" type="file" name="profile_pic" placeholder="Photo" required="" accept=".jpg, .jpeg, .png" capture>
+                        <input id="input-file" type="file" name="profilepic" placeholder="Photo" required="" accept=".jpg, .jpeg, .png" capture>
                     </div>
                 </div>
                 
 
                 <div class="form-wrapper">
-                    <input id="create-username" type="text" placeholder="Username" class="form-control">
+                    <input id="create-username" type="text" name="username" placeholder="Username" class="form-control">
                     <i class='bx bx-user-circle'></i>
                 </div>
 
                 <div class="form-wrapper">
-                    <input id="create-name" type="text" placeholder="Name" class="form-control">
+                    <input id="create-name" type="text" name="name" placeholder="Name" class="form-control">
                     <i class='bx bx-user'></i>
                 </div>
 
                 <div class="form-wrapper">
-                    <input id="create-email" type="text" name="email_address" placeholder="Email Address"
+                    <input id="create-email" type="text" name="email" placeholder="Email Address"
                         class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
                     <i class='bx bx-envelope'></i>
                 </div>
 
                 <div class="form-wrapper">
-                    <input id="create-password" type="password" placeholder="Password" class="form-control" required>
+                    <input id="create-password" type="password" name="password" placeholder="Password" class="form-control" required>
                     <i class='bx bx-lock-open-alt'></i>
                 </div>
 
                 <div class="form-wrapper">
-                    <input id="create-password" type="password" placeholder="Confirm Password" class="form-control"
+                    <input id="confirm-password" type="password" name="confirmpassword" placeholder="Confirm Password" class="form-control"
                         required>
                     <i class='bx bx-lock-alt'></i>
                 </div>
