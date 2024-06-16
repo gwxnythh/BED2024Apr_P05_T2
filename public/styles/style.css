@@ -305,6 +305,9 @@ body.dark .switch::before {
 }
 
 /* ###### Always need to put Section name when new one is made! ###### */
+.sidebar.close~.instructor-playlist,
+.sidebar.close~.instructor-update-content,
+.sidebar.close~.instructor-new-content,
 .sidebar.close~.likes-member,
 .sidebar.close~.update-csstaff-profile,
 .sidebar.close~.update-examiner-profile,
@@ -670,6 +673,7 @@ select option[value=""][disabled] {
 .signinup-wrapper .user-image {
     margin-bottom: 10px;
 }
+
 .update-mem-pic .user-image .user-img,
 .signinup-wrapper .user-image .user-img {
     position: relative;
@@ -677,6 +681,7 @@ select option[value=""][disabled] {
     height: 80px;
     margin: auto;
 }
+
 .update-mem-pic .user-image .user-img img,
 .signinup-wrapper .user-image .user-img img {
     width: 100%;
@@ -684,12 +689,14 @@ select option[value=""][disabled] {
     object-fit: cover;
     border-radius: 50%;
 }
+
 .update-mem-pic .user-image .user-img:hover .overlay,
 .signinup-wrapper .user-image .user-img:hover .overlay {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .update-mem-pic .user-image .overlay i,
 .signinup-wrapper .user-image .overlay i {
     position: relative;
@@ -697,6 +704,7 @@ select option[value=""][disabled] {
     font-size: 2em;
     bottom: 0;
 }
+
 .update-mem-pic .user-image .user-img .overlay,
 .signinup-wrapper .user-image .user-img .overlay {
     position: absolute;
