@@ -54,41 +54,44 @@
                         <!-- ###### User PFP ###### -->
                         <div class="user-img" id="user-img">
                             <div id="popoverbtn">
-                                <img id="profile-pic" src="./public/images/profile.jpg"  draggable="false" />
+                                <img id="profile-pic" src="./public/images/profile.jpg" draggable="false" />
                                 <div class="overlay">
                                     <i class='bx bxs-camera camera-icon'></i>
                                 </div>
                             </div>
                         </div>
-                        <input id="input-file" type="file" name="profilepic" placeholder="Photo" required="" accept=".jpg, .jpeg, .png" capture>
+                        <input id="input-file" type="file" name="profilepic" placeholder="Photo" required=""
+                            accept=".jpg, .jpeg, .png" capture>
                     </div>
                 </div>
-                
+
 
                 <div class="form-wrapper">
-                    <input id="create-username" type="text" name="username" placeholder="Username" class="form-control">
+                    <input id="create-username" type="text" name="username" placeholder="Username" class="form-control"
+                        required>
                     <i class='bx bx-user-circle'></i>
                 </div>
 
                 <div class="form-wrapper">
-                    <input id="create-name" type="text" name="name" placeholder="Name" class="form-control">
+                    <input id="create-name" type="text" name="name" placeholder="Name" class="form-control" required>
                     <i class='bx bx-user'></i>
                 </div>
 
                 <div class="form-wrapper">
-                    <input id="create-email" type="text" name="email" placeholder="Email Address"
-                        class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+                    <input id="create-email" type="text" name="email" placeholder="Email Address" class="form-control"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
                     <i class='bx bx-envelope'></i>
                 </div>
 
                 <div class="form-wrapper">
-                    <input id="create-password" type="password" name="password" placeholder="Password" class="form-control" required>
+                    <input id="create-password" type="password" name="password" placeholder="Password"
+                        class="form-control" required>
                     <i class='bx bx-lock-open-alt'></i>
                 </div>
 
                 <div class="form-wrapper">
-                    <input id="confirm-password" type="password" name="confirmpassword" placeholder="Confirm Password" class="form-control"
-                        required>
+                    <input id="confirm-password" type="password" name="confirmpassword" placeholder="Confirm Password"
+                        class="form-control" required>
                     <i class='bx bx-lock-alt'></i>
                 </div>
 
@@ -103,8 +106,8 @@
     </div>
 
     <!-- ============ Scripts ============ -->
-    <script src="./public/scripts/script.js"></script>
     <script src="./public/scripts/pfp-script.js"></script>
+    <script src="./public/scripts/register.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 </body>
 
