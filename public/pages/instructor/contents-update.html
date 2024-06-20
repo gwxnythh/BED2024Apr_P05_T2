@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Your Content | Episteme</title>
     <!-- ============ Favicon ============ -->
-    <link rel="icon" type="image/x-icon" href="../public/images/logo-icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/logo-icon.png">
     <!-- ============ Styles ============ -->
-    <link rel="stylesheet" href="../public/styles/style.css">
-    <link rel="stylesheet" href="../public/styles/instructor.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/instructor.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -21,7 +21,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="../public/images/logo-icon.png" alt="episteme-logo">
+                    <img src="../../images/logo-icon.png" alt="episteme-logo">
                 </span>
 
                 <div class="text header-text">
@@ -59,39 +59,15 @@
 
                     <!-- ###### Likes ###### -->
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./likes-instructor.html">
                             <i class='bx bx-heart icon'></i>
                             <span class="text nav-text">Likes</span>
                         </a>
                     </li>
 
-                    <!-- ###### Courses ###### -->
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-graduation icon'></i>
-                            <span class="text nav-text">Courses</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Quizzes ###### -->
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-pencil icon'></i>
-                            <span class="text nav-text">Quizzes</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Instructors ###### -->
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-book-reader icon'></i>
-                            <span class="text nav-text">Instructors</span>
-                        </a>
-                    </li>
-
                     <!-- ###### About Us ###### -->
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="../aboutus.html">
                             <i class='bx bx-group icon icon'></i>
                             <span class="text nav-text">About Us</span>
                         </a>
@@ -99,7 +75,7 @@
 
                     <!-- ###### Contact Us ###### -->
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="../contactus.html">
                             <i class='bx bx-support icon icon'></i>
                             <span class="text nav-text">Contact Us</span>
                         </a>
@@ -115,7 +91,7 @@
 
                     <!-- ###### Credits ###### -->
                     <li class="nav-link">
-                        <a href="credits.html">
+                        <a href="../credits.html">
                             <i class='bx bx-info-circle icon'></i>
                             <span class="text nav-text">Credits</span>
                         </a>
@@ -134,7 +110,7 @@
 
                 <!-- ###### Login/Logout ###### -->
                 <li class="">
-                    <a href="#">
+                    <a href="../login.html">
                         <i class='bx bx-log-in icon'></i> <!-- <i class='bx bx-log-out icon' ></i> -->
                         <span class="text nav-text">Login</span>
                         <!-- Need To Do Code For Verificaiton of Login/Logout -->
@@ -170,31 +146,101 @@
                 <form action="#" method="POST" enctype="multipart/form-data">
                     <label for="title">Content Title</label><br>
                     <input type="text" id="title" name="title" required><br><br>
-    
+
                     <label for="description">Content Description</label><br>
                     <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-    
+
                     <label for="playlist">Playlist</label><br>
                     <select id="playlist" name="playlist">
                         <option value="playlist1">Playlist 1</option>
                         <option value="playlist2">Playlist 2</option>
                         <option value="playlist3">Playlist 3</option>
                     </select><br><br>
-    
+
                     <label for="thumbnail">Content Thumbnail</label><br>
                     <input type="file" id="thumbnail" name="thumbnail" accept="image/*" required><br><br>
-    
+
                     <label for="video">Content Video</label><br>
                     <input type="file" id="video" name="video" accept="video/*" required><br><br>
-    
+
                     <input type="submit" value="Save Changes" class="inline-btn">
                 </form>
             </div>
         </div>
     </section>
 
+    <section class="footer">
+        <footer>
+            <div class="footer-container">
+                <!-- ###### Part 1 ###### -->
+                <div class="sec aboutus">
+                    <h2><img src="../../images/logo-icon.png"></h2>
+                    <p>Follow Us To Get Updated!</p>
+                    <ul class="sci">
+                        <li><a href="https://www.instagram.com/gwxnny_/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/im._.jov/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/d.daphnee_/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/h4nyan/"><i class='bx bxl-instagram'></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 2 ###### -->
+                <div class="sec quicklinks">
+                    <h2>Navigation</h2>
+                    <ul>
+                        <li><a href="./instructor-index.html">Dashboard</a></li>
+                        <li><a href="./contents-instructor.html">Contents</a></li>
+                        <li><a href="./playlists-instructor.html">Playlists</a></li>
+                        <li><a href="./likes-instructor.html">Likes</a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 3 ###### -->
+                <div class="sec quicklinks">
+                    <h2>Information</h2>
+                    <ul>
+                        <li><a href="../aboutus.html">About Us</a></li>
+                        <li><a href="../contactus.html">Contact Us</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="../credits.html">Credits</a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 4 ###### -->
+                <div class="sec quicklinks">
+                    <h2>User Options</h2>
+                    <ul>
+                        <li><a href="./profile-instructor.html">Profile</a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 5 ###### -->
+                <div class="sec contact">
+                    <h2>Hit Us up!</h2>
+                    <ul class="info">
+                        <li>
+                            <span>
+                                <i class='bx bxs-phone'></i>
+                            </span>
+                            <p><a href="tel:+65 9772 2908">+65 9772 2908</a></p>
+                        </li>
+                        <li>
+                            <span>
+                                <i class='bx bx-envelope'></i>
+                            </span>
+                            <p><a href="mailto:epistemebed@gmail.com">epistemebed@gmail.com</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <div class="copyrightText">
+            <p>Copyright &copy; BED_P05_2. All Rights Reserved. 2024</p>
+        </div>
+    </section>
+
     <!-- ============ Scripts ============ -->
-    <script src="../public/scripts/script.js"></script>
+    <script src="../../scripts/script.js"></script>
 </body>
 
 </html>
