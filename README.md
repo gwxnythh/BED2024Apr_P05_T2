@@ -20,10 +20,10 @@
 
 ## CRUD Operations
 #### ***S10262576 | Ggwendolynn Lee Rasni | Instructor*** 
-Comments Function(s):
+##### Comments  Operations:
 1. GET - Retrieve All Comments. <code>http://localhost:3000/comments</code>
-```json
 Output:
+```json
 {
     "id": 1,
     "content": "Great video!",
@@ -47,8 +47,8 @@ Output:
 }
 ```
 2. POST - Create a Comment(User). <code>http://localhost:3000/comments</code>
-```json
 Request Body:
+```json
 {
     "content": "Thanks for teaching!",
     "videoId": 2,
@@ -57,24 +57,194 @@ Request Body:
 }
 ```
 3. DELETE - Delete a Comment. <code>http://localhost:3000/comments/:id</code>
-```json
 Output:
+```json
 {
     "message": "Comment deleted successfully"
 }
 ```
-
-Playlists Function(s):
-1. GET - Retrieve Playlists' Content.
-2. PUT - Update Playlists.
-3. POST - Create New Playlists.
-4. DELETE - Delete a Playlist.
+##### Playlists Operations:
+1. GET - Retrieve Playlists' Content. <code>http://localhost:3000/playlists</code>
+Output:
+```json
+{
+    "playlistId": 1,
+    "Title": "Playlist 1",
+    "Description": "Description for Playlist 1",
+    "Thumbnail": "path/to/playlist1_thumbnail.jpg",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+},
+{
+    "playlistId": 2,
+    "Title": "Playlist 2",
+    "Description": "Description for Playlist 2",
+    "Thumbnail": "path/to/playlist2_thumbnail.jpg",
+    "username": "jane_smith",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+    }
+```
+2. GET - Retrieve Specific Playlist. <code>http://localhost:3000/playlists/id</code>
+Request: Retrieve Content in Playlist **2**
+Output:
+```json
+{
+    "playlistId": 2,
+    "Title": "Playlist 2",
+    "Description": "Description for Playlist 2",
+    "Thumbnail": "path/to/playlist2_thumbnail.jpg",
+    "username": "jane_smith",
+    "dateUploaded": "2024-06-29T00:00:00.000Z",
+    "contents": [
+        {
+            "VideoId": 2,
+            "Title": "Video 2",
+            "Description": "Description for Video 2",
+            "Playlist": 2,
+            "Thumbnail": "path/to/video2_thumbnail.jpg",
+            "Video": "path/to/video2.mp4",
+            "username": "jane_smith",
+            "dateUploaded": "2024-06-29T00:00:00.000Z"
+        },
+        {
+            "VideoId": 4,
+            "Title": "Video 4",
+            "Description": "Description for Video 4",
+            "Playlist": 2,
+            "Thumbnail": "path/to/video4_thumbnail.jpg",
+            "Video": "path/to/video4.mp4",
+            "username": "jane_smith",
+            "dateUploaded": "2024-06-29T00:00:00.000Z"
+        }
+    ]
+}
+```
+3. PUT - Update Playlists. <code>http://localhost:3000/playlists/:id</code>
+Request Body:
+```json
+{
+    "Title": "Playlist 3",
+    "Description": "Description for Playlist 3.1",
+    "Thumbnail": "path/to/playlist3_thumbnail.jpg",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+Output:
+```json
+{
+    "message": "Playlist updated successfully"
+}
+```
+4. POST - Create New Playlists. <code>http://localhost:3000/playlists</code>
+Request Body:
+```json
+{
+    "Title": "Playlist 3",
+    "Description": "Description for Playlist 3",
+    "Thumbnail": "path/to/playlist3_thumbnail.jpg",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+5. DELETE - Delete a Playlist. <code>http://localhost:3000/playlists/:id</code>
+Output:
+```json
+{
+    "message": "Playlist deleted successfully"
+}
+```
     
-Contents Function(s):
-1. GET - Retrieve All the Contents.
-2. PUT - Update Contents.
-3. POST - Create New Contents.
-4. DELETE - Delete a Content.
+##### Contents Operations:
+1. GET - Retrieve All the Contents. <code>http://localhost:3000/contents</code>
+Output:
+```json
+{
+    "VideoId": 1,
+    "Title": "Video 1",
+    "Description": "Description for Video 1",
+    "Playlist": 1,
+    "Thumbnail": "path/to/video1_thumbnail.jpg",
+    "Video": "path/to/video1.mp4",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+},
+{
+    "VideoId": 2,
+    "Title": "Video 2",
+    "Description": "Description for Video 2",
+    "Playlist": 2,
+    "Thumbnail": "path/to/video2_thumbnail.jpg",
+    "Video": "path/to/video2.mp4",
+    "username": "jane_smith",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+},
+{
+    "VideoId": 3,
+    "Title": "Video 3",
+    "Description": "Description for Video 3",
+    "Playlist": 1,
+    "Thumbnail": "path/to/video3_thumbnail.jpg",
+    "Video": "path/to/video3.mp4",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+2. GET - Retrieve Specific Content. <code>http://localhost:3000/contents/id</code>
+Request: Retrieve Content in Playlist **1**
+Output:
+```json
+{
+    "VideoId": 1,
+    "Title": "Video 1",
+    "Description": "Description for Video 1",
+    "Playlist": 1,
+    "Thumbnail": "path/to/video1_thumbnail.jpg",
+    "Video": "path/to/video1.mp4",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+3. PUT - Update Contents. <code>http://localhost:3000/contents/id</code>
+Request Body:
+```json
+{
+    "VideoId": 30,
+    "Title": "Video 6",
+    "Description": "Description for Video 6.1",
+    "Playlist": 2,
+    "Thumbnail": "path/to/video6_thumbnail.jpg",
+    "Video": "path/to/video6.mp4",
+    "username": "jane_smith",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+Output:
+```json
+{
+    "message": "Content updated successfully"
+}
+```
+4. POST - Create New Contents. <code>http://localhost:3000/contents</code>
+Request Body:
+```json
+{
+    "Title": "Video 7",
+    "Description": "Description for Video 7",
+    "Playlist": 1,
+    "Thumbnail": "path/to/video7_thumbnail.jpg",
+    "Video": "path/to/video7.mp4",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+5. DELETE - Delete a Content.
+Output:
+```json
+{
+    "message": "Content deleted successfully"
+}
+```
 
 #### ***S10262569 | Jovan Tan Hao | Examiner***
     1. GET - Recently did Quiz.
