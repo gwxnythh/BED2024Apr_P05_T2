@@ -20,61 +20,61 @@
 
 ## CRUD Operations
 #### ***S10262576 | Ggwendolynn Lee Rasni | Instructor*** 
-    Comments Function(s):
-    1. GET - Retrieve All Comments. <code>http://localhost:3000/comments</code>
-    ```json
-    Output:
-    {
-        "id": 1,
-        "content": "Great video!",
-        "videoId": 1,
-        "username": "john_doe",
-        "datePosted": "2024-06-29T04:14:14.863Z"
-    },
-    {
-        "id": 2,
-        "content": "Nice content!",
-        "videoId": 2,
-        "username": "jane_smith",
-        "datePosted": "2024-06-29T04:14:14.863Z"
-    },
-    {
-        "id": 6,
-        "content": "Thanks for teaching!",
-        "videoId": 2,
-        "username": "jane_smith",
-        "datePosted": "2024-06-29T22:48:54.753Z"
-    }
-    ```
-    2. POST - Create a Comment(User). <code>http://localhost:3000/comments</code>
-    ```json
-    Request Body:
-    {
-        "content": "Thanks for teaching!",
-        "videoId": 2,
-        "username": "jane_smith",
-        "datePosted": "2024-06-29T00:00:00.000Z"
-    }
-    ```
-    3. DELETE - Delete a Comment. <code>http://localhost:3000/comments/:id</code>
-    ```json
-    Output:
-    {
-        "message": "Comment deleted successfully"
-    }
-    ```
+Comments Function(s):
+1. GET - Retrieve All Comments. <code>http://localhost:3000/comments</code>
+```json
+Output:
+{
+    "id": 1,
+    "content": "Great video!",
+    "videoId": 1,
+    "username": "john_doe",
+    "datePosted": "2024-06-29T04:14:14.863Z"
+},
+{
+    "id": 2,
+    "content": "Nice content!",
+    "videoId": 2,
+    "username": "jane_smith",
+    "datePosted": "2024-06-29T04:14:14.863Z"
+},
+{
+    "id": 6,
+    "content": "Thanks for teaching!",
+    "videoId": 2,
+    "username": "jane_smith",
+    "datePosted": "2024-06-29T22:48:54.753Z"
+}
+```
+2. POST - Create a Comment(User). <code>http://localhost:3000/comments</code>
+```json
+Request Body:
+{
+    "content": "Thanks for teaching!",
+    "videoId": 2,
+    "username": "jane_smith",
+    "datePosted": "2024-06-29T00:00:00.000Z"
+}
+```
+3. DELETE - Delete a Comment. <code>http://localhost:3000/comments/:id</code>
+```json
+Output:
+{
+    "message": "Comment deleted successfully"
+}
+```
 
-    Playlists Function(s):
-    1. GET - Retrieve Playlists' Content.
-    2. PUT - Update Playlists.
-    3. POST - Create New Playlists.
-    4. DELETE - Delete a Playlist.
+Playlists Function(s):
+1. GET - Retrieve Playlists' Content.
+2. PUT - Update Playlists.
+3. POST - Create New Playlists.
+4. DELETE - Delete a Playlist.
     
-    Contents Function(s):
-    1. GET - Retrieve All the Contents.
-    2. PUT - Update Contents.
-    3. POST - Create New Contents.
-    4. DELETE - Delete a Content.
+Contents Function(s):
+1. GET - Retrieve All the Contents.
+2. PUT - Update Contents.
+3. POST - Create New Contents.
+4. DELETE - Delete a Content.
 
 #### ***S10262569 | Jovan Tan Hao | Examiner***
     1. GET - Recently did Quiz.
