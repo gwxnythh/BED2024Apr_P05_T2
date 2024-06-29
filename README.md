@@ -21,7 +21,7 @@
 ## CRUD Operations
 #### ***S10262576 | Ggwendolynn Lee Rasni | Instructor*** 
 ##### Comments  Operations:
-1. GET - Retrieve All Comments. <code>http://localhost:3000/comments</code>
+1. GET - Retrieve All Comments. <code>http://localhost:3000/comments</code><br/>
 Output:
 ```json
 {
@@ -46,7 +46,7 @@ Output:
     "datePosted": "2024-06-29T22:48:54.753Z"
 }
 ```
-2. POST - Create a Comment(User). <code>http://localhost:3000/comments</code>
+2. POST - Create a Comment(User). <code>http://localhost:3000/comments</code><br/>
 Request Body:
 ```json
 {
@@ -56,7 +56,7 @@ Request Body:
     "datePosted": "2024-06-29T00:00:00.000Z"
 }
 ```
-3. DELETE - Delete a Comment. <code>http://localhost:3000/comments/:id</code>
+3. DELETE - Delete a Comment. <code>http://localhost:3000/comments/:id</code><br/>
 Output:
 ```json
 {
@@ -64,7 +64,7 @@ Output:
 }
 ```
 ##### Playlists Operations:
-1. GET - Retrieve Playlists' Content. <code>http://localhost:3000/playlists</code>
+1. GET - Retrieve Playlists' Content. <code>http://localhost:3000/playlists</code><br/>
 Output:
 ```json
 {
@@ -84,7 +84,7 @@ Output:
     "dateUploaded": "2024-06-29T00:00:00.000Z"
     }
 ```
-2. GET - Retrieve Specific Playlist. <code>http://localhost:3000/playlists/id</code>
+2. GET - Retrieve Specific Playlist. <code>http://localhost:3000/playlists/id</code><br/>
 Request: Retrieve Content in Playlist **2**
 Output:
 ```json
@@ -119,7 +119,7 @@ Output:
     ]
 }
 ```
-3. PUT - Update Playlists. <code>http://localhost:3000/playlists/:id</code>
+3. PUT - Update Playlists. <code>http://localhost:3000/playlists/:id</code><br/>
 Request Body:
 ```json
 {
@@ -136,7 +136,7 @@ Output:
     "message": "Playlist updated successfully"
 }
 ```
-4. POST - Create New Playlists. <code>http://localhost:3000/playlists</code>
+4. POST - Create New Playlists. <code>http://localhost:3000/playlists</code><br/>
 Request Body:
 ```json
 {
@@ -147,7 +147,7 @@ Request Body:
     "dateUploaded": "2024-06-29T00:00:00.000Z"
 }
 ```
-5. DELETE - Delete a Playlist. <code>http://localhost:3000/playlists/:id</code>
+5. DELETE - Delete a Playlist. <code>http://localhost:3000/playlists/:id</code><br/>
 Output:
 ```json
 {
@@ -156,7 +156,7 @@ Output:
 ```
     
 ##### Contents Operations:
-1. GET - Retrieve All the Contents. <code>http://localhost:3000/contents</code>
+1. GET - Retrieve All the Contents. <code>http://localhost:3000/contents</code><br/>
 Output:
 ```json
 {
@@ -190,7 +190,7 @@ Output:
     "dateUploaded": "2024-06-29T00:00:00.000Z"
 }
 ```
-2. GET - Retrieve Specific Content. <code>http://localhost:3000/contents/id</code>
+2. GET - Retrieve Specific Content. <code>http://localhost:3000/contents/id</code><br/>
 Request: Retrieve Content in Playlist **1**
 Output:
 ```json
@@ -205,7 +205,7 @@ Output:
     "dateUploaded": "2024-06-29T00:00:00.000Z"
 }
 ```
-3. PUT - Update Contents. <code>http://localhost:3000/contents/id</code>
+3. PUT - Update Contents. <code>http://localhost:3000/contents/id</code><br/>
 Request Body:
 ```json
 {
@@ -225,7 +225,7 @@ Output:
     "message": "Content updated successfully"
 }
 ```
-4. POST - Create New Contents. <code>http://localhost:3000/contents</code>
+4. POST - Create New Contents. <code>http://localhost:3000/contents</code><br/>
 Request Body:
 ```json
 {
@@ -238,7 +238,7 @@ Request Body:
     "dateUploaded": "2024-06-29T00:00:00.000Z"
 }
 ```
-5. DELETE - Delete a Content.
+5. DELETE - Delete a Content. <code>http://localhost:3000/contents/id</code><br/>
 Output:
 ```json
 {
