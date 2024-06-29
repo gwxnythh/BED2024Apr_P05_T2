@@ -1,4 +1,4 @@
-# Project Overview [Episteme]
+# Project Overview [Episteme] - BED2024Apr_P05_T2
 
 #### Members
     S10262576 | Ggwendolynn Lee Rasni
@@ -11,21 +11,240 @@
 
 ![Logo](./public/images/logo-icon-2.png)
 
-Episteme [ep-is-teem] | knowledge; specifically : intellectually certain knowledge.
+## Introduction
+    Episteme [ep-is-teem] | knowledge; specifically : intellectually certain knowledge.
+    
+    Tagline: **J**ust **G**aining Knowledge in **HD**
+    
+    Episteme is a cutting-edge virtual learning tool created to enable individuals in their quest for education and career advancement. Episteme offers a variety of expert-led courses and tutorials in business, technology, creative fields, and personal development, creating a dynamic learning experience designed for today's learner. Our platform prioritizes accessibility and excellence, providing users with the necessary skills and insights to succeed in today's competitive environment. Episteme empowers individuals to realize their complete potential and reach their professional goals with a carefully crafted curriculum and engaging learning resources.
 
-Tagline: **J**ust **G**aining Knowledge in **HD**
-
-Episteme is a cutting-edge virtual learning tool created to enable individuals in their quest for education and career advancement. Episteme offers a variety of expert-led courses and tutorials in business, technology, creative fields, and personal development, creating a dynamic learning experience designed for today's learner. Our platform prioritizes accessibility and excellence, providing users with the necessary skills and insights to succeed in today's competitive environment. Episteme empowers individuals to realize their complete potential and reach their professional goals with a carefully crafted curriculum and engaging learning resources.
-
-![Mood Board](./public/images/mood-board.png)
-
-## Features
-
-#### ***S10262576 | Ggwendolynn Lee Rasni | Instructor***
-    1. GET - Retrieve Video/Playlist Content.
-    2. DELETE - Delete Playlist/Video.
-    3. PUT - Update Playlist/Video.
-    4. POST - Create Playlist/Video.
+## CRUD Operations
+#### ***S10262576 | Ggwendolynn Lee Rasni | Instructor*** 
+##### Comments  Operations:
+1. GET - Retrieve All Comments. <code>http://localhost:3000/comments</code><br/>
+Output:
+```json
+{
+    "id": 1,
+    "content": "Great video!",
+    "videoId": 1,
+    "username": "john_doe",
+    "datePosted": "2024-06-29T04:14:14.863Z"
+},
+{
+    "id": 2,
+    "content": "Nice content!",
+    "videoId": 2,
+    "username": "jane_smith",
+    "datePosted": "2024-06-29T04:14:14.863Z"
+},
+{
+    "id": 6,
+    "content": "Thanks for teaching!",
+    "videoId": 2,
+    "username": "jane_smith",
+    "datePosted": "2024-06-29T22:48:54.753Z"
+}
+```
+2. POST - Create a Comment(User). <code>http://localhost:3000/comments</code><br/>
+Request Body:
+```json
+{
+    "content": "Thanks for teaching!",
+    "videoId": 2,
+    "username": "jane_smith",
+    "datePosted": "2024-06-29T00:00:00.000Z"
+}
+```
+3. DELETE - Delete a Comment. <code>http://localhost:3000/comments/:id</code><br/>
+Output:
+```json
+{
+    "message": "Comment deleted successfully"
+}
+```
+##### Playlists Operations:
+1. GET - Retrieve Playlists' Content. <code>http://localhost:3000/playlists</code><br/>
+Output:
+```json
+{
+    "playlistId": 1,
+    "Title": "Playlist 1",
+    "Description": "Description for Playlist 1",
+    "Thumbnail": "path/to/playlist1_thumbnail.jpg",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+},
+{
+    "playlistId": 2,
+    "Title": "Playlist 2",
+    "Description": "Description for Playlist 2",
+    "Thumbnail": "path/to/playlist2_thumbnail.jpg",
+    "username": "jane_smith",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+    }
+```
+2. GET - Retrieve Specific Playlist. <code>http://localhost:3000/playlists/id</code><br/>
+Request: Retrieve Content in Playlist **2**
+Output:
+```json
+{
+    "playlistId": 2,
+    "Title": "Playlist 2",
+    "Description": "Description for Playlist 2",
+    "Thumbnail": "path/to/playlist2_thumbnail.jpg",
+    "username": "jane_smith",
+    "dateUploaded": "2024-06-29T00:00:00.000Z",
+    "contents": [
+        {
+            "VideoId": 2,
+            "Title": "Video 2",
+            "Description": "Description for Video 2",
+            "Playlist": 2,
+            "Thumbnail": "path/to/video2_thumbnail.jpg",
+            "Video": "path/to/video2.mp4",
+            "username": "jane_smith",
+            "dateUploaded": "2024-06-29T00:00:00.000Z"
+        },
+        {
+            "VideoId": 4,
+            "Title": "Video 4",
+            "Description": "Description for Video 4",
+            "Playlist": 2,
+            "Thumbnail": "path/to/video4_thumbnail.jpg",
+            "Video": "path/to/video4.mp4",
+            "username": "jane_smith",
+            "dateUploaded": "2024-06-29T00:00:00.000Z"
+        }
+    ]
+}
+```
+3. PUT - Update Playlists. <code>http://localhost:3000/playlists/:id</code><br/>
+Request Body:
+```json
+{
+    "Title": "Playlist 3",
+    "Description": "Description for Playlist 3.1",
+    "Thumbnail": "path/to/playlist3_thumbnail.jpg",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+Output:
+```json
+{
+    "message": "Playlist updated successfully"
+}
+```
+4. POST - Create New Playlists. <code>http://localhost:3000/playlists</code><br/>
+Request Body:
+```json
+{
+    "Title": "Playlist 3",
+    "Description": "Description for Playlist 3",
+    "Thumbnail": "path/to/playlist3_thumbnail.jpg",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+5. DELETE - Delete a Playlist. <code>http://localhost:3000/playlists/:id</code><br/>
+Output:
+```json
+{
+    "message": "Playlist deleted successfully"
+}
+```
+    
+##### Contents Operations:
+1. GET - Retrieve All the Contents. <code>http://localhost:3000/contents</code><br/>
+Output:
+```json
+{
+    "VideoId": 1,
+    "Title": "Video 1",
+    "Description": "Description for Video 1",
+    "Playlist": 1,
+    "Thumbnail": "path/to/video1_thumbnail.jpg",
+    "Video": "path/to/video1.mp4",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+},
+{
+    "VideoId": 2,
+    "Title": "Video 2",
+    "Description": "Description for Video 2",
+    "Playlist": 2,
+    "Thumbnail": "path/to/video2_thumbnail.jpg",
+    "Video": "path/to/video2.mp4",
+    "username": "jane_smith",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+},
+{
+    "VideoId": 3,
+    "Title": "Video 3",
+    "Description": "Description for Video 3",
+    "Playlist": 1,
+    "Thumbnail": "path/to/video3_thumbnail.jpg",
+    "Video": "path/to/video3.mp4",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+2. GET - Retrieve Specific Content. <code>http://localhost:3000/contents/id</code><br/>
+Request: Retrieve Content in Playlist **1**
+Output:
+```json
+{
+    "VideoId": 1,
+    "Title": "Video 1",
+    "Description": "Description for Video 1",
+    "Playlist": 1,
+    "Thumbnail": "path/to/video1_thumbnail.jpg",
+    "Video": "path/to/video1.mp4",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+3. PUT - Update Contents. <code>http://localhost:3000/contents/id</code><br/>
+Request Body:
+```json
+{
+    "VideoId": 30,
+    "Title": "Video 6",
+    "Description": "Description for Video 6.1",
+    "Playlist": 2,
+    "Thumbnail": "path/to/video6_thumbnail.jpg",
+    "Video": "path/to/video6.mp4",
+    "username": "jane_smith",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+Output:
+```json
+{
+    "message": "Content updated successfully"
+}
+```
+4. POST - Create New Contents. <code>http://localhost:3000/contents</code><br/>
+Request Body:
+```json
+{
+    "Title": "Video 7",
+    "Description": "Description for Video 7",
+    "Playlist": 1,
+    "Thumbnail": "path/to/video7_thumbnail.jpg",
+    "Video": "path/to/video7.mp4",
+    "username": "john_doe",
+    "dateUploaded": "2024-06-29T00:00:00.000Z"
+}
+```
+5. DELETE - Delete a Content. <code>http://localhost:3000/contents/id</code><br/>
+Output:
+```json
+{
+    "message": "Content deleted successfully"
+}
+```
 
 #### ***S10262569 | Jovan Tan Hao | Examiner***
     1. GET - Recently did Quiz.
@@ -33,38 +252,19 @@ Episteme is a cutting-edge virtual learning tool created to enable individuals i
 
 #### ***S10262840 | Daphne Cheng Pei En | User/Member***
     1. GET - Retrieve User's Info for Profile.
-    2. POST - Create User's Profile.
+    2. POST - Create User's Account/Profile.
 
 #### ***S10262621 | Tan Han Yan |  Customer Service Staff***
     1. GET - Retrieve customer issues.
     2. PUT - Reply and update customer issue.
     3. DELETE - Delete customer issue.
 
-## Technologies Used
-
-- [Visual Code Studio Software](https://visualstudio.microsoft.com)
-    - Visual Code Studio is used to help me code out my entire website from scratch.
-- [Adobe XD](https://www.adobe.com/sg/products/xd/learn/get-started/what-is-adobe-xd-used-for.html)
-    - Adobe XD is used to help me design out my wireframes to showcase what my website is suppose to look like.
-- [HTML](https://www.w3schools.com/whatis/whatis_html.asp)
-    - HTML is used to structure the web pages and its' contents.
-- [CSS](https://www.w3schools.com/css/css_intro.asp#:~:text=CSS%20is%20used%20to%20define,different%20devices%20and%20screen%20sizes.)
-    - CSS is used to define styles for your web pages, including the design, layout and variations in display for different devices and screen sizes.
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript)
-    -  Javascript is used for to allow me to implement complex features on my web pages to make the website more functional.
-- [ExpressNode.js]()
-    - Lorem Ipsum
-- [SMSS](https://learn.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver16)
-    - SMSS is used to...
-
-## Testing
-> [!NOTE]
-> TBC
-
-- 
+## Node Packages Used
+- Express
+- Body-Parser
+- MSSQL
 
 ## Credits
-
 Content/Media:
 - [Logos]
     - Custom made using Canva/Adobe Photoshop.
