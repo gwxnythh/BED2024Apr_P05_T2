@@ -85,7 +85,7 @@ Output:
     }
 ```
 2. GET - Retrieve Specific Playlist. <code>http://localhost:3000/playlists/id</code><br/>
-Request: Retrieve Content in Playlist **2**
+Request: Retrieve Content in Playlist **2**<br/>
 Output:
 ```json
 {
@@ -191,7 +191,7 @@ Output:
 }
 ```
 2. GET - Retrieve Specific Content. <code>http://localhost:3000/contents/id</code><br/>
-Request: Retrieve Content in Playlist **1**
+Request: Retrieve Content in Playlist **1**<br/>
 Output:
 ```json
 {
