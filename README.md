@@ -1,4 +1,4 @@
-# Project Overview [Episteme]
+# Project Overview [Episteme] - BED2024Apr_P05_T2
 
 #### Members
     S10262576 | Ggwendolynn Lee Rasni
@@ -11,21 +11,70 @@
 
 ![Logo](./public/images/logo-icon-2.png)
 
-Episteme [ep-is-teem] | knowledge; specifically : intellectually certain knowledge.
+## Introduction
+    Episteme [ep-is-teem] | knowledge; specifically : intellectually certain knowledge.
+    
+    Tagline: **J**ust **G**aining Knowledge in **HD**
+    
+    Episteme is a cutting-edge virtual learning tool created to enable individuals in their quest for education and career advancement. Episteme offers a variety of expert-led courses and tutorials in business, technology, creative fields, and personal development, creating a dynamic learning experience designed for today's learner. Our platform prioritizes accessibility and excellence, providing users with the necessary skills and insights to succeed in today's competitive environment. Episteme empowers individuals to realize their complete potential and reach their professional goals with a carefully crafted curriculum and engaging learning resources.
 
-Tagline: **J**ust **G**aining Knowledge in **HD**
+## CRUD Operations
+#### ***S10262576 | Ggwendolynn Lee Rasni | Instructor*** 
+    Comments Function(s):
+    1. GET - Retrieve All Comments. <code>http://localhost:3000/comments</code>
+    ```json
+    Output:
+    {
+        "id": 1,
+        "content": "Great video!",
+        "videoId": 1,
+        "username": "john_doe",
+        "datePosted": "2024-06-29T04:14:14.863Z"
+    },
+    {
+        "id": 2,
+        "content": "Nice content!",
+        "videoId": 2,
+        "username": "jane_smith",
+        "datePosted": "2024-06-29T04:14:14.863Z"
+    },
+    {
+        "id": 6,
+        "content": "Thanks for teaching!",
+        "videoId": 2,
+        "username": "jane_smith",
+        "datePosted": "2024-06-29T22:48:54.753Z"
+    }
+    ```
+    2. POST - Create a Comment(User). <code>http://localhost:3000/comments</code>
+    ```json
+    Request Body:
+    {
+        "content": "Thanks for teaching!",
+        "videoId": 2,
+        "username": "jane_smith",
+        "datePosted": "2024-06-29T00:00:00.000Z"
+    }
+    ```
+    3. DELETE - Delete a Comment. <code>http://localhost:3000/comments/:id</code>
+    ```json
+    Output:
+    {
+        "message": "Comment deleted successfully"
+    }
+    ```
 
-Episteme is a cutting-edge virtual learning tool created to enable individuals in their quest for education and career advancement. Episteme offers a variety of expert-led courses and tutorials in business, technology, creative fields, and personal development, creating a dynamic learning experience designed for today's learner. Our platform prioritizes accessibility and excellence, providing users with the necessary skills and insights to succeed in today's competitive environment. Episteme empowers individuals to realize their complete potential and reach their professional goals with a carefully crafted curriculum and engaging learning resources.
-
-![Mood Board](./public/images/mood-board.png)
-
-## Features
-
-#### ***S10262576 | Ggwendolynn Lee Rasni | Instructor***
-    1. GET - Retrieve Video/Playlist Content.
-    2. DELETE - Delete Playlist/Video.
-    3. PUT - Update Playlist/Video.
-    4. POST - Create Playlist/Video.
+    Playlists Function(s):
+    1. GET - Retrieve Playlists' Content.
+    2. PUT - Update Playlists.
+    3. POST - Create New Playlists.
+    4. DELETE - Delete a Playlist.
+    
+    Contents Function(s):
+    1. GET - Retrieve All the Contents.
+    2. PUT - Update Contents.
+    3. POST - Create New Contents.
+    4. DELETE - Delete a Content.
 
 #### ***S10262569 | Jovan Tan Hao | Examiner***
     1. GET - Recently did Quiz.
@@ -33,38 +82,19 @@ Episteme is a cutting-edge virtual learning tool created to enable individuals i
 
 #### ***S10262840 | Daphne Cheng Pei En | User/Member***
     1. GET - Retrieve User's Info for Profile.
-    2. POST - Create User's Profile.
+    2. POST - Create User's Account/Profile.
 
 #### ***S10262621 | Tan Han Yan |  Customer Service Staff***
     1. GET - Retrieve customer issues.
     2. PUT - Reply and update customer issue.
     3. DELETE - Delete customer issue.
 
-## Technologies Used
-
-- [Visual Code Studio Software](https://visualstudio.microsoft.com)
-    - Visual Code Studio is used to help me code out my entire website from scratch.
-- [Adobe XD](https://www.adobe.com/sg/products/xd/learn/get-started/what-is-adobe-xd-used-for.html)
-    - Adobe XD is used to help me design out my wireframes to showcase what my website is suppose to look like.
-- [HTML](https://www.w3schools.com/whatis/whatis_html.asp)
-    - HTML is used to structure the web pages and its' contents.
-- [CSS](https://www.w3schools.com/css/css_intro.asp#:~:text=CSS%20is%20used%20to%20define,different%20devices%20and%20screen%20sizes.)
-    - CSS is used to define styles for your web pages, including the design, layout and variations in display for different devices and screen sizes.
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript)
-    -  Javascript is used for to allow me to implement complex features on my web pages to make the website more functional.
-- [ExpressNode.js]()
-    - Lorem Ipsum
-- [SMSS](https://learn.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver16)
-    - SMSS is used to...
-
-## Testing
-> [!NOTE]
-> TBC
-
-- 
+## Node Packages Used
+- Express
+- Body-Parser
+- MSSQL
 
 ## Credits
-
 Content/Media:
 - [Logos]
     - Custom made using Canva/Adobe Photoshop.
