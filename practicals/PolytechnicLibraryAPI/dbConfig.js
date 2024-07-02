@@ -1,6 +1,6 @@
 module.exports = {
-    user: "PolyLib_user", // Replace with your SQL Server login username
-    password: "PolyLib29", // Replace with your SQL Server login password
+    user: "bed_user", // Replace with your SQL Server login username
+    password: "bed", // Replace with your SQL Server login password
     server: "localhost",
     database: "PolytechnicLibraryAPI_db",
     trustServerCertificate: true,
