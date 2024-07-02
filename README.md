@@ -12,14 +12,14 @@
 ![Logo](./public/images/logo-icon-2.png)
 
 ## Introduction
-    Episteme [ep-is-teem] | knowledge; specifically : intellectually certain knowledge.
+Episteme [ep-is-teem] | knowledge; specifically : intellectually certain knowledge.
     
-    Tagline: **J**ust **G**aining Knowledge in **HD**
+Tagline: **J**ust **G**aining Knowledge in **HD**
     
-    Episteme is a cutting-edge virtual learning tool created to enable individuals in their quest for education and career advancement. Episteme offers a variety of expert-led courses and tutorials in business, technology, creative fields, and personal development, creating a dynamic learning experience designed for today's learner. Our platform prioritizes accessibility and excellence, providing users with the necessary skills and insights to succeed in today's competitive environment. Episteme empowers individuals to realize their complete potential and reach their professional goals with a carefully crafted curriculum and engaging learning resources.
+Episteme is a cutting-edge virtual learning tool created to enable individuals in their quest for education and career advancement. Episteme offers a variety of expert-led courses and tutorials in business, technology, creative fields, and personal development, creating a dynamic learning experience designed for today's learner. Our platform prioritizes accessibility and excellence, providing users with the necessary skills and insights to succeed in today's competitive environment. Episteme empowers individuals to realize their complete potential and reach their professional goals with a carefully crafted curriculum and engaging learning resources.
 
 ## CRUD Operations
-#### ***S10262576 | Ggwendolynn Lee Rasni | Instructor*** 
+### **S10262576 | Ggwendolynn Lee Rasni | Instructor**
 ##### Comments  Operations:
 1. GET - Retrieve All Comments. <code>http://localhost:3000/comments</code><br/>
 Output:
@@ -85,7 +85,7 @@ Output:
     }
 ```
 2. GET - Retrieve Specific Playlist. <code>http://localhost:3000/playlists/id</code><br/>
-Request: Retrieve Content in Playlist **2**
+Request: Retrieve Content in Playlist **2**<br/>
 Output:
 ```json
 {
@@ -191,7 +191,7 @@ Output:
 }
 ```
 2. GET - Retrieve Specific Content. <code>http://localhost:3000/contents/id</code><br/>
-Request: Retrieve Content in Playlist **1**
+Request: Retrieve Content in Playlist **1**<br/>
 Output:
 ```json
 {
@@ -246,15 +246,15 @@ Output:
 }
 ```
 
-#### ***S10262569 | Jovan Tan Hao | Examiner***
+### **S10262569 | Jovan Tan Hao | Examiner**
     1. GET - Recently did Quiz.
     2. POST - Create Quiz.
 
-#### ***S10262840 | Daphne Cheng Pei En | User/Member***
+### **S10262840 | Daphne Cheng Pei En | User/Member**
     1. GET - Retrieve User's Info for Profile.
     2. POST - Create User's Account/Profile.
 
-#### ***S10262621 | Tan Han Yan |  Customer Service Staff***
+### **S10262621 | Tan Han Yan |  Customer Service Staff**
     1. GET - Retrieve customer issues.
     2. PUT - Reply and update customer issue.
     3. DELETE - Delete customer issue.
