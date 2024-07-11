@@ -1,6 +1,7 @@
 // Import Needed Module
 const sql = require('mssql');
 
+
 // Retrieve all playlists
 const getPlaylists = async (req, res, next) => {
   try {

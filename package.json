@@ -6,7 +6,9 @@
     "express": "^4.19.2",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
-    "mssql": "^11.0.0"
+    "mssql": "^11.0.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
   },
   "name": "bed_p05_2",
   "description": "S10262576 | Ggwendolynn Lee Rasni\r     S10262569 | Jovan Tan Hao\r     S10262840 | Daphne Cheng Pei En\r     S10262621 | Tan Han Yan",

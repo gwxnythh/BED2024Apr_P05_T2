@@ -2,6 +2,8 @@ const express = require("express");
 const sql = require("mssql");
 const dbConfig = require("./dbConfig");
 const bodyParser = require("body-parser");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger-output.json"); // Import generated spec
 const booksController = require("./controllers/booksController");
 const usersController = require("./controllers/usersController");
 const validateBook = require("./middlewares/validateBook");
@@ -11,6 +13,9 @@ const verifyJWT = require("./middlewares/verifyJWT");
 const app = express();
 const port = process.env.PORT || 3000;
 const staticMiddleware = express.static("public");
+
+// Serve the Swagger UI at a specific route
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Include body-parser middleware to handle JSON data
 app.use(bodyParser.json());
