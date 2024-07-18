@@ -253,8 +253,6 @@ Output:
 ### **S10262840 | Daphne Cheng Pei En | User/Member**
     1. GET - Retrieve User's Info for Profile.
     2. POST - Create User's Account/Profile.
-    3. PUT | Modify User
-    4. Delete | Delete User Account
 
 ### **S10262621 | Tan Han Yan |  Customer Service Staff**
     1. GET - Retrieve customer issues.
