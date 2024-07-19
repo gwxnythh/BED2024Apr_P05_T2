@@ -152,9 +152,7 @@
 
                     <label for="playlist">Playlist</label><br>
                     <select id="playlist" name="playlist">
-                        <option value="playlist1">Playlist 1</option>
-                        <option value="playlist2">Playlist 2</option>
-                        <option value="playlist3">Playlist 3</option>
+                        <!-- auto generate by fetching through API -->
                     </select><br><br>
 
                     <label for="thumbnail">Content Thumbnail</label><br>
@@ -163,7 +161,7 @@
                     <label for="video">Content Video</label><br>
                     <input type="file" id="video" name="video" accept="video/*" required><br><br>
 
-                    <input type="submit" value="Add Content" class="inline-btn">
+                    <input type="submit" id="create-content-btn" value="Add Content" class="inline-btn">
                 </form>
             </div>
         </div>
@@ -241,6 +239,7 @@
 
     <!-- ============ Scripts ============ -->
     <script src="../../scripts/script.js"></script>
+    <script src="../../scripts/content.js"></script>
 </body>
 
 </html>

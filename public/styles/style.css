@@ -33,9 +33,14 @@
 }
 
 body {
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     background: var(--body-color);
     transition: var(--tran-02);
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body.dark {
@@ -1063,10 +1068,18 @@ td {
 
 /* ====== Footer ====== */
 .footer {
-    position: relative;
+    /* position: fixed;
+    left: 0;
+    bottom: 0;
     left: 250px;
     width: calc(100% - 250px);
-    transition: var(--tran-05);
+    transition: var(--tran-05); */
+    /* background-color: #333; */
+    position: relative;
+    left: 88px;
+    width: calc(100% - 88px);
+
+    margin-top: auto;
 }
 
 footer {
@@ -1075,6 +1088,8 @@ footer {
     width: 100%;
     height: auto;
     padding: 50px 100px;
+
+    margin-top: auto;
 }
 
 footer .footer-container {
@@ -1158,7 +1173,7 @@ footer .footer-container .contact .info li a {
     padding: 20px 100px 30px;
     text-align: center;
     color: var(--text-color);
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    /* border: 1px solid rgba(0, 0, 0, 0.15); */
 }
 
 .footer .aboutus h2 img {

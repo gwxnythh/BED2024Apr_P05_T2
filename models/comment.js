@@ -5,7 +5,7 @@ class Comment {
   // Method to get all comments from the database
   static async getAll(pool) {
     // Use the pool to send a SQL query to get all rows from the Comments table
-    const result = await pool.request().query('SELECT * FROM Comments');
+    const result = await pool.request().query('SELECT cm.id, cm.content, cm.videoid, cm.username, cm.datePosted, ct.Title FROM Comments cm LEFT JOIN Contents ct ON cm.videoId = ct.VideoId');
     // Return the rows (comments) from the result
     return result.recordset;
   }
@@ -30,6 +30,15 @@ class Comment {
       // Execute the SQL query to delete the comment
       .query('DELETE FROM Comments WHERE id = @id');
     return result.rowsAffected[0] > 0;
+  }
+
+  // Method to get comment from database based on video id
+  static async getById(pool, id) {
+    // Execute a SQL query to select a record from the Playlists table where the playlistId matches the provided ID
+    const result = await pool.request()
+      .input('id', sql.Int, id)
+      .query('SELECT * FROM Comments WHERE videoId = @id');
+    return result.recordset;
   }
 }
 

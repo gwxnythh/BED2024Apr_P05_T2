@@ -2,7 +2,8 @@ const sql = require("mssql");
 const dbConfig = require("../dbConfig");
 
 class Book {
-  constructor(title, author, availability) {
+  constructor(book_id, title, author, availability) {
+    this.book_id = book_id;
     this.title = title;
     this.author = author;
     this.availability = availability;
@@ -12,20 +13,20 @@ class Book {
   static async getAllBooks() {
     let pool;
     try {
-        pool = await sql.connect(dbConfig);
-        const result = await pool.request().query("SELECT * FROM Books");
+      pool = await sql.connect(dbConfig);
+      const result = await pool.request().query("SELECT * FROM Books");
 
-        // Map rows to Book objects
-        const books = result.recordset.map(row => new Book(row.book_id, row.title, row.author, row.availability));
-        
-        return books;
+      // Map rows to Book objects
+      const books = result.recordset.map(row => new Book(row.book_id, row.title, row.author, row.availability));
+
+      return books;
     } catch (err) {
-        console.error("Error fetching all books:", err.message);
-        throw err;
+      console.error("Error fetching all books:", err.message);
+      throw err;
     } finally {
-        if (pool) pool.close();
+      if (pool) pool.close();
     }
-}
+  }
 
 
   static async getBookById(book_id) {
@@ -40,11 +41,11 @@ class Book {
 
       return result.recordset.length > 0
         ? new Book(
-            result.recordset[0].book_id,
-            result.recordset[0].title,
-            result.recordset[0].author,
-            result.recordset[0].availability
-          )
+          result.recordset[0].book_id,
+          result.recordset[0].title,
+          result.recordset[0].author,
+          result.recordset[0].availability
+        )
         : null;
     } finally {
       if (pool) pool.close();
@@ -128,33 +129,29 @@ class Book {
     }
   }
 
-static async updateBookAvailability(book_id, newAvailability) {
+  static async updateBookAvailability(book_id, newAvailability) {
     let pool;
     try {
       pool = await sql.connect(dbConfig);
-
-      // Update query
-      const sqlQuery = `
-        UPDATE Books
-        SET availability = @availability
-        WHERE book_id = @book_id
-      `;
-
-      // Execute the update query
-      await pool.request()
+      console.log('Connection established');
+  
+      const request = pool.request();
+      console.log('Request created');
+      await request
         .input("availability", newAvailability)
         .input("book_id", book_id)
-        .query(sqlQuery);
-
-      // Fetch and return the updated book object
+        .query("UPDATE Books SET availability = @availability WHERE book_id = @book_id");
+  
+      console.log('Query executed');
       return await this.getBookById(book_id);
     } catch (err) {
       console.error("Error updating book availability:", err.message);
-      throw err; // Rethrow the error to be handled by the caller
+      throw err;
     } finally {
       if (pool) pool.close();
     }
   }
+  
 }
 
 module.exports = Book;

@@ -14,6 +14,21 @@ const getComments = async (req, res, next) => {
   }
 };
 
+// Retrieve Comments
+const getCommentsById = async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    // Fetch all comments from the database using the getAll method of the Comment model
+    const comments = await Comment.getById(req.poolPromise, id);
+    // Send the retrieved comments as a JSON response
+    res.json(comments);
+  } catch (error) {
+    // Pass any errors to the next middleware for handling
+    next(error);
+  }
+};
+
+
 // Create New Commnent function
 const createComment = async (req, res, next) => {
   // Destructure content, videoId, and username from the request body
@@ -55,6 +70,7 @@ const deleteComment = async (req, res, next) => {
 
 module.exports = {
   getComments,
+  getCommentsById,
   createComment,
   deleteComment
 };

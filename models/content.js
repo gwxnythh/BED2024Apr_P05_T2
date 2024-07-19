@@ -18,6 +18,16 @@ class Content {
     return result.recordset[0];
   }
 
+    // Method to get a specific record by Playlist ID from the Contents table
+    static async getByPlaylistId(pool, id) {
+      // Execute a SQL query to select a record from the Contents table where VideoId matches the provided id
+      const result = await pool.request()
+        .input('id', sql.Int, id)
+        .query('SELECT * FROM Contents WHERE Playlist = @id');
+      return result.recordset;
+    }
+  
+
   // Method to create a new record in the Contents table
   static async create(pool, title, description, playlist, thumbnail, video, username, dateUploaded) {
     // Execute a SQL query to insert a new record into the Contents table

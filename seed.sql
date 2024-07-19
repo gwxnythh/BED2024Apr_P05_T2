@@ -24,7 +24,7 @@ CREATE TABLE Contents (
     VideoId INT PRIMARY KEY IDENTITY(1,1),
     Title NVARCHAR(MAX) NOT NULL,
     Description NVARCHAR(MAX),
-    Playlist INT FOREIGN KEY REFERENCES Playlists(playlistId),
+    Playlist INT FOREIGN KEY REFERENCES Playlists(playlistId) ON DELETE SET NULL,
     Thumbnail NVARCHAR(MAX),
     Video NVARCHAR(MAX),
     username NVARCHAR(50) NOT NULL,
