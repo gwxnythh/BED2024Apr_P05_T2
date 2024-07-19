@@ -48,15 +48,15 @@ const getPlaylistById = async (req, res, next) => {
 
 // Create new playlist function
 const createPlaylist = async (req, res, next) => {
-  const { Title, Description, Thumbnail, username } = req.body;
+  const { title, description, thumbnail, username } = req.body;
 
   try {
     const pool = await req.poolPromise;
     // Execute the query to insert a new playlist
     const result = await pool.request()
-      .input('Title', sql.NVarChar, Title)
-      .input('Description', sql.NVarChar, Description)
-      .input('Thumbnail', sql.NVarChar, Thumbnail)
+      .input('Title', sql.NVarChar, title)
+      .input('Description', sql.NVarChar, description)
+      .input('Thumbnail', sql.NVarChar, req.file.destination + req.file.filename)
       .input('username', sql.NVarChar, username)
       .query('INSERT INTO Playlists (Title, Description, Thumbnail, username, dateUploaded) OUTPUT inserted.* VALUES (@Title, @Description, @Thumbnail, @username, GETDATE())');
 

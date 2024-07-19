@@ -1,13 +1,22 @@
 const express = require('express');
+const cors = require('cors');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const sql = require('mssql');
 const config = require('./dbConfig');
 const commentController = require('./controllers/commentController');
 const playlistController = require('./controllers/playlistController');
 const contentController = require('./controllers/contentController');
+const usersController = require('./controllers/usersController');
+const validateUser = require("./middlewares/validateUser");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Enable CORS
+app.use(cors());
 
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
@@ -16,6 +25,51 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Middleware for serving static files
 const staticMiddleware = express.static("public");
 app.use(staticMiddleware);
+
+// serving static folder for uploading
+app.use('/uploads', express.static('uploads'));
+
+const createDirectoryIfNotExist = (directory) => {
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory, { recursive: true }); // Use { recursive: true } to create parent directories if necessary
+  }
+};
+
+// File uploading for playlist - multer configuration
+const playlistStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    var uploadDir = 'uploads/playlists/' + req.body.title + "/";
+    createDirectoryIfNotExist(uploadDir);
+    cb(null, uploadDir) 
+  },
+  filename: function (req, file, cb) {
+    // Rename uploaded file (optional)
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+});
+
+const uploadPlaylist = multer({ storage: playlistStorage });
+
+
+// File uploading for content - multer configuration
+const contentStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    var uploadDir = "";
+    if (file.fieldname === 'thumbnail') {
+      uploadDir = 'uploads/contents/thumbnail/' + req.body.title + "/";
+    } else {
+      uploadDir = 'uploads/contents/video/' + req.body.title + "/";
+    }
+    createDirectoryIfNotExist(uploadDir);
+    cb(null, uploadDir) 
+  },
+  filename: function (req, file, cb) {
+    // Rename uploaded file (optional)
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+});
+
+const uploadContent = multer({ storage: contentStorage });
 
 // Start server and connect to the database
 app.listen(PORT, async () => {
@@ -30,8 +84,13 @@ app.listen(PORT, async () => {
             next();
         });
 
+        // Routes for Users
+        app.post("/register", validateUser, usersController.registerUser);
+        app.post("/login", validateUser, usersController.loginUser);
+
         // Routes for Comments
         app.get('/comments', commentController.getComments);
+        app.get('/comments/:id', commentController.getCommentsById);
         app.post('/comments', commentController.createComment);
         app.delete('/comments/:id', commentController.deleteComment);
 
@@ -39,14 +98,16 @@ app.listen(PORT, async () => {
         app.get('/playlists', playlistController.getPlaylists);
         app.get('/playlists/:id', playlistController.getPlaylistById);
         app.put('/playlists/:id', playlistController.updatePlaylist);
-        app.post('/playlists', playlistController.createPlaylist);
+        app.post('/playlists', uploadPlaylist.single('thumbnail'), playlistController.createPlaylist);
         app.delete('/playlists/:id', playlistController.deletePlaylist);
+
+        app.get('/playlist/contents/:id', contentController.getContentByPlaylistId);
 
         // Routes for Contents
         app.get('/contents', contentController.getContents);
         app.get('/contents/:id', contentController.getContentById);
         app.put('/contents/:id', contentController.updateContent);
-        app.post('/contents', contentController.createContent);
+        app.post('/contents', uploadContent.fields([{ name: 'thumbnail', maxCount: 1 }, { name: 'video', maxCount: 1 }]), contentController.createContent);
         app.delete('/contents/:id', contentController.deleteContent);
 
         // Error handling middleware

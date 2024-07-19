@@ -31,21 +31,23 @@ const getContentById = async (req, res, next) => {
 
 // Create a new content function
 const createContent = async (req, res, next) => {
-    const { Title, Description, Playlist, Thumbnail, Video, username, dateUploaded } = req.body;
+    const { title, description, playlist, thumbnail, video, username } = req.body;
 
+    const photoFilename =  req.files['thumbnail'][0].destination + req.files['thumbnail'][0].filename;
+    const videoFilename =  req.files['video'][0].destination + req.files['video'][0].filename;
+   
     try {
         // Get a connection pool from the request object
         const pool = await req.poolPromise;
         // Insert the new content into the database
         const result = await pool.request()
-            .input('Title', sql.NVarChar, Title)
-            .input('Description', sql.NVarChar, Description)
-            .input('Playlist', sql.Int, Playlist)
-            .input('Thumbnail', sql.NVarChar, Thumbnail)
-            .input('Video', sql.NVarChar, Video)
+            .input('Title', sql.NVarChar, title)
+            .input('Description', sql.NVarChar, description)
+            .input('Playlist', sql.Int, playlist)
+            .input('Thumbnail', sql.NVarChar, photoFilename)
+            .input('Video', sql.NVarChar, videoFilename)
             .input('username', sql.NVarChar, username)
-            .input('dateUploaded', sql.DateTime, dateUploaded)
-            .query('INSERT INTO Contents (Title, Description, Playlist, Thumbnail, Video, username, dateUploaded) OUTPUT inserted.* VALUES (@Title, @Description, @Playlist, @Thumbnail, @Video, @username, @dateUploaded)');
+            .query('INSERT INTO Contents (Title, Description, Playlist, Thumbnail, Video, username, dateUploaded) OUTPUT inserted.* VALUES (@Title, @Description, @Playlist, @Thumbnail, @Video, @username,  GETDATE())');
 
         res.status(201).json(result.recordset[0]);
     } catch (error) {
@@ -110,11 +112,28 @@ const deleteContent = async (req, res, next) => {
     }
 };
 
+// Get content by playlist id
+const getContentByPlaylistId = async (req, res, next) => {
+    const { id } = req.params;
+    try {
+        // Retrieve the content with the specified ID using the Content model
+        const content = await Content.getByPlaylistId(req.poolPromise, id);
+        if (!content) {
+            // If no content is found, send a 404 Not Found response
+            return res.status(404).json({ error: 'Content not found' });
+        }
+        res.json(content);
+    } catch (error) {
+        next(error);
+    }
+};
+
 
 module.exports = {
     getContents,
     getContentById,
     createContent,
     updateContent,
-    deleteContent
+    deleteContent,
+    getContentByPlaylistId
 };
