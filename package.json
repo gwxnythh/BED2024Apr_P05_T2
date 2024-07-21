@@ -2,18 +2,27 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
-    "mssql": "^11.0.0"
+    "mssql": "^11.0.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1",
+    "multer": "^1.4.5-lts.1"
   },
   "name": "bed_p05_2",
   "description": "S10262576 | Ggwendolynn Lee Rasni\r     S10262569 | Jovan Tan Hao\r     S10262840 | Daphne Cheng Pei En\r     S10262621 | Tan Han Yan",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }

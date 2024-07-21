@@ -15,6 +15,57 @@
 </head>
 
 <body>
-    
+    <div class="signinup-wrapper">
+        <div class="inner">
+            <div class="image-holder">
+                <div class="user-cards">
+                    <input type="hidden" id="role" name="role">
+
+                    <div class="card" onclick="selectUserRole(event, 'Member')">
+                        <img src="../images/member.png" alt="member" draggable="false">
+                        <h4>Member</h4>
+                    </div>
+                    <div class="card" onclick="selectUserRole(event, 'Instructor')">
+                        <img src="../images/instructor.png" alt="instructor" draggable="false">
+                        <h4>Instructor</h4>
+                    </div>
+                    <div class="card" onclick="selectUserRole(event, 'Examiner')">
+                        <img src="../images/examiner.png" alt="examiner" draggable="false">
+                        <h4>Examiner</h4>
+                    </div>
+                    <div class="card" onclick="selectUserRole(event, 'C.S Staff')">
+                        <img src="../images/customerservicestaff.png" alt="csstaff" draggable="false">
+                        <h4>C.S Staff</h4>
+                    </div>
+                </div>
+                <p>New Here? <a href="register.html">Create an Account</a></p>
+            </div>
+
+            <form action="" id="register-form">
+                <center><img src="../images/logo-icon.png" alt="logo" class="logo" draggable="false"></center>
+                <h3>Welcome!</h3>
+
+                <div class="form-wrapper">
+                    <input id="login-username" type="text" name="username" placeholder="Username" class="form-control"
+                        required>
+                    <i class='bx bx-user-circle'></i>
+                </div>
+
+                <div class="form-wrapper">
+                    <input id="login-password" type="password" name="password" placeholder="Password"
+                        class="form-control" required>
+                    <i class='bx bx-lock-open-alt'></i>
+                </div>
+
+                <button type="submit" id="register-btn">
+                    <a>
+                        Login
+                        <i class='bx bx-chevron-right'></i>
+                    </a>
+                </button>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>
