@@ -133,19 +133,19 @@ class Book {
     let pool;
     try {
       pool = await sql.connect(dbConfig);
-      console.log('Connection established');
+      // console.log('Connection established');
   
       const request = pool.request();
-      console.log('Request created');
+      // console.log('Request created');
       await request
         .input("availability", newAvailability)
         .input("book_id", book_id)
         .query("UPDATE Books SET availability = @availability WHERE book_id = @book_id");
   
-      console.log('Query executed');
+      // console.log('Query executed');
       return await this.getBookById(book_id);
     } catch (err) {
-      console.error("Error updating book availability:", err.message);
+      // console.error("Error updating book availability:", err.message);
       throw err;
     } finally {
       if (pool) pool.close();

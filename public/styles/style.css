@@ -1068,17 +1068,9 @@ td {
 
 /* ====== Footer ====== */
 .footer {
-    /* position: fixed;
-    left: 0;
-    bottom: 0;
-    left: 250px;
-    width: calc(100% - 250px);
-    transition: var(--tran-05); */
-    /* background-color: #333; */
     position: relative;
     left: 88px;
     width: calc(100% - 88px);
-
     margin-top: auto;
 }
 
