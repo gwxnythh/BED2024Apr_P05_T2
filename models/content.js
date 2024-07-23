@@ -9,6 +9,15 @@ class Content {
     return result.recordset;
   }
 
+  // Method to get all records from the Contents table that is favourite by username
+  static async getAllFavouriteByUsername(pool, username) {
+    // Execute a SQL query to select all records from the Contents table
+    const result = await pool.request()
+    .input('username', sql.VarChar, username)
+    .query('SELECT ct.VideoId, ct.Title, ct.Description, ct.Playlist, ct.Thumbnail, ct.Video, ct.username, ct.dateUploaded, fv.id AS favouriteId FROM Contents ct INNER JOIN Favourites fv ON ct.VideoId = fv.videoId WHERE ct.username = @username');
+    return result.recordset;
+  }
+
   // Method to get a specific record by its ID from the Contents table
   static async getById(pool, id) {
     // Execute a SQL query to select a record from the Contents table where VideoId matches the provided id
@@ -17,6 +26,17 @@ class Content {
       .query('SELECT * FROM Contents WHERE VideoId = @id');
     return result.recordset[0];
   }
+
+
+    // Method to get a specific record by its ID and username from the Contents and Favourite table 
+    static async getByIdAndUsername(pool, id, username) {
+      // Execute a SQL query to select a record from the Contents table where VideoId matches the provided id
+      const result = await pool.request()
+        .input('id', sql.Int, id)
+        .input('username', sql.VarChar, username)
+        .query('SELECT ct.VideoId, ct.Title, ct.Description, ct.Playlist, ct.Thumbnail, ct.Video, ct.username, ct.dateUploaded, fv.id AS favouriteId FROM Contents ct LEFT JOIN Favourites fv ON ct.VideoId = fv.videoId WHERE ct.VideoId = @id AND ct.username = @username');
+      return result.recordset[0];
+    }
 
     // Method to get a specific record by Playlist ID from the Contents table
     static async getByPlaylistId(pool, id) {
