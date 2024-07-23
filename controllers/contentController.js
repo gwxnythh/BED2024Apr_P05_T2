@@ -75,11 +75,11 @@ const createContent = async (req, res, next) => {
             .input('Thumbnail', sql.NVarChar, photoFilename)
             .input('Video', sql.NVarChar, videoFilename)
             .input('username', sql.NVarChar, username)
-            .query('INSERT INTO Contents (Title, Description, Playlist, Thumbnail, Video, username, dateUploaded) OUTPUT inserted.* VALUES (@Title, @Description, @Playlist, @Thumbnail, @Video, @username,  GETDATE())');
+            .query('INSERT INTO Contents (Title, Description, Playlist, Thumbnail, Video, username, dateUploaded) OUTPUT inserted.* VALUES (@Title, @Description, @Playlist, @Thumbnail, @Video, @username, GETDATE())');
 
         res.status(201).json(result.recordset[0]);
     } catch (error) {
-        console.error('Error creating content:', error.message);
+        // console.error('Error creating content:', error.message);
         next(error);
     }
 };
