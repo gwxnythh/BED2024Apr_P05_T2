@@ -11,7 +11,9 @@ const playlistController = require('./controllers/playlistController');
 const contentController = require('./controllers/contentController');
 const usersController = require('./controllers/usersController');
 const favouriteControler = require('./controllers/favouriteController');
-// const validateUser = require("./middlewares/validateUser");
+const validateUser = require("./middlewares/validateUser");
+const quizController = require("./controllers/quizController");
+const validateQuiz = require('./middlewares/validateQuiz');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,6 +37,7 @@ const createDirectoryIfNotExist = (directory) => {
     fs.mkdirSync(directory, { recursive: true }); // Use { recursive: true } to create parent directories if necessary
   }
 };
+
 
 // File uploading for playlist - multer configuration
 const playlistStorage = multer.diskStorage({
@@ -116,6 +119,13 @@ app.listen(PORT, async () => {
     // Favourite contents
     app.post('/favourite', favouriteControler.favouriteContents);
     app.delete('/unfavourite', favouriteControler.unfavouriteContents);
+
+    // Route for (examiner)
+    app.get("/quizzes", quizController.getAllQuizzes); // Use the quizController methods
+    app.get("/quizzes/:id", quizController.getQuizById);
+    app.post("/quizzes", validateQuiz, quizController.createQuiz);
+    app.put("/quizzes/:id", validateQuiz, quizController.updateQuiz);
+    app.delete("/quizzes/:id", quizController.deleteQuiz);
 
     // Error handling middleware
     app.use((err, req, res, next) => {
