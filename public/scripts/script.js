@@ -18,25 +18,3 @@ modeSwitch.addEventListener("click", () =>{
         modeText.innerText = "Dark Mode"
     }
 });
-
-// User Role Selector
-function selectUserRole(event, role) {
-    // Log the selected role to the console
-    console.log('Selected role:', role);
-    
-    // Disable click events on all cards and reduce opacity
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        if (card !== event.currentTarget) {
-            card.style.opacity = '0.5';
-            card.removeEventListener('click', selectUserRole);
-            card.style.border = '1px solid var(--secondary-color-light)';
-        }
-    });
-    
-    // Highlight the selected card
-    const selectedCard = event.currentTarget;
-    selectedCard.style.opacity = '1';
-    selectedCard.style.border = '3px solid var(--primary-color)';
-    selectedCard.classList.add('selected');
-}
