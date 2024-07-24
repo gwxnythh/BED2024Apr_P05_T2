@@ -172,11 +172,9 @@ describe('Content Controller', () => {
             expect(req.poolPromise.input).toHaveBeenCalledWith('Title', sql.NVarChar, 'Updated Title');
             expect(req.poolPromise.input).toHaveBeenCalledWith('Description', sql.NVarChar, 'Updated Description');
             expect(req.poolPromise.input).toHaveBeenCalledWith('Playlist', sql.Int, 1);
-            expect(req.poolPromise.input).toHaveBeenCalledWith('Thumbnail', sql.NVarChar, 'updated_thumbnail.jpg');
-            expect(req.poolPromise.input).toHaveBeenCalledWith('Video', sql.NVarChar, 'updated_video.mp4');
             expect(req.poolPromise.input).toHaveBeenCalledWith('username', sql.NVarChar, 'updated_user');
-            expect(req.poolPromise.input).toHaveBeenCalledWith('dateUploaded', sql.DateTime, req.body.dateUploaded);
-            expect(req.poolPromise.query).toHaveBeenCalledWith('UPDATE Contents SET Title = @Title, Description = @Description, Playlist = @Playlist, Thumbnail = @Thumbnail, Video = @Video, username = @username, dateUploaded = @dateUploaded WHERE VideoId = @id');
+            // expect(req.poolPromise.input).toHaveBeenCalledWith('dateUploaded', sql.DateTime, req.body.dateUploaded);
+            expect(req.poolPromise.query).toHaveBeenCalledWith('UPDATE Contents SET Title = @Title, Description = @Description, Playlist = @Playlist, username = @username, dateUploaded = GETDATE() WHERE VideoId = @id');
             expect(res.status).toHaveBeenCalledWith(200);
             expect(res.json).toHaveBeenCalledWith({ message: 'Content updated successfully' });
         });
@@ -196,7 +194,7 @@ describe('Content Controller', () => {
 
             await updateContent(req, res, next);
 
-            expect(req.poolPromise.query).toHaveBeenCalledWith('UPDATE Contents SET Title = @Title, Description = @Description, Playlist = @Playlist, Thumbnail = @Thumbnail, Video = @Video, username = @username, dateUploaded = @dateUploaded WHERE VideoId = @id');
+            expect(req.poolPromise.query).toHaveBeenCalledWith('UPDATE Contents SET Title = @Title, Description = @Description, Playlist = @Playlist, username = @username, dateUploaded = GETDATE() WHERE VideoId = @id');
             expect(res.status).toHaveBeenCalledWith(404);
             expect(res.json).toHaveBeenCalledWith({ error: 'Content not found' });
         });

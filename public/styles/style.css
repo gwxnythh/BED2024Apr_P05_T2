@@ -310,6 +310,9 @@ body.dark .switch::before {
 }
 
 /* ###### Always need to put Section name when new one is made! ###### */
+.sidebar.close~.dashboard-csstaff,
+.sidebar.close~.dashboard-examiner,
+.sidebar.close~.todo-instructor,
 .sidebar.close~.instructor-playlist,
 .sidebar.close~.instructor-update-content,
 .sidebar.close~.instructor-new-content,
@@ -772,6 +775,7 @@ select option[value=""][disabled] {
     left: 250px;
     width: calc(100% - 250px);
     transition: var(--tran-05);
+    margin-bottom: 50px;
 }
 
 .credits .table-container {
@@ -1003,8 +1007,8 @@ td {
 }
 
 .dashboard-member .courses-container .card-container .card .tutor img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -1072,6 +1076,11 @@ td {
     left: 88px;
     width: calc(100% - 88px);
     margin-top: auto;
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-05);
 }
 
 footer {
@@ -1205,6 +1214,7 @@ footer .footer-container .contact .info li a {
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .member-profile .text {
@@ -1317,6 +1327,7 @@ footer .footer-container .contact .info li a {
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .update-memprofile-container {
@@ -1407,6 +1418,7 @@ input[disabled]::-webkit-input-placeholder {
     transition: var(--tran-05);
     padding: 0 10%;
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .instructors-member .all-instructors {
@@ -1477,6 +1489,7 @@ input[disabled]::-webkit-input-placeholder {
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .quizzes-member .quizzes-member-container {
@@ -1524,6 +1537,7 @@ input[disabled]::-webkit-input-placeholder {
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .courses-member .courses-member-container {
@@ -1572,8 +1586,8 @@ input[disabled]::-webkit-input-placeholder {
 }
 
 .courses-member .courses-member-container .card-container .card .tutor img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -1609,6 +1623,7 @@ input[disabled]::-webkit-input-placeholder {
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .likes-member .likes-member-container {
@@ -1658,8 +1673,8 @@ input[disabled]::-webkit-input-placeholder {
 }
 
 .likes-member .likes-member-container .card-container .card .tutor img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -1776,7 +1791,7 @@ input[disabled]::-webkit-input-placeholder {
 .contact-us .contactus-form button {
     padding: 10px 15px;
     font-size: 16px;
-    color: var(--text-color);
+    color: white;
     text-transform: capitalize;
     cursor: pointer;
     text-align: center;
@@ -1791,7 +1806,7 @@ input[disabled]::-webkit-input-placeholder {
 
 .contact-us .contactus-form button:hover {
     background-color: var(--secondary-color);
-    color: var(--text-color);
+    color: white;
 }
 
 .contactus-form .form-wrapper {
@@ -1840,6 +1855,7 @@ input[disabled]::-webkit-input-placeholder {
     transition: var(--tran-05);
     padding: 0 10%;
     margin: 0;
+    margin-bottom: 50px;
 }
 
 .aboutus-container .aboutus-img p {
@@ -1888,4 +1904,38 @@ input[disabled]::-webkit-input-placeholder {
     color: var(--text-color);
     font-size: 16px;
     line-height: 1.6;
+}
+
+/* ====== ToDoListScreen.html [gignite feature]====== */
+.todo-instructor {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+    margin-bottom: 50px;
+}
+
+/* ====== quiz.html [Examiner] ====== */
+.dashboard-examiner {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+    margin: 0;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+/* ====== issues.html [CSStaff] ====== */
+.dashboard-csstaff {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+    margin: 0;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }

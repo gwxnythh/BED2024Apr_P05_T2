@@ -89,20 +89,32 @@ const updateContent = async (req, res, next) => {
     const { id } = req.params;
     const { Title, Description, Playlist, Thumbnail, Video, username, dateUploaded } = req.body;
 
+    // console.log('updatecontent id: ', id)
+    // console.log('updatecontent: ', req.body)
+
     try {
         // Get a connection pool from the request object
         const pool = await req.poolPromise;
         // Update the content with the specified ID in the database
         const result = await pool.request()
-            .input('id', sql.Int, id)
-            .input('Title', sql.NVarChar, Title)
-            .input('Description', sql.NVarChar, Description)
-            .input('Playlist', sql.Int, Playlist)
-            .input('Thumbnail', sql.NVarChar, Thumbnail)
-            .input('Video', sql.NVarChar, Video)
-            .input('username', sql.NVarChar, username)
-            .input('dateUploaded', sql.DateTime, dateUploaded)
-            .query('UPDATE Contents SET Title = @Title, Description = @Description, Playlist = @Playlist, Thumbnail = @Thumbnail, Video = @Video, username = @username, dateUploaded = @dateUploaded WHERE VideoId = @id');
+        .input('id', sql.Int, id)
+        .input('Title', sql.NVarChar, Title)
+        .input('Description', sql.NVarChar, Description)
+        .input('Playlist', sql.Int, Playlist)
+        .input('username', sql.NVarChar, username)
+        .query('UPDATE Contents SET Title = @Title, Description = @Description, Playlist = @Playlist, username = @username, dateUploaded = GETDATE() WHERE VideoId = @id');
+
+
+        // const result = await pool.request()
+        //     .input('id', sql.Int, id)
+        //     .input('Title', sql.NVarChar, Title)
+        //     .input('Description', sql.NVarChar, Description)
+        //     .input('Playlist', sql.Int, Playlist)
+        //     .input('Thumbnail', sql.NVarChar, Thumbnail)
+        //     .input('Video', sql.NVarChar, Video)
+        //     .input('username', sql.NVarChar, username)
+        //     .input('dateUploaded', sql.DateTime, dateUploaded)
+        //     .query('UPDATE Contents SET Title = @Title, Description = @Description, Playlist = @Playlist, Thumbnail = @Thumbnail, Video = @Video, username = @username, dateUploaded = @dateUploaded WHERE VideoId = @id');
 
         if (result.rowsAffected[0] === 0) {
             // If no rows were affected, send a 404 Not Found response

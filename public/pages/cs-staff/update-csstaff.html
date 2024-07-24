@@ -1,16 +1,16 @@
-<!-- Instructor's Likes Page -->
+<!-- Update Customer Service Staff's Profile -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Likes | Episteme</title>
+    <title>Update Profile | Episteme</title>
     <!-- ============ Favicon ============ -->
-    <link rel="icon" type="image/x-icon" href="../../images/logo-icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/logo.png">
     <!-- ============ Styles ============ -->
     <link rel="stylesheet" href="../../styles/style.css">
-    <link rel="stylesheet" href="../../styles/instructor.css">
+    <link rel="stylesheet" href="../../styles/csstaff.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -43,7 +43,7 @@
                 <ul class="menu-links">
                     <!-- ###### Dashboard ###### -->
                     <li class="nav-link">
-                        <a href="./instructor-index.html">
+                        <a href="./issues.html">
                             <i class='bx bxs-grid-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
@@ -51,71 +51,23 @@
 
                     <!-- ###### Profile ###### -->
                     <li class="nav-link">
-                        <a href="./profile-instructor.html">
+                        <a href="./profile-csstaff.html">
                             <i class='bx bx-user icon'></i>
                             <span class="text nav-text">Profile</span>
                         </a>
                     </li>
 
-                    <!-- ###### Playlists ###### -->
-                    <li class="nav-link">
-                        <a href="./playlists-instructor.html">
-                            <i class='bx bxs-videos icon'></i>
-                            <span class="text nav-text">Playlists</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Contents ###### -->
-                    <li class="nav-link">
-                        <a href="./contents-instructor.html">
-                            <i class='bx bx-play-circle icon'></i>
-                            <span class="text nav-text">Contents</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Comments ###### -->
-                    <li class="nav-link">
-                        <a href="./comments-instructor.html">
-                            <i class='bx bx-chat icon'></i>
-                            <span class="text nav-text">Comments</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Likes ###### -->
-                    <li class="nav-link">
-                        <a href="./likes-instructor.html">
-                            <i class='bx bx-heart icon'></i>
-                            <span class="text nav-text">Likes</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### To-Do List ###### -->
-                    <li class="nav-link">
-                        <a href="./ToDoListScreen.html">
-                            <i class='bx bx-list-ul icon'></i>
-                            <span class="text nav-text">To-Do List</span>
-                        </a>
-                    </li>
-
                     <!-- ###### About Us ###### -->
                     <li class="nav-link">
-                        <a href="./aboutus-instructor.html">
+                        <a href="./aboutus-csstaff.html">
                             <i class='bx bx-group icon icon'></i>
                             <span class="text nav-text">About Us</span>
                         </a>
                     </li>
 
-                    <!-- ###### Contact Us ###### -->
-                    <li class="nav-link">
-                        <a href="./contactus-instructor.html">
-                            <i class='bx bx-support icon icon'></i>
-                            <span class="text nav-text">Contact Us</span>
-                        </a>
-                    </li>
-
                     <!-- ###### Credits ###### -->
                     <li class="nav-link">
-                        <a href="./credits-instructor.html">
+                        <a href="./credits-csstaff.html">
                             <i class='bx bx-info-circle icon'></i>
                             <span class="text nav-text">Credits</span>
                         </a>
@@ -126,7 +78,7 @@
             <div class="bottom-content">
                 <!-- ###### Login/Logout ###### -->
                 <li class="">
-                    <a href="../login.html">
+                    <a href="#">
                         <i class='bx bx-log-in icon'></i> <!-- <i class='bx bx-log-out icon' ></i> -->
                         <span class="text nav-text">Login</span>
                         <!-- Need To Do Code For Verificaiton of Login/Logout -->
@@ -150,65 +102,63 @@
     </nav>
 
     <section class="home">
-        <div class="text">Likes</div>
+        <div class="text">Profile Details</div>
     </section>
 
-    <!-- ============ All Likes ============ -->
-    <section class="likes-instructor">
-        <div class="likes-instructor-container">
-            <h2>Liked Videos</h2>
+    <!-- ============ Update Customer Service Staff's Profile ============ -->
+    <section class="update-csstaff-profile">
+        <div class="update-csstaffprofile-container">
+            <h2><a href="./profile-csstaff.html"><i class='bx bx-chevron-left'></i></a>Update Profile</h2>
             <hr>
-            <div class="card-container" id="card-container">
-                <!-- ###### First Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
+            <div class="update-mem-info">
+                <div class="update-mem-pic">
+                    <div class="user-image">
+                        <!-- ###### User PFP ###### -->
+                        <div class="user-img" id="user-img">
+                            <div id="popoverbtn">
+                                <img id="profile-pic" src="../../images/profile.jpg" />
+                                <div class="overlay">
+                                    <i class='bx bxs-camera camera-icon'></i>
+                                </div>
+                            </div>
                         </div>
+                        <input id="input-file" type="file" name="profile_pic" placeholder="Photo" required="" accept=".jpg, .jpeg, .png" capture>
                     </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #1</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
+                </div>
 
-                <!-- ###### Second Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
+                <div class="update-mem-details">
+                    <div class="row">
+                        <div class="field-column column-1">
+                            <label for="username">Username</label>
+                            <input type="text" placeholder="Username">
+                        </div>
+                        <div class="field-column">
+                            <label for="name">Name</label>
+                            <input type="text" placeholder="Name">
                         </div>
                     </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #2</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
-
-                <!-- ###### Third Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
+                    <div class="row">
+                        <div class="field-column column-1">
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Email">
+                        </div>
+                        <div class="field-column">
+                            <label for="password">Password</label>
+                            <input type="password" placeholder="Password">
                         </div>
                     </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #3</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
+                    <div class="row">
+                        <div class="field-column column-1">
+                            <label for="role">Role</label>
+                            <input type="text" placeholder="Role" disabled>
+                        </div>
+                        <div class="field-column">
+                            <label for="password">Confirm Password</label>
+                            <input type="password" placeholder="Confirm Password">
+                        </div>
                     </div>
-                </div> -->
+                    <a href="#" class="inline-btn">Save Changes</a>
+                </div>
             </div>
         </div>
     </section>
@@ -233,10 +183,7 @@
                 <div class="sec quicklinks">
                     <h2>Navigation</h2>
                     <ul>
-                        <li><a href="./instructor-index.html">Dashboard</a></li>
-                        <li><a href="./contents-instructor.html">Contents</a></li>
-                        <li><a href="./playlists-instructor.html">Playlists</a></li>
-                        <li><a href="./likes-instructor.html">Likes</a></li>
+                        <li><a href="./issues.html">Dashboard</a></li>
                     </ul>
                 </div>
 
@@ -244,9 +191,9 @@
                 <div class="sec quicklinks">
                     <h2>Information</h2>
                     <ul>
-                        <li><a href="./aboutus-instructor.html">About Us</a></li>
-                        <li><a href="./contactus-instructor.html">Contact Us</a></li>
-                        <li><a href="./credits-instructor.html">Credits</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Credits</a></li>
                     </ul>
                 </div>
 
@@ -254,8 +201,7 @@
                 <div class="sec quicklinks">
                     <h2>User Options</h2>
                     <ul>
-                        <li><a href="./profile-instructor.html">Profile</a></li>
-                        <li><a href="./ToDoListScreen.html">To-Do List</a></li>
+                        <li><a href="./profile-csstaff.html">Profile</a></li>
                     </ul>
                 </div>
 
@@ -280,13 +226,13 @@
             </div>
         </footer>
         <div class="copyrightText">
-            <p>Copyright &copy; BED_P05_T2. All Rights Reserved. 2024</p>
+            <p>Copyright &copy; BED_P05_2. All Rights Reserved. 2024</p>
         </div>
     </section>
 
     <!-- ============ Scripts ============ -->
     <script src="../../scripts/script.js"></script>
-    <script src="../../scripts/list-likes-contents.js"></script>
+    <script src="../../scripts/pfp-script.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,11 @@
-<!-- Instructor's Likes Page -->
+<!-- Instructor's Profile -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Likes | Episteme</title>
+    <title>Profile | Episteme</title>
     <!-- ============ Favicon ============ -->
     <link rel="icon" type="image/x-icon" href="../../images/logo-icon.png">
     <!-- ============ Styles ============ -->
@@ -150,67 +150,52 @@
     </nav>
 
     <section class="home">
-        <div class="text">Likes</div>
+        <div class="text">Profile Details</div>
     </section>
 
-    <!-- ============ All Likes ============ -->
-    <section class="likes-instructor">
-        <div class="likes-instructor-container">
-            <h2>Liked Videos</h2>
+    <!-- ============ Instructor's Profile ============ -->
+    <section class="instructor-profile">
+        <div class="instructor-profile-container">
+            <h2>Profile</h2>
             <hr>
-            <div class="card-container" id="card-container">
+            <!-- Profile image -->
+            <img src="../../images/profile.jpg" alt="profilepic" class="profile-image">
+            <!-- Profile info section -->
+            <div class="profile-info">
+                <!-- User details -->
+                <div class="user-details">
+                    <h2><span>Guest</span></h2>
+                    <p><span>Staff</span></p>
+                    <a href="./update-instructor.html" class="inline-btn">Update Profile</a>
+                </div>
+            </div>
+
+            <!-- Cards section -->
+            <div class="instructor-cards-container">
                 <!-- ###### First Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
-                        </div>
-                    </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #1</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
+                <div class="card">
+                    <p class="qap-text">Total Likes</p>
+                    <a href="./likes-instructor.html" class="inline-btn">View Contents</a>
+                </div>
 
                 <!-- ###### Second Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
-                        </div>
-                    </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #2</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
+                <div class="card">
+                    <p class="qap-text">Total Contents</p>
+                    <a href="./contents-instructor.html" class="inline-btn">View Contents</a>
+                </div>
 
                 <!-- ###### Third Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
-                        </div>
-                    </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #3</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
+                <div class="card">
+                    <p class="qap-text">Total Playlists</p>
+                    <a href="./playlists-instructor.html" class="inline-btn">View Playlists</a>
+                </div>
+
+                <!-- ###### Fourth Card ###### -->
+                <div class="card">
+                    <p class="qap-text">Total Comments</p>
+                    <a href="./comments-instructor.html" class="inline-btn">View Comments</a>
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- ============ Footer ============ -->
@@ -286,7 +271,6 @@
 
     <!-- ============ Scripts ============ -->
     <script src="../../scripts/script.js"></script>
-    <script src="../../scripts/list-likes-contents.js"></script>
 </body>
 
 </html>
