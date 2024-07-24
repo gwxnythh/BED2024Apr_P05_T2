@@ -77,8 +77,14 @@ const updatePlaylist = async (req, res, next) => {
       .input('id', sql.Int, id)
       .input('Title', sql.NVarChar, Title)
       .input('Description', sql.NVarChar, Description)
-      .input('Thumbnail', sql.NVarChar, Thumbnail)
-      .query('UPDATE Playlists SET Title = @Title, Description = @Description, Thumbnail = @Thumbnail WHERE playlistId = @id');
+      .query('UPDATE Playlists SET Title = @Title, Description = @Description WHERE playlistId = @id');
+
+    // const result = await pool.request()
+    //   .input('id', sql.Int, id)
+    //   .input('Title', sql.NVarChar, Title)
+    //   .input('Description', sql.NVarChar, Description)
+    //   .input('Thumbnail', sql.NVarChar, Thumbnail)
+    //   .query('UPDATE Playlists SET Title = @Title, Description = @Description, Thumbnail = @Thumbnail WHERE playlistId = @id');
 
     // If no rows were affected, return a 404 error
     if (result.rowsAffected[0] === 0) {

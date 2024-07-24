@@ -1,19 +1,20 @@
-<!-- Instructor's Create New Content Page -->
+<!-- Credits Page -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Your Content | Episteme</title>
+    <title>Credits | Episteme</title>
     <!-- ============ Favicon ============ -->
-    <link rel="icon" type="image/x-icon" href="../../images/logo-icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/logo.png">
     <!-- ============ Styles ============ -->
     <link rel="stylesheet" href="../../styles/style.css">
-    <link rel="stylesheet" href="../../styles/instructor.css">
+    <link rel="stylesheet" href="../../styles/csstaff.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 
 <body>
     <!-- ============ Navigation ============ -->
@@ -43,7 +44,7 @@
                 <ul class="menu-links">
                     <!-- ###### Dashboard ###### -->
                     <li class="nav-link">
-                        <a href="./instructor-index.html">
+                        <a href="./issues.html">
                             <i class='bx bxs-grid-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
@@ -51,71 +52,23 @@
 
                     <!-- ###### Profile ###### -->
                     <li class="nav-link">
-                        <a href="./profile-instructor.html">
+                        <a href="./profile-csstaff.html">
                             <i class='bx bx-user icon'></i>
                             <span class="text nav-text">Profile</span>
                         </a>
                     </li>
 
-                    <!-- ###### Playlists ###### -->
-                    <li class="nav-link">
-                        <a href="./playlists-instructor.html">
-                            <i class='bx bxs-videos icon'></i>
-                            <span class="text nav-text">Playlists</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Contents ###### -->
-                    <li class="nav-link">
-                        <a href="./contents-instructor.html">
-                            <i class='bx bx-play-circle icon'></i>
-                            <span class="text nav-text">Contents</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Comments ###### -->
-                    <li class="nav-link">
-                        <a href="./comments-instructor.html">
-                            <i class='bx bx-chat icon'></i>
-                            <span class="text nav-text">Comments</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Likes ###### -->
-                    <li class="nav-link">
-                        <a href="./likes-instructor.html">
-                            <i class='bx bx-heart icon'></i>
-                            <span class="text nav-text">Likes</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### To-Do List ###### -->
-                    <li class="nav-link">
-                        <a href="./ToDoListScreen.html">
-                            <i class='bx bx-list-ul icon'></i>
-                            <span class="text nav-text">To-Do List</span>
-                        </a>
-                    </li>
-
                     <!-- ###### About Us ###### -->
                     <li class="nav-link">
-                        <a href="./aboutus-instructor.html">
+                        <a href="./aboutus-csstaff.html">
                             <i class='bx bx-group icon icon'></i>
                             <span class="text nav-text">About Us</span>
                         </a>
                     </li>
 
-                    <!-- ###### Contact Us ###### -->
-                    <li class="nav-link">
-                        <a href="./contactus-instructor.html">
-                            <i class='bx bx-support icon icon'></i>
-                            <span class="text nav-text">Contact Us</span>
-                        </a>
-                    </li>
-
                     <!-- ###### Credits ###### -->
                     <li class="nav-link">
-                        <a href="./credits-instructor.html">
+                        <a href="./credits-csstaff.html">
                             <i class='bx bx-info-circle icon'></i>
                             <span class="text nav-text">Credits</span>
                         </a>
@@ -126,7 +79,7 @@
             <div class="bottom-content">
                 <!-- ###### Login/Logout ###### -->
                 <li class="">
-                    <a href="../login.html">
+                    <a href="#">
                         <i class='bx bx-log-in icon'></i> <!-- <i class='bx bx-log-out icon' ></i> -->
                         <span class="text nav-text">Login</span>
                         <!-- Need To Do Code For Verificaiton of Login/Logout -->
@@ -150,37 +103,105 @@
     </nav>
 
     <section class="home">
-        <div class="text">Content</div>
+        <div class="text">Credits</div>
     </section>
 
-    <!-- ============ Instructor's New Content ============ -->
-    <section class="instructor-new-content">
-        <div class="new-content-container">
-            <h2><a href="./contents-instructor.html"><i class='bx bx-chevron-left'></i></a>Add Content</h2>
-            <hr>
-            <div class="new-content-form">
-                <form action="#" method="POST" enctype="multipart/form-data">
-                    <label for="title">Content Title</label><br>
-                    <input type="text" id="title" name="title" required><br><br>
+    <!-- ============ Credits ============ -->
+    <section class="credits">
+        <!-- ###### Credit Contents Here ###### -->
+        <table>
+            <!-- ###### Logos ###### -->
+            <thead>
+                <tr>
+                    <th colspan="2">Logos</th>
+                    <th>Done By</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <img src="../../images/logo-icon.png" class="credits-img2">
+                        ../images/logo-icon.png
+                    </td>
+                    <td>Ggwendolynn</td>
+                </tr>
+            </tbody>
 
-                    <label for="description">Content Description</label><br>
-                    <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+            <!-- ###### Icons ###### -->
+            <thead>
+                <tr>
+                    <th colspan="2">Icons</th>
+                    <th>Sourced From</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <i class='bx bx-chevron-right toggle'></i>
+                        <i class='bx bx-search icon'></i>
+                        <i class='bx bxs-grid-alt icon'></i>
+                        <i class='bx bx-user icon'></i>
+                        <i class='bx bx-heart icon'></i>
+                        <i class='bx bxs-graduation icon'></i>
+                        <i class='bx bx-pencil icon'></i>
+                        <i class='bx bx-book-reader icon'></i>
+                        <i class='bx bx-group icon icon'></i>
+                        <i class='bx bx-support icon icon'></i>
+                        <i class='bx bx-cog icon'></i>
+                        <i class='bx bx-info-circle icon'></i>
+                        <i class='bx bx-log-in icon'></i>
+                        <i class='bx bx-log-out icon' ></i>
+                        <i class='bx bx-moon icon dark'></i>
+                        <i class='bx bx-sun icon light'></i>
+                    </td>
+                    <td><a href="https://boxicons.com/?query=" target="_blank">Boxicons</a></td>
+                </tr>
+            </tbody>
 
-                    <label for="playlist">Playlist</label><br>
-                    <select id="playlist" name="playlist">
-                        <!-- auto generate by fetching through API -->
-                    </select><br><br>
+            <!-- ###### Media & Content ###### -->
+            <thead>
+                <tr>
+                    <th colspan="2">Media & Content</th>
+                    <th>Sourced From</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">Row 1 Data</td>
+                    <td>Name</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Row 2 Data</td>
+                    <td>Name</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Row 3 Data</td>
+                    <td>Name</td>
+                </tr>
+            </tbody>
 
-                    <label for="thumbnail">Content Thumbnail</label><br>
-                    <input type="file" id="thumbnail" name="thumbnail" accept="image/*" required><br><br>
-
-                    <label for="video">Content Video</label><br>
-                    <input type="file" id="video" name="video" accept="video/*" required><br><br>
-
-                    <input type="submit" id="create-content-btn" value="Add Content" class="inline-btn">
-                </form>
-            </div>
-        </div>
+            <!-- ###### References + Coding Help ###### -->
+            <thead>
+                <tr>
+                    <th colspan="2">References + Coding Help</th>
+                    <th>Website</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">Website Purpose +  Layout</td>
+                    <td><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiM-4Xl3ZuGAxVexzgGHeBzAxMQFnoECAcQAQ&url=https%3A%2F%2Fwww.linkedin.com%2Flearning&usg=AOvVaw1JwZH7SQvqFpx68dCPMkuJ&opi=89978449">Linkedin Learning</a></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Row 2 Data</td>
+                    <td>Name</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Row 3 Data</td>
+                    <td>Name</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
 
     <!-- ============ Footer ============ -->
@@ -203,10 +224,7 @@
                 <div class="sec quicklinks">
                     <h2>Navigation</h2>
                     <ul>
-                        <li><a href="./instructor-index.html">Dashboard</a></li>
-                        <li><a href="./contents-instructor.html">Contents</a></li>
-                        <li><a href="./playlists-instructor.html">Playlists</a></li>
-                        <li><a href="./likes-instructor.html">Likes</a></li>
+                        <li><a href="./issues.html">Dashboard</a></li>
                     </ul>
                 </div>
 
@@ -214,9 +232,9 @@
                 <div class="sec quicklinks">
                     <h2>Information</h2>
                     <ul>
-                        <li><a href="./aboutus-instructor.html">About Us</a></li>
-                        <li><a href="./contactus-instructor.html">Contact Us</a></li>
-                        <li><a href="./credits-instructor.html">Credits</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Credits</a></li>
                     </ul>
                 </div>
 
@@ -224,8 +242,7 @@
                 <div class="sec quicklinks">
                     <h2>User Options</h2>
                     <ul>
-                        <li><a href="./profile-instructor.html">Profile</a></li>
-                        <li><a href="./ToDoListScreen.html">To-Do List</a></li>
+                        <li><a href="./profile-csstaff.html">Profile</a></li>
                     </ul>
                 </div>
 
@@ -250,13 +267,12 @@
             </div>
         </footer>
         <div class="copyrightText">
-            <p>Copyright &copy; BED_P05_T2. All Rights Reserved. 2024</p>
+            <p>Copyright &copy; BED_P05_2. All Rights Reserved. 2024</p>
         </div>
     </section>
 
     <!-- ============ Scripts ============ -->
     <script src="../../scripts/script.js"></script>
-    <script src="../../scripts/content.js"></script>
 </body>
 
 </html>

@@ -43,7 +43,6 @@ const createDirectoryIfNotExist = (directory) => {
   }
 };
 
-
 // File uploading for playlist - multer configuration
 const playlistStorage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -58,7 +57,6 @@ const playlistStorage = multer.diskStorage({
 });
 
 const uploadPlaylist = multer({ storage: playlistStorage });
-
 
 // File uploading for content - multer configuration
 const contentStorage = multer.diskStorage({
@@ -95,7 +93,7 @@ app.listen(PORT, async () => {
 
     // Routes for Users
     app.post("/register", validateUser, usersController.registerUser);
-    app.post("/login", validateUser, usersController.loginUser);
+    app.post("/login", usersController.loginUser);
 
     // Routes for Comments
     app.get('/comments', commentController.getComments);

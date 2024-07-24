@@ -11,17 +11,15 @@ class User {
     this.email = email;
   }
 
-  async save() {
+  async save(pool) {
     try {
-      const connection = await sql.connect(dbConfig);
-
       const sqlQuery = `
                 INSERT INTO Users (username, password, role, email, name)
                 VALUES (@username, @password, @role, @email, @name);
                 SELECT SCOPE_IDENTITY() AS user_id;
             `;
 
-      const request = connection.request();
+      const request = pool.request();
       request.input("username", this.username);
       request.input("password", this.password);
       request.input("role", this.role || null);
@@ -29,8 +27,6 @@ class User {
       request.input("name", this.name || null);
 
       const result = await request.query(sqlQuery);
-
-      connection.close();
 
       // Update instance with new user_id
       this.user_id = result.recordset[0].user_id;
@@ -41,18 +37,15 @@ class User {
     }
   }
 
-  static async getUserByUsername(username) {
+  static async getUserByUsername(pool, username) {
     try {
-      const connection = await sql.connect(dbConfig);
 
       const sqlQuery = `SELECT * FROM Users WHERE username = @username`;
 
-      const request = connection.request();
+      const request = pool.request();
       request.input("username", username);
       const result = await request.query(sqlQuery);
 
-      connection.close();
-
       return result.recordset[0]
         ? new User(result.recordset[0].username, result.recordset[0].name, result.recordset[0].email, result.recordset[0].password, result.recordset[0].role)
         : null;
@@ -61,36 +54,12 @@ class User {
     }
   }
 
-  static async getUserById(user_id) {
+  static async getAllUsers(pool) {
     try {
-      const connection = await sql.connect(dbConfig);
-
-      const sqlQuery = `SELECT * FROM Users WHERE user_id = @user_id`;
-
-      const request = connection.request();
-      request.input("user_id", user_id);
-      const result = await request.query(sqlQuery);
-
-      connection.close();
-
-      return result.recordset[0]
-        ? new User(result.recordset[0].username, result.recordset[0].name, result.recordset[0].email, result.recordset[0].password, result.recordset[0].role)
-        : null;
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  static async getAllUsers() {
-    try {
-      const connection = await sql.connect(dbConfig);
-
       const sqlQuery = `SELECT * FROM Users`;
 
-      const request = connection.request();
+      const request = pool.request();
       const result = await request.query(sqlQuery);
-
-      connection.close();
 
       return result.recordset.map(row => new User(row.user_id, row.username, row.name, row.email, row.password, row.role));
     } catch (error) {
@@ -98,10 +67,8 @@ class User {
     }
   }
 
-  static async updateUser(user_id, newUserData) {
+  static async updateUser(pool, user_id, newUserData) {
     try {
-      const connection = await sql.connect(dbConfig);
-
       const sqlQuery = `
                 UPDATE Users
                 SET username = @username,
@@ -110,7 +77,7 @@ class User {
                 WHERE user_id = @user_id
             `;
 
-      const request = connection.request();
+      const request = pool.request();
       request.input("user_id", user_id);
       request.input("username", newUserData.username || null);
       request.input("passwordHash", newUserData.passwordHash || null);
@@ -118,25 +85,19 @@ class User {
 
       await request.query(sqlQuery);
 
-      connection.close();
-
       return await this.getUserById(user_id); // Returning the updated user data
     } catch (error) {
       throw error;
     }
   }
 
-  static async deleteUser(user_id) {
+  static async deleteUser(pool, user_id) {
     try {
-      const connection = await sql.connect(dbConfig);
-
       const sqlQuery = `DELETE FROM Users WHERE user_id = @user_id`;
 
-      const request = connection.request();
+      const request = pool.request();
       request.input("user_id", user_id);
       const result = await request.query(sqlQuery);
-
-      connection.close();
 
       return result.rowsAffected > 0; // Indicate success based on affected rows
     } catch (error) {
@@ -144,10 +105,8 @@ class User {
     }
   }
 
-  static async searchUsers(searchTerm) {
+  static async searchUsers(pool, searchTerm) {
     try {
-      const connection = await sql.connect(dbConfig);
-
       const query = `
                 SELECT *
                 FROM Users
@@ -155,8 +114,7 @@ class User {
                 OR email LIKE '%${searchTerm}%'
             `;
 
-      const result = await connection.request().query(query);
-      connection.close();
+      const result = await pool.request().query(query);
 
       return result.recordset;
     } catch (error) {

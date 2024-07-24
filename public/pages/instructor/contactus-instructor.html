@@ -1,11 +1,11 @@
-<!-- Instructor's Likes Page -->
+<!-- Contact Us Page [Instructor] -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Likes | Episteme</title>
+    <title>Contact Us | Episteme</title>
     <!-- ============ Favicon ============ -->
     <link rel="icon" type="image/x-icon" href="../../images/logo-icon.png">
     <!-- ============ Styles ============ -->
@@ -149,66 +149,51 @@
         </div>
     </nav>
 
-    <section class="home">
-        <div class="text">Likes</div>
-    </section>
-
-    <!-- ============ All Likes ============ -->
-    <section class="likes-instructor">
-        <div class="likes-instructor-container">
-            <h2>Liked Videos</h2>
-            <hr>
-            <div class="card-container" id="card-container">
-                <!-- ###### First Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
+    <!-- ============ Contact Us Content ============ -->
+    <section class="contact-us">
+        <div class="contactus-container">
+            <div class="contactus-content">
+                <div class="contactus-image">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15954.953768330523!2d103.7759366!3d1.3330863!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da107d8eb4e359%3A0x75d2e7ffdeeb0c43!2sNgee%20Ann%20Polytechnic!5e0!3m2!1sen!2ssg!4v1716566395583!5m2!1sen!2ssg"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contactus-details">
+                    <h2 class="contactus-title">Contact Us</h2>
+                    <p class="contactus-description desc1">We're here to assist you with any questions or inquiries you
+                        may
+                        have about our courses. Contact us anytime, and we'll be happy to help!</p>
+                    <div class="contactus-info">
+                        <div class="contactus-info-item">
+                            <h3>Address:</h3>
+                            <p>535 Clementi Rd, Singapore 599489</p>
+                        </div>
+                        <div class="contactus-info-item">
+                            <h3>Email:</h3>
+                            <p>epistemebed@gmail.com</p>
+                        </div>
+                        <div class="contactus-info-item">
+                            <h3>Phone Number:</h3>
+                            <p>+65 6466 6555</p>
                         </div>
                     </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #1</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
-
-                <!-- ###### Second Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
+                    <p class="contactus-description desc2">Drop Us A Message! We will reply within 24 hours!</p>
+                    <form class="contactus-form" method="POST" action="http://localhost:3000/issues">
+                        <div class="form-wrapper">
+                            <input id="contact-name" type="text" placeholder="Name" name="name" class="form-control">
                         </div>
-                    </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #2</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
-
-                <!-- ###### Third Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
+                        <div class="form-wrapper">
+                            <input id="contact-email" type="email" placeholder="Email Address" name="email"
+                                class="form-control">
                         </div>
-                    </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #3</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
+                        <div class="form-wrapper">
+                            <textarea id="contact-message" name="message" placeholder="Message..."
+                                class="form-control"></textarea>
+                        </div>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -286,7 +271,7 @@
 
     <!-- ============ Scripts ============ -->
     <script src="../../scripts/script.js"></script>
-    <script src="../../scripts/list-likes-contents.js"></script>
+    <script src="../../scripts/issues-script.js"></script>
 </body>
 
 </html>

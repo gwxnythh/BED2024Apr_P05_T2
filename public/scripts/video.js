@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (isInstructorRole()) {
                     const deleteButton = document.createElement('button');
                     deleteButton.classList.add('delete-button');
-                    deleteButton.innerHTML = '<i class="bx bxs-trash">Delete comment</i>';
+                    deleteButton.innerHTML = '<i class="bx bxs-trash icon"></i>';
                     deleteButton.addEventListener('click', async function (event) {
                         event.preventDefault();
                         try {

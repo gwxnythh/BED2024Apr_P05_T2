@@ -7,6 +7,10 @@
     padding: 0 10%;
 }
 
+.card {
+    color: var(--text-color);
+}
+
 .dashboard-instructor .quickaccess-container .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -59,6 +63,7 @@
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .instructor-profile .text {
@@ -175,6 +180,7 @@
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .update-instructorprofile-container {
@@ -259,6 +265,7 @@
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .likes-instructor .likes-instructor-container {
@@ -308,8 +315,8 @@
 }
 
 .likes-instructor .likes-instructor-container .card-container .card .tutor img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -344,7 +351,7 @@
     gap: 10px;
 }
 
-/* ====== palylsits + contents-instructor.html (instructor) ====== */
+/* ====== playlists + contents-instructor.html (instructor) ====== */
 .instructor-playlist,
 .instructor-content {
     position: relative;
@@ -353,6 +360,7 @@
     transition: var(--tran-05);
     padding: 0 10%;
     margin: 20px 0;
+    margin-bottom: 50px;
 }
 
 .instructor-playlist .content-header,
@@ -429,6 +437,7 @@
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 30%;
+    margin-bottom: 50px;
 }
 
 .instructor-new-content .new-content-container {
@@ -481,6 +490,7 @@
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 30%;
+    margin-bottom: 50px;
 }
 
 .instructor-update-content .update-content-container {
@@ -533,6 +543,7 @@
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 30%;
+    margin-bottom: 50px;
 }
 
 .instructor-new-playlist .new-playlist-container {
@@ -585,6 +596,7 @@
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 30%;
+    margin-bottom: 50px;
 }
 
 .instructor-update-playlist .update-playlist-container {
@@ -684,19 +696,14 @@
 }
 
 #comment-list .delete-button {
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
     border: none;
-    width: 164px;
-    height: 51px;
-    margin: auto;
-    margin-top: 40px;
+    padding: 10px 10px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    background: #e04c16;
-    font-size: 16px;
-    color: #fff;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-left: auto;
 }
 
 
@@ -707,6 +714,7 @@
     width: calc(100% - 250px);
     transition: var(--tran-05);
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .instructor-comments img {
@@ -765,7 +773,9 @@
     border-radius: 5px;
     margin: 4px
 }
-.instructor-comments .comments-vidtitle, .comments-date {
+
+.instructor-comments .comments-vidtitle,
+.comments-date {
     color: gray;
     font-size: 0.9em;
 }
@@ -783,59 +793,66 @@
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    outline: none; /* Remove default focus outline */
-  }
-  
-  .favorite-btn:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .favorite-btn.clicked {
-    background-color: #ff9800; /* Change background color when favorited */
-    color: #fff; /* Change text color when favorited */
-  }
-  
-  .heart-icon {
-    fill: #333; /* Default color of heart icon */
-    transition: fill 0.3s ease;
-  }
-  
-  .favorite-btn.clicked .heart-icon {
-    fill: #fff; /* Change color of heart icon when favorited */
-  }
-  
-  .text {
-    margin-left: 8px;
-  }
+    outline: none;
+}
 
-  .fav-btn {
+.favorite-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.favorite-btn.clicked {
+    background-color: #ff9800;
+    color: #fff;
+}
+
+.heart-icon {
+    fill: #333;
+    transition: fill 0.3s ease;
+}
+
+.favorite-btn.clicked .heart-icon {
+    fill: #fff;
+    /* Change color of heart icon when favorited */
+}
+
+.text {
+    margin-left: 8px;
+}
+
+.fav-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-  }
+}
 
-  .video-header {
+.video-header {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 10px;
-  }
+}
 
-  .non-adjustable-textarea {
+.non-adjustable-textarea {
     resize: none;
     width: 300px;
     height: 150px;
     border: none;
 }
 
-.comment-container .title, #video-description, .video-header {
+.comment-container .title,
+#video-description,
+.video-header {
     color: var(--text-color);
 }
 
 .comment-container .comment-info {
- margin-left: 10px;
+    margin-left: 10px;
+    width: 85%; /* Takes up full width of parent */
+    word-wrap: break-word; /* Break long words */
+    overflow-wrap: break-word; /* Modern word breaking */
+    white-space: normal; /* Allow normal text wrapping */
 }
 
-.comment-info .title  {
+.comment-info .title {
     margin-top: 5px;
 }

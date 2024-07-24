@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   
           // Create tutor image
           const tutorImg = document.createElement('img');
-          tutorImg.src = '../../images/instructor.png';
+          tutorImg.src = '../../images/profile.jpg';
           tutorImg.alt = 'tutorpic';
   
           // Create tutor details

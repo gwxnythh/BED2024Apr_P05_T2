@@ -1,18 +1,123 @@
-<!-- Instructor's Likes Page -->
+<!-- ********* Gignite AI Feature ********* -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Likes | Episteme</title>
-    <!-- ============ Favicon ============ -->
-    <link rel="icon" type="image/x-icon" href="../../images/logo-icon.png">
-    <!-- ============ Styles ============ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="../../styles/instructor.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .task-container {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            padding: 1.25rem;
+        }
+
+        .task-container h4 {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ced4da;
+        }
+
+        .task-item:last-child {
+            border-bottom: none;
+        }
+
+        .task-item input[type="checkbox"] {
+            margin-right: 1rem;
+        }
+
+        .task-item .task-text {
+            flex: 1;
+            color: var(--text-color);
+            margin-right: 1rem;
+            word-break: break-word;
+        }
+
+        .task-item .delete-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        .task-item .delete-button:hover {
+            background: red;
+        }
+
+        .button {
+            padding: 0.375rem 0.75rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .button-clear {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        .button-submit {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+            margin-left: 5px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            height: 43px;
+        }
+
+        .button-clear:hover,
+        .button-submit:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .task-body {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -150,65 +255,24 @@
     </nav>
 
     <section class="home">
-        <div class="text">Likes</div>
+        <div class="text">To-Do List</div>
     </section>
 
-    <!-- ============ All Likes ============ -->
-    <section class="likes-instructor">
-        <div class="likes-instructor-container">
-            <h2>Liked Videos</h2>
-            <hr>
-            <div class="card-container" id="card-container">
-                <!-- ###### First Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
-                        </div>
-                    </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #1</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
-
-                <!-- ###### Second Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
-                        </div>
-                    </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #2</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
-
-                <!-- ###### Third Card ###### -->
-                <!-- <div class="card">
-                    <div class="tutor">
-                        <img src="../../images/instructor.png" alt="tutorpic">
-                        <div>
-                            <h3>John Doe</h3>
-                            <span>21-25-2024</span>
-                        </div>
-                    </div>
-                    <img src="../../images/thumbnail.png" class="thumb" alt="thumbnail">
-                    <h3 class="title">Playlist #3</h3>
-                    <div class="card-container-btn">
-                        <a href="#" class="inline-btn">Watch Video</a>
-                        <a href="#" class="inline-btn">Remove</a>
-                    </div>
-                </div> -->
+    <!-- ============ Instructor's To-Do List ============ -->
+    <section class="todo-instructor">
+        <div class="container">
+            <div class="task-container">
+                <h4>Add New Task</h4>
+                <div class="task-body">
+                    <input id="new-task-input" type="text" placeholder="E.g. Start recording new video"
+                        class="input-field" />
+                    <button id="add-task" class="button button-submit"><i class='bx bx-plus'></i></button>
+                </div>
+            </div>
+            <div class="task-container">
+                <h4>Pending Tasks</h4>
+                <div id="tasks-list"></div>
+                <button id="clear-completed" class="button button-clear">Clear Selected</button>
             </div>
         </div>
     </section>
@@ -286,7 +350,94 @@
 
     <!-- ============ Scripts ============ -->
     <script src="../../scripts/script.js"></script>
-    <script src="../../scripts/list-likes-contents.js"></script>
+    <script>
+        const tasksList = document.getElementById('tasks-list');
+        const newTaskInput = document.getElementById('new-task-input');
+        const addTaskButton = document.getElementById('add-task');
+        const clearCompletedButton = document.getElementById('clear-completed');
+
+        // Function to save tasks to localStorage
+        function saveTasks() {
+            const tasks = [];
+            tasksList.querySelectorAll('.task-item').forEach(item => {
+                tasks.push({
+                    text: item.querySelector('.task-text').textContent,
+                    completed: item.querySelector('input[type="checkbox"]').checked
+                });
+            });
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Function to load tasks from localStorage
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.forEach(task => addTask(task.text, task.completed));
+        }
+
+        // Function to add a new task
+        function addTask(taskText, completed = false) {
+            if (taskText) {
+                const taskItem = document.createElement('div');
+                taskItem.classList.add('task-item');
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = completed;
+
+                const taskTextDiv = document.createElement('div');
+                taskTextDiv.classList.add('task-text');
+                taskTextDiv.textContent = taskText;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.classList.add('delete-button');
+
+                // Add icon inside the button
+                const icon = document.createElement('i');
+                icon.classList.add('bx', 'bxs-trash');
+                deleteButton.appendChild(icon);
+
+                deleteButton.addEventListener('click', () => {
+                    taskItem.remove();
+                    saveTasks(); // Save tasks to localStorage after deletion
+                });
+
+                checkbox.addEventListener('change', saveTasks); // Save tasks to localStorage on checkbox change
+
+                taskItem.appendChild(checkbox);
+                taskItem.appendChild(taskTextDiv);
+                taskItem.appendChild(deleteButton);
+                tasksList.appendChild(taskItem);
+
+                saveTasks(); // Save tasks to localStorage after addition
+            }
+        }
+
+        // Add new task on button click
+        addTaskButton.addEventListener('click', () => addTask(newTaskInput.value.trim()));
+
+        // Add new task on Enter key press
+        newTaskInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission if inside a form
+                addTask(newTaskInput.value.trim());
+            }
+        });
+
+        // Clear completed tasks
+        clearCompletedButton.addEventListener('click', () => {
+            const taskItems = tasksList.querySelectorAll('.task-item');
+            taskItems.forEach(item => {
+                if (item.querySelector('input[type="checkbox"]').checked) {
+                    item.remove();
+                }
+            });
+            saveTasks(); // Save tasks to localStorage after clearing completed tasks
+        });
+
+        // Load tasks from localStorage when the page loads
+        window.addEventListener('load', loadTasks);
+    </script>
+
 </body>
 
 </html>
