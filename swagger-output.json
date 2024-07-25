@@ -1,0 +1,713 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Episteme API",
+    "description": "API documentation for the Episteme virtual learning tool.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "schemes": ["http"],
+  "paths": {
+    "/register": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Register a new user",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User registered successfully"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Login a user",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User logged in successfully"
+          }
+        }
+      }
+    },
+    "/forgot-password": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Send password reset link",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Password reset link sent"
+          },
+          "400": {
+            "description": "Email is required"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "An error occurred. Please try again."
+          }
+        }
+      }
+    },
+    "/comments": {
+      "get": {
+        "tags": ["Comments"],
+        "summary": "Get all comments",
+        "responses": {
+          "200": {
+            "description": "Comments retrieved successfully"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Comments"],
+        "summary": "Create a new comment",
+        "parameters": [
+          {
+            "name": "comment",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comment created successfully"
+          }
+        }
+      }
+    },
+    "/comments/{id}": {
+      "get": {
+        "tags": ["Comments"],
+        "summary": "Get a comment by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comment retrieved successfully"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Comments"],
+        "summary": "Delete a comment by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comment deleted successfully"
+          }
+        }
+      }
+    },
+    "/playlists": {
+      "get": {
+        "tags": ["Playlists"],
+        "summary": "Get all playlists",
+        "responses": {
+          "200": {
+            "description": "Playlists retrieved successfully"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Playlists"],
+        "summary": "Create a new playlist",
+        "parameters": [
+          {
+            "name": "thumbnail",
+            "in": "formData",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Playlist created successfully"
+          }
+        }
+      }
+    },
+    "/playlists/{id}": {
+      "get": {
+        "tags": ["Playlists"],
+        "summary": "Get a playlist by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Playlist retrieved successfully"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Playlists"],
+        "summary": "Update a playlist by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "playlist",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Playlist"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Playlist updated successfully"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Playlists"],
+        "summary": "Delete a playlist by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Playlist deleted successfully"
+          }
+        }
+      }
+    },
+    "/playlist/contents/{id}": {
+      "get": {
+        "tags": ["Contents"],
+        "summary": "Get content by playlist ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content retrieved successfully"
+          }
+        }
+      }
+    },
+    "/contents": {
+      "get": {
+        "tags": ["Contents"],
+        "summary": "Get all contents",
+        "responses": {
+          "200": {
+            "description": "Contents retrieved successfully"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Contents"],
+        "summary": "Create a new content",
+        "parameters": [
+          {
+            "name": "thumbnail",
+            "in": "formData",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "video",
+            "in": "formData",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "playlistId",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content created successfully"
+          }
+        }
+      }
+    },
+    "/contents/{username}": {
+      "get": {
+        "tags": ["Contents"],
+        "summary": "Get favourite contents by username",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Favourite contents retrieved successfully"
+          }
+        }
+      }
+    },
+    "/contents/{id}": {
+      "get": {
+        "tags": ["Contents"],
+        "summary": "Get content by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content retrieved successfully"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Contents"],
+        "summary": "Update content by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "content",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Content"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content updated successfully"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Contents"],
+        "summary": "Delete content by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content deleted successfully"
+          }
+        }
+      }
+    },
+    "/contents/{username}/{id}": {
+      "get": {
+        "tags": ["Contents"],
+        "summary": "Get content by ID and username",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content retrieved successfully"
+          }
+        }
+      }
+    },
+    "/favourite": {
+      "post": {
+        "tags": ["Favourites"],
+        "summary": "Add content to favourites",
+        "parameters": [
+          {
+            "name": "favourite",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "contentId": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content added to favourites"
+          }
+        }
+      }
+    },
+    "/unfavourite": {
+      "delete": {
+        "tags": ["Favourites"],
+        "summary": "Remove content from favourites",
+        "parameters": [
+          {
+            "name": "unfavourite",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "contentId": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content removed from favourites"
+          }
+        }
+      }
+    },
+    "/quizzes": {
+      "get": {
+        "tags": ["Quizzes"],
+        "summary": "Get all quizzes",
+        "responses": {
+          "200": {
+            "description": "Quizzes retrieved successfully"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Quizzes"],
+        "summary": "Create a new quiz",
+        "parameters": [
+          {
+            "name": "quiz",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Quiz"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quiz created successfully"
+          }
+        }
+      }
+    },
+    "/quizzes/{id}": {
+      "get": {
+        "tags": ["Quizzes"],
+        "summary": "Get quiz by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quiz retrieved successfully"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Quizzes"],
+        "summary": "Update quiz by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "quiz",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Quiz"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quiz updated successfully"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Quizzes"],
+        "summary": "Delete quiz by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quiz deleted successfully"
+          }
+        }
+      }
+    },
+    "/Issues": {
+      "get": {
+        "tags": ["Issues"],
+        "summary": "Get all issues",
+        "responses": {
+          "200": {
+            "description": "Issues retrieved successfully"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Issues"],
+        "summary": "Create a new issue",
+        "parameters": [
+          {
+            "name": "issue",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Issue"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Issue created successfully"
+          }
+        }
+      }
+    },
+    "/Issues/{id}": {
+      "delete": {
+        "tags": ["Issues"],
+        "summary": "Delete issue by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Issue deleted successfully"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Comment": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer"
+        },
+        "postId": {
+          "type": "integer"
+        }
+      }
+    },
+    "Playlist": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Content": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "playlistId": {
+          "type": "integer"
+        }
+      }
+    },
+    "Quiz": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Issue": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

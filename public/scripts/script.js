@@ -40,25 +40,35 @@ modeSwitch.addEventListener("click", () => {
     localStorage.setItem("mode", mode);
 });
 
+// Function to update login/logout link
+function updateLoginLogoutLink() {
+    const loginLogoutLink = document.getElementById('login-logout-link');
+    const loginLogoutText = document.getElementById('login-logout-text');
+    const loginLogoutIcon = document.getElementById('login-logout-icon');
 
-// Sidebar Open/Close + Light/Dark Mode
-// const body = document.querySelector("body"),
-//     sidebar = body.querySelector(".sidebar"),
-//     toggle = body.querySelector(".toggle"),
-//     modeSwitch = body.querySelector(".toggle-switch"),
-//     modeText = body.querySelector(".mode-text");
+    const token = localStorage.getItem('token');
 
-// toggle.addEventListener("click", () => {
-//     sidebar.classList.toggle("close");
-// });
+    if (token) {
+        // User is logged in
+        loginLogoutLink.href = "#"; // Add the URL to logout functionality if available
+        loginLogoutText.innerText = "Logout";
+        loginLogoutIcon.className = 'bx bx-log-out icon';
+        loginLogoutLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Perform logout actions
+            localStorage.removeItem('token');
+            localStorage.removeItem('username');
+            localStorage.removeItem('role');
+            alert('Logged out successfully');
+            window.location.href = '../login.html';
+        });
+    } else {
+        // User is not logged in
+        loginLogoutLink.href = "../login.html";
+        loginLogoutText.innerText = "Login";
+        loginLogoutIcon.className = 'bx bx-log-in icon';
+    }
+}
 
-// modeSwitch.addEventListener("click", () => {
-//     body.classList.toggle("dark");
-
-//     if (body.classList.contains("dark")) {
-//         modeText.innerText = "Light Mode"
-//     } else {
-//         modeText.innerText = "Dark Mode"
-//     }
-    
-// });
+// Call the function to set the initial state
+updateLoginLogoutLink();

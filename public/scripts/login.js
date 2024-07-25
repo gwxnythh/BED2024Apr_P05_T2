@@ -4,7 +4,7 @@ if (loginBtn) {
 }
 
 function onLoginClick (event) {
-    console.log('onloginclik')
+    console.log('onloginclick')
     event.preventDefault();
     var form = {
         username: document.getElementById("login-username").value,
@@ -46,13 +46,14 @@ function invokeLoginUserAPI(form) {
             if (json.role === "Instructor") {
                 window.location.href = './instructor/instructor-index.html';
             } else if (json.role === "Member") {
-                window.location.href = './member/profile-member.html';
+                window.location.href = './member/index.html';
             } else if (json.role === "C.S Staff") {
                 window.location.href = './cs-staff/issues.html';
             } else if (json.role === "Examiner") {
                 window.location.href = './examiner/quiz.html';
             }
             alert("Sign in successfully");
+            // Still Need To Do Alert For Non-Existing Account
         }
     })
     .catch(error => {

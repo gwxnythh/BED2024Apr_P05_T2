@@ -238,7 +238,7 @@ td {
     width: 400px;
     background: var(--sidebar-color);
     padding: 20px 30px;
-    border: 1px solid #18191a;
+    border: 1px solid var(--text-color);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -290,14 +290,14 @@ textarea {
     color: white;
 }
 
-.issues-container textarea {
+/* .issues-container textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
-}
+} */
 
 .message-display {
     margin-top: 15px;
