@@ -361,6 +361,17 @@ body.dark .switch::before {
     margin: 0;
 }
 
+.signinup-wrapper #login-form .forget-password {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.signinup-wrapper #login-form .forget-password a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
 .image-holder img {
     max-width: 100%;
 }
@@ -408,8 +419,13 @@ body.dark .switch::before {
     color: #333;
 }
 
+#login-form p {
+    margin-top: 50px;
+}
+
 .signinup-wrapper .inner form {
-    width: 50%;
+    /* width: 50%; */
+    width: 100%;
     padding-top: 2px;
     padding-left: 45px;
     padding-right: 45px;
@@ -1904,6 +1920,10 @@ input[disabled]::-webkit-input-placeholder {
     color: var(--text-color);
     font-size: 16px;
     line-height: 1.6;
+}
+
+.company-info {
+    color: var(--text-color);
 }
 
 /* ====== ToDoListScreen.html [gignite feature]====== */
