@@ -14,6 +14,10 @@ const favouriteControler = require('./controllers/favouriteController');
 const validateUser = require("./middlewares/validateUser");
 const quizController = require("./controllers/quizController");
 const validateQuiz = require('./middlewares/validateQuiz');
+const issuesController = require("./controllers/issuesController");
+const logger = require("./middlewares/logger");
+const errorHandler = require("./middlewares/errorHandler");
+const validateIssue = require("./middlewares/validateIssues");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,6 +28,7 @@ app.use(cors());
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(logger);
 
 // Middleware for serving static files
 const staticMiddleware = express.static("public");
@@ -37,7 +42,6 @@ const createDirectoryIfNotExist = (directory) => {
     fs.mkdirSync(directory, { recursive: true }); // Use { recursive: true } to create parent directories if necessary
   }
 };
-
 
 // File uploading for playlist - multer configuration
 const playlistStorage = multer.diskStorage({
@@ -53,7 +57,6 @@ const playlistStorage = multer.diskStorage({
 });
 
 const uploadPlaylist = multer({ storage: playlistStorage });
-
 
 // File uploading for content - multer configuration
 const contentStorage = multer.diskStorage({
@@ -90,7 +93,7 @@ app.listen(PORT, async () => {
 
     // Routes for Users
     app.post("/register", validateUser, usersController.registerUser);
-    app.post("/login", validateUser, usersController.loginUser);
+    app.post("/login", usersController.loginUser);
 
     // Routes for Comments
     app.get('/comments', commentController.getComments);
@@ -126,6 +129,11 @@ app.listen(PORT, async () => {
     app.post("/quizzes", validateQuiz, quizController.createQuiz);
     app.put("/quizzes/:id", validateQuiz, quizController.updateQuiz);
     app.delete("/quizzes/:id", quizController.deleteQuiz);
+
+    // Route for (customerissues)
+    app.get("/Issues", issuesController.getAllIssues);
+    app.post("/Issues", validateIssue, issuesController.createIssue);
+    app.delete("/Issues/:id", issuesController.deleteIssue);
 
     // Error handling middleware
     app.use((err, req, res, next) => {
