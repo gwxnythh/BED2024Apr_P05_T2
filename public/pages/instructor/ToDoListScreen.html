@@ -1,0 +1,443 @@
+<!-- ********* Gignite AI Feature ********* -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/instructor.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .task-container {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            padding: 1.25rem;
+        }
+
+        .task-container h4 {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ced4da;
+        }
+
+        .task-item:last-child {
+            border-bottom: none;
+        }
+
+        .task-item input[type="checkbox"] {
+            margin-right: 1rem;
+        }
+
+        .task-item .task-text {
+            flex: 1;
+            color: var(--text-color);
+            margin-right: 1rem;
+            word-break: break-word;
+        }
+
+        .task-item .delete-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        .task-item .delete-button:hover {
+            background: red;
+        }
+
+        .button {
+            padding: 0.375rem 0.75rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .button-clear {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        .button-submit {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+            margin-left: 5px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            height: 43px;
+        }
+
+        .button-clear:hover,
+        .button-submit:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .task-body {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============ Navigation ============ -->
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="../../images/logo-icon.png" alt="episteme-logo">
+                </span>
+
+                <div class="text header-text">
+                    <span class="brand-name">Episteme</span>
+                    <span class="brand-description">J.G.HD</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <!-- ###### Search Bar ###### -->
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+                <ul class="menu-links">
+                    <!-- ###### Dashboard ###### -->
+                    <li class="nav-link">
+                        <a href="./instructor-index.html">
+                            <i class='bx bxs-grid-alt icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### Profile ###### -->
+                    <li class="nav-link">
+                        <a href="./profile-instructor.html">
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Profile</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### Playlists ###### -->
+                    <li class="nav-link">
+                        <a href="./playlists-instructor.html">
+                            <i class='bx bxs-videos icon'></i>
+                            <span class="text nav-text">Playlists</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### Contents ###### -->
+                    <li class="nav-link">
+                        <a href="./contents-instructor.html">
+                            <i class='bx bx-play-circle icon'></i>
+                            <span class="text nav-text">Contents</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### Comments ###### -->
+                    <li class="nav-link">
+                        <a href="./comments-instructor.html">
+                            <i class='bx bx-chat icon'></i>
+                            <span class="text nav-text">Comments</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### Likes ###### -->
+                    <li class="nav-link">
+                        <a href="./likes-instructor.html">
+                            <i class='bx bx-heart icon'></i>
+                            <span class="text nav-text">Likes</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### To-Do List ###### -->
+                    <li class="nav-link">
+                        <a href="./ToDoListScreen.html">
+                            <i class='bx bx-list-ul icon'></i>
+                            <span class="text nav-text">To-Do List</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### About Us ###### -->
+                    <li class="nav-link">
+                        <a href="./aboutus-instructor.html">
+                            <i class='bx bx-group icon icon'></i>
+                            <span class="text nav-text">About Us</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### Contact Us ###### -->
+                    <li class="nav-link">
+                        <a href="./contactus-instructor.html">
+                            <i class='bx bx-support icon icon'></i>
+                            <span class="text nav-text">Contact Us</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### Credits ###### -->
+                    <li class="nav-link">
+                        <a href="./credits-instructor.html">
+                            <i class='bx bx-info-circle icon'></i>
+                            <span class="text nav-text">Credits</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <!-- ###### Login/Logout ###### -->
+                <li class="">
+                    <a href="../login.html">
+                        <i class='bx bx-log-in icon'></i> <!-- <i class='bx bx-log-out icon' ></i> -->
+                        <span class="text nav-text">Login</span>
+                        <!-- Need To Do Code For Verificaiton of Login/Logout -->
+                    </a>
+                </li>
+
+                <!-- ###### Light/Dark Mode ###### -->
+                <li class="mode">
+                    <div class="light-dark">
+                        <i class='bx bx-moon icon dark'></i>
+                        <i class='bx bx-sun icon light'></i>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <section class="home">
+        <div class="text">To-Do List</div>
+    </section>
+
+    <!-- ============ Instructor's To-Do List ============ -->
+    <section class="todo-instructor">
+        <div class="container">
+            <div class="task-container">
+                <h4>Add New Task</h4>
+                <div class="task-body">
+                    <input id="new-task-input" type="text" placeholder="E.g. Start recording new video"
+                        class="input-field" />
+                    <button id="add-task" class="button button-submit"><i class='bx bx-plus'></i></button>
+                </div>
+            </div>
+            <div class="task-container">
+                <h4>Pending Tasks</h4>
+                <div id="tasks-list"></div>
+                <button id="clear-completed" class="button button-clear">Clear Selected</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ Footer ============ -->
+    <section class="footer">
+        <footer>
+            <div class="footer-container">
+                <!-- ###### Part 1 ###### -->
+                <div class="sec aboutus">
+                    <h2><img src="../../images/logo-icon.png"></h2>
+                    <p>Follow Us To Get Updated!</p>
+                    <ul class="sci">
+                        <li><a href="https://www.instagram.com/gwxnny_/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/im._.jov/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/d.daphnee_/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/h4nyan/"><i class='bx bxl-instagram'></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 2 ###### -->
+                <div class="sec quicklinks">
+                    <h2>Navigation</h2>
+                    <ul>
+                        <li><a href="./instructor-index.html">Dashboard</a></li>
+                        <li><a href="./contents-instructor.html">Contents</a></li>
+                        <li><a href="./playlists-instructor.html">Playlists</a></li>
+                        <li><a href="./likes-instructor.html">Likes</a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 3 ###### -->
+                <div class="sec quicklinks">
+                    <h2>Information</h2>
+                    <ul>
+                        <li><a href="./aboutus-instructor.html">About Us</a></li>
+                        <li><a href="./contactus-instructor.html">Contact Us</a></li>
+                        <li><a href="./credits-instructor.html">Credits</a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 4 ###### -->
+                <div class="sec quicklinks">
+                    <h2>User Options</h2>
+                    <ul>
+                        <li><a href="./profile-instructor.html">Profile</a></li>
+                        <li><a href="./ToDoListScreen.html">To-Do List</a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 5 ###### -->
+                <div class="sec contact">
+                    <h2>Hit Us up!</h2>
+                    <ul class="info">
+                        <li>
+                            <span>
+                                <i class='bx bxs-phone'></i>
+                            </span>
+                            <p><a href="tel:+65 9772 2908">+65 9772 2908</a></p>
+                        </li>
+                        <li>
+                            <span>
+                                <i class='bx bx-envelope'></i>
+                            </span>
+                            <p><a href="mailto:epistemebed@gmail.com">epistemebed@gmail.com</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <div class="copyrightText">
+            <p>Copyright &copy; BED_P05_T2. All Rights Reserved. 2024</p>
+        </div>
+    </section>
+
+    <!-- ============ Scripts ============ -->
+    <script src="../../scripts/script.js"></script>
+    <script>
+        const tasksList = document.getElementById('tasks-list');
+        const newTaskInput = document.getElementById('new-task-input');
+        const addTaskButton = document.getElementById('add-task');
+        const clearCompletedButton = document.getElementById('clear-completed');
+
+        // Function to save tasks to localStorage
+        function saveTasks() {
+            const tasks = [];
+            tasksList.querySelectorAll('.task-item').forEach(item => {
+                tasks.push({
+                    text: item.querySelector('.task-text').textContent,
+                    completed: item.querySelector('input[type="checkbox"]').checked
+                });
+            });
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Function to load tasks from localStorage
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.forEach(task => addTask(task.text, task.completed));
+        }
+
+        // Function to add a new task
+        function addTask(taskText, completed = false) {
+            if (taskText) {
+                const taskItem = document.createElement('div');
+                taskItem.classList.add('task-item');
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = completed;
+
+                const taskTextDiv = document.createElement('div');
+                taskTextDiv.classList.add('task-text');
+                taskTextDiv.textContent = taskText;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.classList.add('delete-button');
+
+                // Add icon inside the button
+                const icon = document.createElement('i');
+                icon.classList.add('bx', 'bxs-trash');
+                deleteButton.appendChild(icon);
+
+                deleteButton.addEventListener('click', () => {
+                    taskItem.remove();
+                    saveTasks(); // Save tasks to localStorage after deletion
+                });
+
+                checkbox.addEventListener('change', saveTasks); // Save tasks to localStorage on checkbox change
+
+                taskItem.appendChild(checkbox);
+                taskItem.appendChild(taskTextDiv);
+                taskItem.appendChild(deleteButton);
+                tasksList.appendChild(taskItem);
+
+                saveTasks(); // Save tasks to localStorage after addition
+            }
+        }
+
+        // Add new task on button click
+        addTaskButton.addEventListener('click', () => addTask(newTaskInput.value.trim()));
+
+        // Add new task on Enter key press
+        newTaskInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission if inside a form
+                addTask(newTaskInput.value.trim());
+            }
+        });
+
+        // Clear completed tasks
+        clearCompletedButton.addEventListener('click', () => {
+            const taskItems = tasksList.querySelectorAll('.task-item');
+            taskItems.forEach(item => {
+                if (item.querySelector('input[type="checkbox"]').checked) {
+                    item.remove();
+                }
+            });
+            saveTasks(); // Save tasks to localStorage after clearing completed tasks
+        });
+
+        // Load tasks from localStorage when the page loads
+        window.addEventListener('load', loadTasks);
+    </script>
+
+</body>
+
+</html>

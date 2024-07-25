@@ -5,6 +5,7 @@
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .csstaff-profile .text {
@@ -115,6 +116,7 @@
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .update-csstaffprofile-container {
@@ -190,4 +192,114 @@
 
 .update-csstaffprofile-container h2 a {
     color: var(--text-color);
+}
+
+/*my part*/
+.issue-h3 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+.issues-table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-bottom: 50px;
+    color: var(--text-color);
+}
+
+.issues-table th,
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.issues-table thead {
+    background-color: var(--primary-color-light);
+}
+
+.issues-table tbody tr:nth-child(odd) {
+    background-color: var(--sidebar-color);
+}
+
+.issues-table tbody tr:nth-child(even) {
+    background-color: var(--primary-color-light);
+}
+
+.issues-container {
+    /* margin-top: 20px; */
+    color: var(--text-color);
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    background: var(--sidebar-color);
+    padding: 20px 30px;
+    border: 1px solid #18191a;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    z-index: 1000;
+}
+
+.open-popup {
+    visibility: visible;
+}
+
+.textarea {
+    margin: 10px 0;
+}
+
+textarea {
+    display: block;
+    margin: 0 auto;
+}
+
+.issues-header {
+    width: 100%;
+    font-size: 20px;
+}
+
+#issues-submitButton {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+#issues-submitButton:hover  {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.issues-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.message-display {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

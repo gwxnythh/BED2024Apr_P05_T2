@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Profile | Episteme</title>
     <!-- ============ Favicon ============ -->
-    <link rel="icon" type="image/x-icon" href="../public/images/logo-icon.png">
+    <link rel="icon" type="image/x-icon" href="../../public/images/logo-icon.png">
     <!-- ============ Styles ============ -->
-    <link rel="stylesheet" href="../public/styles/style.css">
+    <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -20,7 +20,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="../public/images/logo-icon.png" alt="episteme-logo">
+                    <img src="../../images/logo-icon.png" alt="episteme-logo">
                 </span>
 
                 <div class="text header-text">
@@ -42,7 +42,7 @@
                 <ul class="menu-links">
                     <!-- ###### Dashboard ###### -->
                     <li class="nav-link">
-                        <a href="../index.html">
+                        <a href="../../../index.html">
                             <i class='bx bxs-grid-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
@@ -50,7 +50,7 @@
 
                     <!-- ###### Profile ###### -->
                     <li class="nav-link">
-                        <a href="./member/profile-member.html">
+                        <a href="../member/profile-member.html">
                             <i class='bx bx-user icon'></i>
                             <span class="text nav-text">Profile</span>
                         </a>
@@ -58,7 +58,7 @@
 
                     <!-- ###### Likes ###### -->
                     <li class="nav-link">
-                        <a href="./member/">
+                        <a href="../member/likes.html">
                             <i class='bx bx-heart icon'></i>
                             <span class="text nav-text">Likes</span>
                         </a>
@@ -66,7 +66,7 @@
 
                     <!-- ###### Courses ###### -->
                     <li class="nav-link">
-                        <a href="./member/">
+                        <a href="../member/courses.html">
                             <i class='bx bxs-graduation icon'></i>
                             <span class="text nav-text">Courses</span>
                         </a>
@@ -74,23 +74,15 @@
 
                     <!-- ###### Quizzes ###### -->
                     <li class="nav-link">
-                        <a href="./member/">
+                        <a href="../member/quizzes.html">
                             <i class='bx bx-pencil icon'></i>
                             <span class="text nav-text">Quizzes</span>
                         </a>
                     </li>
 
-                    <!-- ###### Instructors ###### -->
-                    <li class="nav-link">
-                        <a href="./member/">
-                            <i class='bx bx-book-reader icon'></i>
-                            <span class="text nav-text">Instructors</span>
-                        </a>
-                    </li>
-
                     <!-- ###### About Us ###### -->
                     <li class="nav-link">
-                        <a href="./member/">
+                        <a href="../member/aboutus.html">
                             <i class='bx bx-group icon icon'></i>
                             <span class="text nav-text">About Us</span>
                         </a>
@@ -98,23 +90,15 @@
 
                     <!-- ###### Contact Us ###### -->
                     <li class="nav-link">
-                        <a href="./member/">
+                        <a href="../member/contactus.html">
                             <i class='bx bx-support icon icon'></i>
                             <span class="text nav-text">Contact Us</span>
                         </a>
                     </li>
 
-                    <!-- ###### Settings ###### -->
-                    <li class="nav-link">
-                        <a href="./member/">
-                            <i class='bx bx-cog icon'></i>
-                            <span class="text nav-text">Settings</span>
-                        </a>
-                    </li>
-
                     <!-- ###### Credits ###### -->
                     <li class="nav-link">
-                        <a href="credits.html">
+                        <a href="../member/credits.html">
                             <i class='bx bx-info-circle icon'></i>
                             <span class="text nav-text">Credits</span>
                         </a>
@@ -123,14 +107,6 @@
             </div>
 
             <div class="bottom-content">
-                <!-- ###### Profile Details ###### -->
-                <li class="">
-                    <a href="./member/profile.html">
-                        <i class='bx bx-image icon'></i> <!-- Change to user's profile pic -->
-                        <span class="text nav-text">Guest</span>
-                    </a>
-                </li>
-
                 <!-- ###### Login/Logout ###### -->
                 <li class="">
                     <a href="#">
@@ -166,32 +142,20 @@
             <h2>Profile</h2>
             <hr>
             <!-- Profile image -->
-            <img src="../public/images/profile.jpg" alt="profilepic" class="profile-image">
+            <img src="../../images/profile.jpg" alt="profilepic" class="profile-image">
             <!-- Profile info section -->
             <div class="profile-info">
                 <!-- User details -->
                 <div class="user-details">
                     <h2><span>Guest</span></h2>
                     <p><span>Member</span></p>
-                    <a href="update-member.html" class="inline-btn">Update Profile</a>
+                    <a href="./update-member.html" class="inline-btn">Update Profile</a>
                 </div>
             </div>
 
             <!-- Cards section -->
             <div class="member-cards-container">
                 <!-- ###### First Card ###### -->
-                <div class="card card1">
-                    <div class="card-content">
-                        <div class="card-icon"><i class='bx bx-bookmark'></i></div>
-                        <div class="card-info">
-                            <h3><span>0</span></h3>
-                            <p>Saved Playlists</p>
-                        </div>
-                    </div>
-                    <a href="#" class="inline-btn">View Playlist</a>
-                </div>
-
-                <!-- ###### Second Card ###### -->
                 <div class="card card2">
                     <div class="card-content">
                         <div class="card-icon"><i class='bx bx-heart' ></i></div>
@@ -200,13 +164,83 @@
                             <p>Liked Videos</p>
                         </div>
                     </div>
-                    <a href="#" class="inline-btn">View Liked</a>
+                    <a href="../member/likes.html" class="inline-btn">View Liked</a>
                 </div>
         </div>
     </section>
 
+    <!-- ============ Footer ============ -->
+    <section class="footer">
+        <footer>
+            <div class="footer-container">
+                <!-- ###### Part 1 ###### -->
+                <div class="sec aboutus">
+                    <h2><img src="../../images/logo-icon.png"></h2>
+                    <p>Follow Us To Get Updated!</p>
+                    <ul class="sci">
+                        <li><a href="https://www.instagram.com/gwxnny_/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/im._.jov/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/d.daphnee_/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/h4nyan/"><i class='bx bxl-instagram'></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 2 ###### -->
+                <div class="sec quicklinks">
+                    <h2>Navigation</h2>
+                    <ul>
+                        <li><a href="../../../index.html">Dashboard</a></li>
+                        <li><a href="../member/courses.html">Courses</a></li>
+                        <li><a href="../member/quizzes.html">Quizzes</a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 3 ###### -->
+                <div class="sec quicklinks">
+                    <h2>Information</h2>
+                    <ul>
+                        <li><a href="../member/aboutus.html">About Us</a></li>
+                        <li><a href="../member/contactus.html">Contact Us</a></li>
+                        <li><a href="../member/credits.html">Credits</a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 4 ###### -->
+                <div class="sec quicklinks">
+                    <h2>User Options</h2>
+                    <ul>
+                        <li><a href="../member/profile-member.html">Profile</a></li>
+                        <li><a href="../member/likes.html">Likes</a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 5 ###### -->
+                <div class="sec contact">
+                    <h2>Hit Us up!</h2>
+                    <ul class="info">
+                        <li>
+                            <span>
+                                <i class='bx bxs-phone'></i>
+                            </span>
+                            <p><a href="tel:+65 9772 2908">+65 9772 2908</a></p>
+                        </li>
+                        <li>
+                            <span>
+                                <i class='bx bx-envelope'></i>
+                            </span>
+                            <p><a href="mailto:epistemebed@gmail.com">epistemebed@gmail.com</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <div class="copyrightText">
+            <p>Copyright &copy; BED_P05_2. All Rights Reserved. 2024</p>
+        </div>
+    </section>
+
     <!-- ============ Scripts ============ -->
-    <script src="../public/scripts/script.js"></script>
+    <script src="../../scripts/script.js"></script>
 </body>
 
 </html>

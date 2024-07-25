@@ -1,4 +1,4 @@
-const { getAllQuizzes } = require('../controller/quizController'); // Update path based on your file structure
+const { getAllQuizzes } = require('../controllers/quizController'); // Update path based on your file structure
 const Quiz = require('../models/quiz'); // Assuming Quiz class is in the models directory
 
 jest.mock('../models/quiz', () => {
