@@ -423,6 +423,10 @@ body.dark .switch::before {
     margin-top: 50px;
 }
 
+#login-form p a {
+    color: var(--text-color);
+}
+
 .signinup-wrapper .inner form {
     /* width: 50%; */
     width: 100%;
@@ -1575,6 +1579,7 @@ input[disabled]::-webkit-input-placeholder {
     border-radius: .5rem;
     background-color: var(--primary-color-light);
     padding: 15px;
+    color: var(--text-color);
 }
 
 .courses-member .courses-member-container .card-container .card .thumb {
@@ -1632,6 +1637,18 @@ input[disabled]::-webkit-input-placeholder {
     padding: 6px 0;
 }
 
+.courses-member .courses-member-container .card-container .buttons {
+    display: none;
+}
+.courses-member .courses-member-container .card-container .view-button {
+    margin-top: 10px;
+}
+
+.courses-member .courses-member-container .card-container .card .date {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
 /* ====== likes.html (member) ====== */
 .likes-member {
     position: relative;
