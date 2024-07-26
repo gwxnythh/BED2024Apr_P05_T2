@@ -1,15 +1,16 @@
-<!-- Update Profile -->
+<!-- Instructor's Content Page -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Update Profile | Episteme</title>
+    <title>Your Content | Episteme</title>
     <!-- ============ Favicon ============ -->
     <link rel="icon" type="image/x-icon" href="../../images/logo-icon.png">
     <!-- ============ Styles ============ -->
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/instructor.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -42,7 +43,7 @@
                 <ul class="menu-links">
                     <!-- ###### Dashboard ###### -->
                     <li class="nav-link">
-                        <a href="../member/index.html">
+                        <a href="./index.html">
                             <i class='bx bxs-grid-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
@@ -133,62 +134,81 @@
     </nav>
 
     <section class="home">
-        <div class="text">Profile Details</div>
+        <div class="text">Contents</div>
     </section>
 
-    <!-- ============ Update Member's Profile ============ -->
-    <section class="update-member-profile">
-        <div class="update-memprofile-container">
-            <h2><a href="./profile-member.html"><i class='bx bx-chevron-left'></i></a>Update Profile</h2>
+    <!-- ============ Instructor's Content Title ============ -->
+    <section class="instructor-content">
+        <div class="content-container">
+            <div class="content-header">
+                <!-- placeholder for any title header -->
+            </div>
             <hr>
-            <div class="update-mem-info">
-                <div class="update-mem-pic">
-                    <div class="user-image">
-                        <!-- ###### User PFP ###### -->
-                        <div class="user-img" id="user-img">
-                            <div id="popoverbtn">
-                                <img id="profile-pic" src="../../images/profile.jpg" />
-                                <div class="overlay">
-                                    <i class='bx bxs-camera camera-icon'></i>
-                                </div>
-                            </div>
+
+            <div class="content-info">
+                <!-- <div class="card-video-container" id="card-container">
+                    <div class="card">
+                        <h2 id="video-title"></h2><br>
+                        <video controls width="600" id="content-video" class="video-card"></video>
+                        <br>
+                        <i class="bx bx-calendar-alt"><span id="video-date-upload"></span></i>
+                        <button class="favorite-btn" id="favorite-btn" onclick="toggleFavorite(this)">
+                            <span class="icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                    class="heart-icon">
+                                    <path
+                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.86 4.5 2.14C13.09 3.86 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                            </span>
+                            <span class="text">Add to Favorites</span>
+                        </button>
+                        <br>
+                        <p id="video-description"></p>
+                        -- Auto generate after fetching from API --
+                    </div>
+                </div> -->
+                <div class="card-video-container" id="card-container">
+                    <div class="card">
+                        <div class="video-header">
+                            <i class="bx bx-calendar-alt"><span id="video-date-upload"></span></i>
                         </div>
-                        <input id="input-file" type="file" name="profile_pic" placeholder="Photo" required="" accept=".jpg, .jpeg, .png" capture>
+                        <video controls width="600" id="content-video" class="video-card"></video>
+                        <br>
+                        <div class="fav-btn">
+                            <h2 id="video-title"></h2>
+                            <button class="favorite-btn" id="favorite-btn" onclick="toggleFavorite(this)">
+                                <span class="icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                        class="heart-icon">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.86 4.5 2.14C13.09 3.86 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                </span>
+                                <span class="text">Add to Favorites</span>
+                            </button>
+                        </div>
+                        <p id="video-description"></p>
                     </div>
                 </div>
 
-                <div class="update-mem-details">
-                    <div class="row">
-                        <div class="field-column column-1">
-                            <label for="username">Username</label>
-                            <input type="text" placeholder="Username">
-                        </div>
-                        <div class="field-column">
-                            <label for="name">Name</label>
-                            <input type="text" placeholder="Name">
-                        </div>
+                <div class="card-video-container" id="comment-container">
+                    <div class="card comment-wrapper">
+                        <form action="" id="register-form">
+                            <div class="form-wrapper">
+                                <textarea class="non-adjustable-textarea" id="comment-textarea" name="comment" rows="4"
+                                    cols="50" required></textarea>
+                            </div>
+
+                            <button type="submit" id="add-comment">
+                                <a> Add comment <i class='bx bx-chevron-right'></i></a>
+                            </button>
+                        </form>
                     </div>
-                    <div class="row">
-                        <div class="field-column column-1">
-                            <label for="email">Email</label>
-                            <input type="email" placeholder="Email">
-                        </div>
-                        <div class="field-column">
-                            <label for="password">Password</label>
-                            <input type="password" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="field-column column-1">
-                            <label for="role">Role</label>
-                            <input type="text" placeholder="Role" disabled>
-                        </div>
-                        <div class="field-column">
-                            <label for="password">Confirm Password</label>
-                            <input type="password" placeholder="Confirm Password">
-                        </div>
-                    </div>
-                    <a href="#" class="inline-btn">Save Changes</a>
+                </div>
+
+
+                <div class="comment-container" id="comment-list">
+                    <!-- Generate from JS -->
                 </div>
             </div>
         </div>
@@ -214,9 +234,10 @@
                 <div class="sec quicklinks">
                     <h2>Navigation</h2>
                     <ul>
-                        <li><a href="../member/index.html">Dashboard</a></li>
-                        <li><a href="../member/courses.html">Courses</a></li>
-                        <li><a href="../member/quizzes.html">Quizzes</a></li>
+                        <li><a href="./instructor-index.html">Dashboard</a></li>
+                        <li><a href="./contents-instructor.html">Contents</a></li>
+                        <li><a href="./playlists-instructor.html">Playlists</a></li>
+                        <li><a href="./likes-instructor.html">Likes</a></li>
                     </ul>
                 </div>
 
@@ -224,9 +245,9 @@
                 <div class="sec quicklinks">
                     <h2>Information</h2>
                     <ul>
-                        <li><a href="../member/aboutus.html">About Us</a></li>
-                        <li><a href="../member/contactus.html">Contact Us</a></li>
-                        <li><a href="../member/credits.html">Credits</a></li>
+                        <li><a href="./aboutus-instructor.html">About Us</a></li>
+                        <li><a href="./contactus-instructor.html">Contact Us</a></li>
+                        <li><a href="./credits-instructor.html">Credits</a></li>
                     </ul>
                 </div>
 
@@ -234,8 +255,8 @@
                 <div class="sec quicklinks">
                     <h2>User Options</h2>
                     <ul>
-                        <li><a href="../member/profile-member.html">Profile</a></li>
-                        <li><a href="../member/likes.html">Likes</a></li>
+                        <li><a href="./profile-instructor.html">Profile</a></li>
+                        <li><a href="./ToDoListScreen.html">To-Do List</a></li>
                     </ul>
                 </div>
 
@@ -260,13 +281,13 @@
             </div>
         </footer>
         <div class="copyrightText">
-            <p>Copyright &copy; BED_P05_2. All Rights Reserved. 2024</p>
+            <p>Copyright &copy; BED_P05_T2. All Rights Reserved. 2024</p>
         </div>
     </section>
 
     <!-- ============ Scripts ============ -->
     <script src="../../scripts/script.js"></script>
-    <script src="../../scripts/pfp-script.js"></script>
+    <script src="../../scripts/video-member.js"></script>
 </body>
 
 </html>

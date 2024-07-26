@@ -34,7 +34,7 @@ class Content {
       const result = await pool.request()
         .input('id', sql.Int, id)
         .input('username', sql.VarChar, username)
-        .query('SELECT ct.VideoId, ct.Title, ct.Description, ct.Playlist, ct.Thumbnail, ct.Video, ct.username, ct.dateUploaded, fv.id AS favouriteId FROM Contents ct LEFT JOIN Favourites fv ON ct.VideoId = fv.videoId WHERE ct.VideoId = @id AND ct.username = @username');
+        .query('SELECT ct.VideoId, ct.Title, ct.Description, ct.Playlist, ct.Thumbnail, ct.Video, ct.username, ct.dateUploaded, fv.id AS favouriteId FROM Contents ct LEFT JOIN Favourites fv ON ct.VideoId = fv.videoId AND fv.username = @username WHERE ct.VideoId = @id');
       return result.recordset[0];
     }
 

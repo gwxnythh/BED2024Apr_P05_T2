@@ -30,35 +30,40 @@ function invokeLoginUserAPI(form) {
       }
      )
      .then(response => {
-        console.log('response: ', response)
-        if (!response.ok) {
-            return response.json();
-        }
-        return response.json();
+        console.log('response: ', response);
+        return response.json().then(json => {
+            return {
+                status: response.status,
+                body: json
+            }
+        });
     })
-    .then(json => {
-        if (json.errors) {
-            alert(json.errors);
+    .then(({status, body}) => {
+        if (status !== 200) {
+            if (body.message === "Invalid username or password") {
+                alert("Invalid username or password. Please try again.");
+            } else {
+                alert("An error occurred: " + body.message);
+            }
         } else {
-            localStorage.setItem("username", json.username);
-            localStorage.setItem("token", json.token);
-            localStorage.setItem("role", json.role);
-            if (json.role === "Instructor") {
+            localStorage.setItem("username", body.username);
+            localStorage.setItem("token", body.token);
+            localStorage.setItem("role", body.role);
+            if (body.role === "Instructor") {
                 window.location.href = './instructor/instructor-index.html';
-            } else if (json.role === "Member") {
+            } else if (body.role === "Member") {
                 window.location.href = './member/index.html';
-            } else if (json.role === "C.S Staff") {
+            } else if (body.role === "C.S Staff") {
                 window.location.href = './cs-staff/issues.html';
-            } else if (json.role === "Examiner") {
+            } else if (body.role === "Examiner") {
                 window.location.href = './examiner/quiz.html';
             }
             alert("Sign in successfully");
-            // Still Need To Do Alert For Non-Existing Account
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert(error);
+        alert("An error occurred. Please try again later.");
     });
     return false;
 }
