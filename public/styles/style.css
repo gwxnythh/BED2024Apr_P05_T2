@@ -361,6 +361,17 @@ body.dark .switch::before {
     margin: 0;
 }
 
+.signinup-wrapper #login-form .forget-password {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.signinup-wrapper #login-form .forget-password a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
 .image-holder img {
     max-width: 100%;
 }
@@ -408,8 +419,17 @@ body.dark .switch::before {
     color: #333;
 }
 
+#login-form p {
+    margin-top: 50px;
+}
+
+#login-form p a {
+    color: var(--text-color);
+}
+
 .signinup-wrapper .inner form {
-    width: 50%;
+    /* width: 50%; */
+    width: 100%;
     padding-top: 2px;
     padding-left: 45px;
     padding-right: 45px;
@@ -1559,6 +1579,7 @@ input[disabled]::-webkit-input-placeholder {
     border-radius: .5rem;
     background-color: var(--primary-color-light);
     padding: 15px;
+    color: var(--text-color);
 }
 
 .courses-member .courses-member-container .card-container .card .thumb {
@@ -1616,6 +1637,18 @@ input[disabled]::-webkit-input-placeholder {
     padding: 6px 0;
 }
 
+.courses-member .courses-member-container .card-container .buttons {
+    display: none;
+}
+.courses-member .courses-member-container .card-container .view-button {
+    margin-top: 10px;
+}
+
+.courses-member .courses-member-container .card-container .card .date {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
 /* ====== likes.html (member) ====== */
 .likes-member {
     position: relative;
@@ -1904,6 +1937,10 @@ input[disabled]::-webkit-input-placeholder {
     color: var(--text-color);
     font-size: 16px;
     line-height: 1.6;
+}
+
+.company-info {
+    color: var(--text-color);
 }
 
 /* ====== ToDoListScreen.html [gignite feature]====== */
