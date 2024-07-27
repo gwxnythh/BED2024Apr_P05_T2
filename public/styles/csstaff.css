@@ -238,7 +238,7 @@ td {
     width: 400px;
     background: var(--sidebar-color);
     padding: 20px 30px;
-    border: 1px solid #18191a;
+    border: 1px solid var(--text-color);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -285,21 +285,48 @@ textarea {
     font-size: 0.875rem;
 }
 
+#issues-submitButton1 {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 250px;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
 #issues-submitButton:hover  {
     background-color: var(--secondary-color);
     color: white;
 }
 
-.issues-container textarea {
+/* .issues-container textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
-}
+} */
 
 .message-display {
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+/*Gignite code*/
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }

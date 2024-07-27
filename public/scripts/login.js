@@ -1,21 +1,36 @@
-const loginBtn = document.getElementById('login-btn');
-if (loginBtn) {
-    loginBtn.addEventListener('click', onLoginClick);
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const loginBtn = document.getElementById('login-btn');
+    if (loginBtn) {
+        loginBtn.addEventListener('click', onLoginClick);
+    }
+});
 
 function onLoginClick (event) {
     console.log('onloginclik')
     event.preventDefault();
-    var form = {
-        username: document.getElementById("login-username").value,
-        password: document.getElementById("login-password").value,
+    const usernameElement = document.getElementById("login-username");
+    const passwordElement = document.getElementById("login-password");
+
+    if (!usernameElement || !passwordElement) {
+        console.error('Username or password element not found');
+        return;
     }
+
+    const username = usernameElement.value.trim();
+    const password = passwordElement.value.trim();
+
+    if (!username || !password) {
+        alert('Please enter both username and password');
+        return;
+    }
+
+    const form = { username, password };
+    console.log('Form data:', form);
     invokeLoginUserAPI(form);
 }
 
 function invokeLoginUserAPI(form) {
     const loginURL = 'http://localhost:3000/login';
-    console.log('form: ', form);
     const userData = {
         username: form.username,
         password: form.password
@@ -46,7 +61,7 @@ function invokeLoginUserAPI(form) {
             if (json.role === "Instructor") {
                 window.location.href = './instructor/instructor-index.html';
             } else if (json.role === "Member") {
-                window.location.href = './member/profile-member.html';
+                window.location.href = './member/index.html';
             } else if (json.role === "C.S Staff") {
                 window.location.href = './cs-staff/issues.html';
             } else if (json.role === "Examiner") {
@@ -59,5 +74,4 @@ function invokeLoginUserAPI(form) {
         console.error('Error:', error);
         alert(error);
     });
-    return false;
 }

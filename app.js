@@ -4,6 +4,8 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger-output.json"); // Import generated spec
 const sql = require('mssql');
 const config = require('./dbConfig');
 const commentController = require('./controllers/commentController');
@@ -16,11 +18,16 @@ const quizController = require("./controllers/quizController");
 const validateQuiz = require('./middlewares/validateQuiz');
 const issuesController = require("./controllers/issuesController");
 const logger = require("./middlewares/logger");
-const errorHandler = require("./middlewares/errorHandler");
 const validateIssue = require("./middlewares/validateIssues");
+const authController = require('./controllers/loginController');
+const authenticateToken = require('./middlewares/autToken');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Swagger [http://localhost:3000/api-docs/]
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Enable CORS
 app.use(cors());
@@ -34,6 +41,36 @@ app.use(logger);
 const staticMiddleware = express.static("public");
 app.use(staticMiddleware);
 
+app.get('/todo', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'ToDoListScreen.html'));
+});
+
+// forget password route
+app.post('/forgot-password', async (req, res) => {
+  const email = req.body.email;
+
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  try {
+    const pool = await sql.connect(config);
+    const result = await pool.request()
+      .input('email', sql.VarChar, email)
+      .query('SELECT * FROM users WHERE email = @email');
+
+    if (result.recordset.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Here you would handle sending the reset email
+    res.status(200).json({ message: 'Password reset link sent' });
+  } catch (err) {
+    console.error('SQL error', err);
+    res.status(500).json({ message: 'An error occurred. Please try again.' });
+  }
+});
+
 // serving static folder for uploading
 app.use('/uploads', express.static('uploads'));
 
@@ -42,6 +79,31 @@ const createDirectoryIfNotExist = (directory) => {
     fs.mkdirSync(directory, { recursive: true }); // Use { recursive: true } to create parent directories if necessary
   }
 };
+
+app.post('/forgot-password', async (req, res) => {
+  const email = req.body.email;
+
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  try {
+    const pool = await sql.connect(config);
+    const result = await pool.request()
+      .input('email', sql.VarChar, email)
+      .query('SELECT * FROM users WHERE email = @email');
+
+    if (result.recordset.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    //sending the reset email
+    res.status(200).json({ message: 'Password reset link sent' });
+  } catch (err) {
+    console.error('SQL error', err);
+    res.status(500).json({ message: 'An error occurred. Please try again.' });
+  }
+});
 
 // File uploading for playlist - multer configuration
 const playlistStorage = multer.diskStorage({
@@ -94,6 +156,7 @@ app.listen(PORT, async () => {
     // Routes for Users
     app.post("/register", validateUser, usersController.registerUser);
     app.post("/login", usersController.loginUser);
+    app.get("/profile", authenticateToken, usersController.getUserInfo);
 
     // Routes for Comments
     app.get('/comments', commentController.getComments);
@@ -113,7 +176,7 @@ app.listen(PORT, async () => {
     // Routes for Contents
     app.get('/contents', contentController.getContents);
     app.get('/contents/:username', contentController.getFavouriteContents);
-    app.get('/contents/:id', contentController.getContentById);
+    app.get('/contents/member/:id', contentController.getContentById);
     app.get('/contents/:username/:id', contentController.getContentByIdAndUsername);
     app.put('/contents/:id', contentController.updateContent);
     app.post('/contents', uploadContent.fields([{ name: 'thumbnail', maxCount: 1 }, { name: 'video', maxCount: 1 }]), contentController.createContent);
@@ -131,9 +194,9 @@ app.listen(PORT, async () => {
     app.delete("/quizzes/:id", quizController.deleteQuiz);
 
     // Route for (customerissues)
-    app.get("/Issues", issuesController.getAllIssues);
-    app.post("/Issues", validateIssue, issuesController.createIssue);
-    app.delete("/Issues/:id", issuesController.deleteIssue);
+    app.get("/issues", issuesController.getAllIssues);
+    app.post("/issues", validateIssue, issuesController.createIssue);
+    app.delete("/issues/:id", issuesController.deleteIssue);
 
     // Error handling middleware
     app.use((err, req, res, next) => {
