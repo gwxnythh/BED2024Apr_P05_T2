@@ -19,6 +19,9 @@ const validateQuiz = require('./middlewares/validateQuiz');
 const issuesController = require("./controllers/issuesController");
 const logger = require("./middlewares/logger");
 const validateIssue = require("./middlewares/validateIssues");
+const authController = require('./controllers/loginController');
+const authenticateToken = require('./middlewares/autToken');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -77,6 +80,31 @@ const createDirectoryIfNotExist = (directory) => {
   }
 };
 
+app.post('/forgot-password', async (req, res) => {
+  const email = req.body.email;
+
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  try {
+    const pool = await sql.connect(config);
+    const result = await pool.request()
+      .input('email', sql.VarChar, email)
+      .query('SELECT * FROM users WHERE email = @email');
+
+    if (result.recordset.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    //sending the reset email
+    res.status(200).json({ message: 'Password reset link sent' });
+  } catch (err) {
+    console.error('SQL error', err);
+    res.status(500).json({ message: 'An error occurred. Please try again.' });
+  }
+});
+
 // File uploading for playlist - multer configuration
 const playlistStorage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -128,6 +156,7 @@ app.listen(PORT, async () => {
     // Routes for Users
     app.post("/register", validateUser, usersController.registerUser);
     app.post("/login", usersController.loginUser);
+    app.get("/profile", authenticateToken, usersController.getUserInfo);
 
     // Routes for Comments
     app.get('/comments', commentController.getComments);
