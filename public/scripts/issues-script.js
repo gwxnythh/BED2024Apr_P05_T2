@@ -46,7 +46,7 @@ function closePopup() {
     window.location.reload();
 }
 
-document.getElementById("issues-submitButton1").addEventListener("click", function () {
+document.getElementById("issues-submitButton").addEventListener("click", function () {
     if (currentRow && currentIssueId) {
         fetch(`http://localhost:3000/issues/${currentIssueId}`, {
             method: 'DELETE',
