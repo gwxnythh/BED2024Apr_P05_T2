@@ -285,7 +285,7 @@ textarea {
     font-size: 0.875rem;
 }
 
-#issues-submitButton1 {
+.issues-submitButton1 {
     background-color: var(--primary-color);
     color: var(--text-color);
     text-decoration: none;
