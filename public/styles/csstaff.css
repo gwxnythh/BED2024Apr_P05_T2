@@ -285,6 +285,21 @@ textarea {
     font-size: 0.875rem;
 }
 
+#issues-submitButton1 {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 250px;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
 #issues-submitButton:hover  {
     background-color: var(--secondary-color);
     color: white;
@@ -302,4 +317,16 @@ textarea {
 .message-display {
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+/*Gignite code*/
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }
