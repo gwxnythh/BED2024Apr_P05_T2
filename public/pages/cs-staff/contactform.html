@@ -16,8 +16,6 @@
 </head>
 
 <body>
-
-
     <!-- ============ Navigation ============ -->
     <nav class="sidebar close">
         <header>
@@ -45,79 +43,39 @@
                 <ul class="menu-links">
                     <!-- ###### Dashboard ###### -->
                     <li class="nav-link">
-                        <a href="index.html">
+                        <a href="./issues.html">
                             <i class='bx bxs-grid-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
 
-                    <!-- ###### Profile ###### -->
-                    <li class="nav-link">
-                        <a href="./member/profile-member.html">
-                            <i class='bx bx-user icon'></i>
-                            <span class="text nav-text">Profile</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Likes ###### -->
-                    <li class="nav-link">
-                        <a href="./member/">
-                            <i class='bx bx-heart icon'></i>
-                            <span class="text nav-text">Likes</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Courses ###### -->
-                    <li class="nav-link">
-                        <a href="./member/courses.html">
-                            <i class='bx bxs-graduation icon'></i>
-                            <span class="text nav-text">Courses</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Quizzes ###### -->
-                    <li class="nav-link">
-                        <a href="./member/quizzes.html">
-                            <i class='bx bx-pencil icon'></i>
-                            <span class="text nav-text">Quizzes</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Instructors ###### -->
-                    <li class="nav-link">
-                        <a href="./member/">
-                            <i class='bx bx-book-reader icon'></i>
-                            <span class="text nav-text">Instructors</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### About Us ###### -->
-                    <li class="nav-link">
-                        <a href="./member/">
-                            <i class='bx bx-group icon icon'></i>
-                            <span class="text nav-text">About Us</span>
-                        </a>
-                    </li>
-
                     <!-- ###### Contact Us ###### -->
                     <li class="nav-link">
-                        <a href="./member/">
+                        <a href="./contactform.html">
                             <i class='bx bx-support icon icon'></i>
                             <span class="text nav-text">Contact Us</span>
                         </a>
                     </li>
 
-                    <!-- ###### Settings ###### -->
+                    <!-- ###### Profile ###### -->
                     <li class="nav-link">
-                        <a href="./member/">
-                            <i class='bx bx-cog icon'></i>
-                            <span class="text nav-text">Settings</span>
+                        <a href="./profile-csstaff.html">
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Profile</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### About Us ###### -->
+                    <li class="nav-link">
+                        <a href="./aboutus-csstaff.html">
+                            <i class='bx bx-group icon icon'></i>
+                            <span class="text nav-text">About Us</span>
                         </a>
                     </li>
 
                     <!-- ###### Credits ###### -->
                     <li class="nav-link">
-                        <a href="credits.html">
+                        <a href="./credits-csstaff.html">
                             <i class='bx bx-info-circle icon'></i>
                             <span class="text nav-text">Credits</span>
                         </a>
@@ -126,19 +84,11 @@
             </div>
 
             <div class="bottom-content">
-                <!-- ###### Profile Details ###### -->
-                <li class="">
-                    <a href="./member/profile.html">
-                        <i class='bx bx-image icon'></i> <!-- Change to user's profile pic -->
-                        <span class="text nav-text">Guest</span>
-                    </a>
-                </li>
-
                 <!-- ###### Login/Logout ###### -->
                 <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-in icon'></i> <!-- <i class='bx bx-log-out icon' ></i> -->
-                        <span class="text nav-text">Login</span>
+                    <a id="login-logout-link" href="../login.html">
+                        <i id="login-logout-icon" class='bx bx-log-in icon'></i> <!-- <i class='bx bx-log-out icon' ></i> -->
+                        <span id="login-logout-text" class="text nav-text">Login</span>
                         <!-- Need To Do Code For Verificaiton of Login/Logout -->
                     </a>
                 </li>
@@ -159,10 +109,6 @@
         </div>
     </nav>
 
-    <section class="home">
-        <div class="text">Dashboard</div>
-    </section>
-
     <section class="contact-us">
         <div class="contactus-container">
             <div class="contactus-content">
@@ -174,7 +120,8 @@
                 </div>
                 <div class="contactus-details">
                     <h2 class="contactus-title">Contact Us</h2>
-                    <p class="contactus-description desc1">We're here to assist you with any questions or inquiries you may
+                    <p class="contactus-description desc1">We're here to assist you with any questions or inquiries you
+                        may
                         have about our courses. Contact us anytime, and we'll be happy to help!</p>
                     <div class="contactus-info">
                         <div class="contactus-info-item">
@@ -191,7 +138,7 @@
                         </div>
                     </div>
                     <p class="contactus-description desc2">Drop Us A Message! We will reply within 24 hours!</p>
-                    <form class="contactus-form" method = "POST" action="http://localhost:3000/issues">
+                    <form class="contactus-form" method="POST" action="http://localhost:3000/issues">
                         <div class="form-wrapper">
                             <input id="contact-name" type="text" placeholder="Name" name="name" class="form-control">
                         </div>
@@ -203,12 +150,13 @@
                             <textarea id="contact-message" name="message" placeholder="Message..."
                                 class="form-control"></textarea>
                         </div>
-                        <button type="submit">Send Message</button>
+                        <button id="issues-submitButton" type="submit">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- ============ Footer ============ -->
     <section class="footer">
         <footer>
@@ -218,9 +166,10 @@
                     <h2><img src="../../images/logo-icon.png"></h2>
                     <p>Follow Us To Get Updated!</p>
                     <ul class="sci">
-                        <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
-                        <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
-                        <li><a href="#"><i class='bx bxl-instagram'></i></i></a></li>
+                        <li><a href="https://www.instagram.com/gwxnny_/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/im._.jov/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/d.daphnee_/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/h4nyan/"><i class='bx bxl-instagram'></i></a></li>
                     </ul>
                 </div>
 
@@ -228,10 +177,7 @@
                 <div class="sec quicklinks">
                     <h2>Navigation</h2>
                     <ul>
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Courses</a></li>
-                        <li><a href="#">Instructors</a></li>
-                        <li><a href="#">Quizzes</a></li>
+                        <li><a href="./issues.html">Dashboard</a></li>
                     </ul>
                 </div>
 
@@ -241,7 +187,6 @@
                     <ul>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Settings</a></li>
                         <li><a href="#">Credits</a></li>
                     </ul>
                 </div>
@@ -250,8 +195,7 @@
                 <div class="sec quicklinks">
                     <h2>User Options</h2>
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Likes</a></li>
+                        <li><a href="./profile-csstaff.html">Profile</a></li>
                     </ul>
                 </div>
 

@@ -1,13 +1,13 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 const jwt = require('jsonwebtoken');
-require ("dotenv").config();
+require("dotenv").config();
 
 const createUser = async (req, res) => {
     const newUser = req.body;
 
     try {
-        const createdUser = await User.createUser(newUser);
+        const createdUser = await User.createUser(req.poolPromise, newUser);
         res.status(201).json(createdUser);
     } catch (error) {
         console.error(error);
@@ -17,7 +17,7 @@ const createUser = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
     try {
-        const users = await User.getAllUsers();
+        const users = await User.getAllUsers(req.poolPromise);
         res.json(users);
     } catch (error) {
         console.error(error);
@@ -28,7 +28,7 @@ const getAllUsers = async (req, res) => {
 const getUserById = async (req, res) => {
     const userId = parseInt(req.params.id);
     try {
-        const user = await User.getUserById(userId);
+        const user = await User.getUserById(req.poolPromise, userId);
         if (!user) {
             return res.status(404).send("User not found");
         }
@@ -43,7 +43,7 @@ const updateUser = async (req, res) => {
     const userId = parseInt(req.body.id);
     const newUser = req.body;
     try {
-        const updatedUser = await User.updateUser(userId, newUser);
+        const updatedUser = await User.updateUser(req.poolPromise, userId, newUser);
         if (!updatedUser) {
             return res.status(404).send("User not found");
         }
@@ -57,7 +57,7 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
     const userId = parseInt(req.params.id);
     try {
-        const success = await User.deleteUser(userId);
+        const success = await User.deleteUser(req.poolPromise, userId);
         if (!success) {
             return res.status(404).send("User not found");
         }
@@ -72,21 +72,11 @@ async function searchUsers(req, res) {
     const searchTerm = req.query.searchTerm; // Extract search term from query params
 
     try {
-        const users = await User.searchUsers(searchTerm);
+        const users = await User.searchUsers(req.poolPromise, searchTerm);
         res.json(users);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Error searching users" });
-    }
-}
-
-async function getUsersWithBooks(req, res) {
-    try {
-        const users = await User.getUsersWithBooks();
-        res.json(users);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Error fetching users with books" });
     }
 }
 
@@ -101,7 +91,7 @@ async function registerUser(req, res) {
         }
 
         // Check for existing username
-        const existingUser = await User.getUserByUsername(username);
+        const existingUser = await User.getUserByUsername(req.poolPromise, username);
         if (existingUser) {
             return res.status(400).json({ message: "Username already exists" });
         }
@@ -114,7 +104,7 @@ async function registerUser(req, res) {
         const newUser = new User(username, name, email, hashedPassword, role);
 
         // Save user to database
-        await newUser.save();
+        await newUser.save(req.poolPromise);
 
         return res.status(201).json({ message: "User created successfully" });
     } catch (err) {
@@ -127,39 +117,55 @@ async function loginUser(req, res) {
     const { username, password } = req.body;
 
     try {
-        // Validate user input
         if (!username || !password) {
             return res.status(400).json({ message: 'Username and password are required' });
         }
 
-        // Retrieve user from database
-        const user = await User.getUserByUsername(username);
+        const user = await User.getUserByUsername(req.poolPromise, username);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        // Compare hashed password with input password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        // Generate JWT token using dotenv configured JWT_SECRET
         const tokenPayload = {
-            user_id: user.user_id,
+            username: user.username, // Ensure 'username' is included
             role: user.role,
         };
 
-        const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign(tokenPayload, process.env.JWT_SECRET);
 
-        // Return token to the client
-        res.json({ token });
-
+        res.json({ token, username: user.username, role: user.role });
     } catch (error) {
         console.error("Error logging in user:", error);
         res.status(500).json({ message: 'Internal server error' });
     }
 }
+
+
+const getUserInfo = async (req, res) => {
+    const { username } = req.user; // Correctly access the username from the authenticated user
+    const pool = req.poolPromise;
+    console.log(`Received request to fetch profile for username: ${username}`);
+
+    try {
+        const user = await User.getUserByUsername(pool, username);
+
+        if (!user) {
+            console.log(`User ${username} not found`);
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        console.log('User found:', user);
+        res.json(user);
+    } catch (error) {
+        console.error('Internal server error:', error);
+        res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+};
 
 module.exports = {
     createUser,
@@ -168,7 +174,8 @@ module.exports = {
     getUserById,
     updateUser,
     deleteUser,
-    getUsersWithBooks,
     registerUser,
-    loginUser
+    loginUser,
+    getUserInfo
+
 };

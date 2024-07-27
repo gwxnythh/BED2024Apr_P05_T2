@@ -1,3 +1,4 @@
+<!-- Home Page/Dashboard | Examiner -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,83 +7,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Template | Episteme</title>
     <!-- ============ Favicon ============ -->
-    <link rel="icon" type="image/x-icon" href="/public/images/logo-icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/logo-icon.png">
     <!-- ============ Styles ============ -->
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../styles/examiner.css">
     <style>
-        /* Centering content */
         .centered-container {
-            /* Center content horizontally and vertically */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
-            /* Ensure the container takes full height */
+        }
+
+        .question {
+            margin-top: 10px;
         }
 
         .content {
             margin-left: 250px;
-            /* Adjust for sidebar width */
             padding: 20px;
             width: 100%;
-            /* Allow content to fill width of container */
             box-sizing: border-box;
-            /* Include padding and border in width calculation */
         }
 
-        /* General Styles */
-        body {
-            font-family: 'Open Sans', sans-serif;
-            /* Use Open Sans font */
-            background-color: #f4f4f4;
-            margin: 0;
-            /* Remove default margin */
-            padding: 0;
-            /* Remove default padding */
-        }
-
-        /* Content Container Styles */
         .content-container {
             margin-left: 250px;
-            /* Adjust for sidebar */
             padding: 20px;
             display: flex;
-            /* Use flexbox for layout */
             flex-wrap: wrap;
-            /* Allow wrapping to next line */
             gap: 20px;
-            /* Space between items */
             justify-content: center;
-            /* Center items horizontally */
         }
 
-        /* Card Styles */
+        h2,
+        h1,
+        p {
+            color: var(--text-color);
+        }
+
         .card {
-            /* ... other card styles ... */
             width: 45%;
-            /* Adjusted width for better balance */
             min-width: 280px;
-            /* Increased minimum width slightly */
             max-width: 480px;
-            /* Added maximum width for better control */
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            /* Smooth transition effect */
         }
 
         /* Quiz Result Card Styles */
         .quiz-result-container {
-            min-height: 300px;
-            /* Maintain consistent height */
+            min-height: 175px;
             min-width: 300px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            /* Center vertically */
             align-items: center;
-            /* Center horizontally */
         }
 
         /* Quiz Content Styles */
@@ -98,67 +77,63 @@
 
         /* See Results Button Styles */
         .see-results-button {
-            background-color: #007bff;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            /* background-color: #007bff;
             color: #fff;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
-            cursor: pointer;
+            cursor: pointer; */
         }
 
         .see-results-button:hover {
-            background-color: #0056b3;
+            background-color: var(--secondary-color);
+            color: white;
         }
 
         #resultsContainer {
             display: flex;
             flex-wrap: wrap;
-            /* Allow wrapping if necessary */
             gap: 10px;
-            /* Add some spacing between the quiz items */
+            margin-top: 10px;
         }
 
         .quiz-result {
             border: 1px solid #ccc;
-            /* Border around each quiz result */
             padding: 10px;
-            /* Padding inside each quiz result */
             border-radius: 5px;
-            /* Rounded corners */
-            background-color: #f9f9f9;
-            /* Light background color */
+            background-color: var(--sidebar-color);
             width: 200px;
-            /* Fixed width for each quiz result */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* Optional shadow for better appearance */
             position: relative;
-            /* To position the delete button */
+            margin-top: 10px;
         }
 
         .delete-btn {
             background-color: red;
-            /* Red background color for the delete button */
             color: white;
-            /* White text color */
             border: none;
-            /* Remove default border */
             border-radius: 5px;
-            /* Rounded corners */
             padding: 5px 10px;
-            /* Padding inside the button */
             cursor: pointer;
-            /* Pointer cursor on hover */
             position: absolute;
-            /* Position absolutely within the container */
             bottom: 10px;
-            /* Distance from the bottom of the container */
             right: 10px;
-            /* Distance from the right of the container */
         }
 
+        .delete-question-btn:hover,
         .delete-btn:hover {
             background-color: darkred;
-            /* Darker red on hover */
         }
 
         /* Create Quiz Card Styles */
@@ -173,8 +148,8 @@
             font-weight: bold;
         }
 
+        .create-quiz-container input[type="number"],
         .create-quiz-container input[type="text"],
-
         .create-quiz-container textarea {
             width: 100%;
             padding: 10px;
@@ -185,28 +160,24 @@
         }
 
         .quiz-box {
-            background-color: #fff;
+            background-color: var(--primary-color-light);
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 30px;
             margin-bottom: 20px;
             flex: 1;
-            /* Allow boxes to grow and shrink equally */
-            min-width: 280px;
-            max-width: 450px;
+            min-width: 350px;
+            max-width: 100%;
         }
 
         /* Flex Container for Centering */
-        .quiz-container {
+        /* .quiz-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            /* Center horizontally */
             align-items: center;
-            /* Center vertically */
             gap: 20px;
-            /* Add some space between boxes */
-        }
+        } */
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
@@ -224,37 +195,27 @@
         /* Popup/Modal Styles */
         .modal {
             display: none;
-            /* Hidden by default */
             position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
+            z-index: 999;
             left: 0;
             top: 0;
             width: 100%;
-            /* Full width */
             height: 100%;
-            /* Full height */
             overflow: auto;
-            /* Enable scroll if needed */
             background-color: rgb(0, 0, 0);
-            /* Fallback color */
             background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
         }
 
         .modal-content {
-            background-color: #fefefe;
+            background-color: var(--primary-color-light);
             margin: 15% auto;
-            /* 15% from the top and centered */
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            /* Could be more or less, depending on screen size */
         }
 
         .close {
-            color: #aaa;
+            color: var(--text-color);
             float: right;
             font-size: 28px;
             font-weight: bold;
@@ -265,6 +226,42 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
+        }
+
+        /* Buttons Styling */
+        .delete-question-btn {
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        #quizForm button[type="submit"],
+        #quizForm button[type="button"] {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        #quizForm button[type="submit"]:hover ,
+        #quizForm button[type="button"]:hover  {
+            background-color: var(--secondary-color);
+            color: white;
         }
     </style>
 </head>
@@ -297,7 +294,7 @@
                 <ul class="menu-links">
                     <!-- ###### Dashboard ###### -->
                     <li class="nav-link">
-                        <a href="index.html">
+                        <a href="./quiz.html">
                             <i class='bx bxs-grid-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
@@ -305,32 +302,15 @@
 
                     <!-- ###### Profile ###### -->
                     <li class="nav-link">
-                        <a href="./member/profile-member.html">
+                        <a href="./profile-examiner.html">
                             <i class='bx bx-user icon'></i>
                             <span class="text nav-text">Profile</span>
                         </a>
                     </li>
 
-                    <!-- ###### Cour    ses ###### -->
-                    <li class="nav-link">
-                        <a href="./member/courses.html">
-                            <i class='bx bxs-graduation icon'></i>
-                            <span class="text nav-text">Courses</span>
-                        </a>
-                    </li>
-
-                    <!-- ###### Quizzes ###### -->
-                    <li class="nav-link">
-                        <a href="./member/quizzes.html">
-                            <i class='bx bx-pencil icon'></i>
-                            <span class="text nav-text">Quizzes</span>
-                        </a>
-                    </li>
-
-
                     <!-- ###### About Us ###### -->
                     <li class="nav-link">
-                        <a href="./member/">
+                        <a href="./aboutus-examiner.html">
                             <i class='bx bx-group icon icon'></i>
                             <span class="text nav-text">About Us</span>
                         </a>
@@ -338,23 +318,15 @@
 
                     <!-- ###### Contact Us ###### -->
                     <li class="nav-link">
-                        <a href="./member/">
+                        <a href="./contactus-examiner.html">
                             <i class='bx bx-support icon icon'></i>
                             <span class="text nav-text">Contact Us</span>
                         </a>
                     </li>
 
-                    <!-- ###### Settings ###### -->
-                    <li class="nav-link">
-                        <a href="./member/">
-                            <i class='bx bx-cog icon'></i>
-                            <span class="text nav-text">Settings</span>
-                        </a>
-                    </li>
-
                     <!-- ###### Credits ###### -->
                     <li class="nav-link">
-                        <a href="credits.html">
+                        <a href="./credits-examiner.html">
                             <i class='bx bx-info-circle icon'></i>
                             <span class="text nav-text">Credits</span>
                         </a>
@@ -363,19 +335,11 @@
             </div>
 
             <div class="bottom-content">
-                <!-- ###### Profile Details ###### -->
-                <li class="">
-                    <a href="./member/profile.html">
-                        <i class='bx bx-image icon'></i> <!-- Change to user's profile pic -->
-                        <span class="text nav-text">Guest</span>
-                    </a>
-                </li>
-
                 <!-- ###### Login/Logout ###### -->
                 <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-in icon'></i> <!-- <i class='bx bx-log-out icon' ></i> -->
-                        <span class="text nav-text">Login</span>
+                    <a id="login-logout-link" href="../login.html">
+                        <i id="login-logout-icon" class='bx bx-log-in icon'></i> <!-- <i class='bx bx-log-out icon' ></i> -->
+                        <span id="login-logout-text" class="text nav-text">Login</span>
                         <!-- Need To Do Code For Verificaiton of Login/Logout -->
                     </a>
                 </li>
@@ -397,212 +361,284 @@
     </nav>
 
 
-    <!-- ============ Your Content's Title ============ -->
-    <div class="quiz-container">
-        <div class="quiz-box">
-            <div class="quiz-result-container">
-                <i class="bx bx-check-circle" style="font-size: 24px; color: #007bff;"></i>
-                <h2>Recently Taken Quiz</h2>
-                <p><strong>General Knowledge Quiz</strong></p>
-                <p>Taken on: June 12, 2024</p>
-                <button class="see-results-button" onclick="showModal()">See Results</button>
+    <!-- ============ Examiner Dashboard (Quiz) ============ -->
+    <section class="home">
+        <div class="text">Dashboard</div>
+    </section>
+
+
+    <section class="dashboard-examiner">
+        <div class="quiz-container">
+            <div class="quiz-box">
+                <div class="quiz-result-container">
+                    <i class="bx bx-check-circle" style="font-size: 30px; color: #3cb043;"></i>
+                    <h2 style="margin-bottom: 5px;">Recently Taken Quiz</h2>
+                    <p style="margin-bottom: 5px;"><strong>General Knowledge Quiz</strong></p>
+                    <p style="margin-bottom: 5px; font-size: 14px;">Taken on: June 12, 2024</p>
+                    <button class="see-results-button" onclick="showModal()">See Results</button>
+                </div>
+            </div>
+
+            <div class="quiz-box">
+                <div class="create-quiz-container">
+                    <h1>Create Quiz</h1>
+                    <form id="quizForm">
+                        <h2>Add Questions</h2>
+                        <div id="questions-container">
+                        </div>
+                        <button type="button" onclick="addQuestion()">Add Question</button>
+                        <button type="submit" onclick="createQuiz(event)">Create Quiz</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Popup/Modal -->
+            <div id="resultsModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>Quiz Results</h2>
+                    <div id="resultsContainer"></div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="quiz-box">
-            <div class="create-quiz-container">
-                <h1>Create Quiz</h1>
-                <form id="quizForm">
+    <!-- ============ Footer ============ -->
+    <section class="footer">
+        <footer>
+            <div class="footer-container">
+                <!-- ###### Part 1 ###### -->
+                <div class="sec aboutus">
+                    <h2><img src="../../images/logo-icon.png"></h2>
+                    <p>Follow Us To Get Updated!</p>
+                    <ul class="sci">
+                        <li><a href="https://www.instagram.com/gwxnny_/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/im._.jov/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/d.daphnee_/"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="https://www.instagram.com/h4nyan/"><i class='bx bxl-instagram'></i></a></li>
+                    </ul>
+                </div>
 
+                <!-- ###### Part 2 ###### -->
+                <div class="sec quicklinks">
+                    <h2>Navigation</h2>
+                    <ul>
+                        <li><a href="./quiz.html">Dashboard</a></li>
+                    </ul>
+                </div>
 
-                    <h2>Add Questions</h2>
-                    <div id="questions-container">
-                    </div>
-                    <button type="button" onclick="addQuestion()">Add Question</button>
+                <!-- ###### Part 3 ###### -->
+                <div class="sec quicklinks">
+                    <h2>Information</h2>
+                    <ul>
+                        <li><a href="./aboutus-examiner.html">About Us</a></li>
+                        <li><a href="./contactus-examiner.html">Contact Us</a></li>
+                        <li><a href="./credits-examiner.html">Credits</a></li>
+                    </ul>
+                </div>
 
-                    <button type="submit" onclick="createQuiz(event)">Create Quiz</button>
-                </form>
+                <!-- ###### Part 4 ###### -->
+                <div class="sec quicklinks">
+                    <h2>User Options</h2>
+                    <ul>
+                        <li><a href="./profile-instructor.html">Profile</a></li>
+                    </ul>
+                </div>
+
+                <!-- ###### Part 5 ###### -->
+                <div class="sec contact">
+                    <h2>Hit Us up!</h2>
+                    <ul class="info">
+                        <li>
+                            <span>
+                                <i class='bx bxs-phone'></i>
+                            </span>
+                            <p><a href="tel:+65 9772 2908">+65 9772 2908</a></p>
+                        </li>
+                        <li>
+                            <span>
+                                <i class='bx bx-envelope'></i>
+                            </span>
+                            <p><a href="mailto:epistemebed@gmail.com">epistemebed@gmail.com</a></p>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </footer>
+        <div class="copyrightText">
+            <p>Copyright &copy; BED_P05_T2. All Rights Reserved. 2024</p>
         </div>
-        <!-- Popup/Modal -->
-        <div id="resultsModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2>Quiz Results</h2>
-                <div id="resultsContainer"></div>
-            </div>
-        </div>
+    </section>
 
-        <!-- ============ Scripts ============ -->
-        <script>
-            // Function to show the modal
-            function showModal() {
-                document.getElementById("resultsModal").style.display = "block";
-                fetchQuizResults();
-            }
+    <!-- ============ Scripts ============ -->
+    <script>
+        // Function to show the modal
+        function showModal() {
+            document.getElementById("resultsModal").style.display = "block";
+            fetchQuizResults();
+        }
 
-            // Function to close the modal
-            function closeModal() {
-                document.getElementById("resultsModal").style.display = "none";
-            }
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("resultsModal").style.display = "none";
+        }
 
-            async function fetchQuizResults() {
-                try {
-                    console.log('Fetching quiz results...');
-                    const response = await fetch('http://localhost:3000/quizzes');
+        async function fetchQuizResults() {
+            try {
+                console.log('Fetching quiz results...');
+                const response = await fetch('http://localhost:3000/quizzes');
 
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
 
-                    const data = await response.json();
-                    console.log('Data received:', data);
+                const data = await response.json();
+                console.log('Data received:', data);
 
-                    if (!Array.isArray(data.results)) {
-                        throw new Error('Unexpected data format');
-                    }
+                if (!Array.isArray(data.results)) {
+                    throw new Error('Unexpected data format');
+                }
 
-                    const resultsContainer = document.getElementById("resultsContainer");
-                    resultsContainer.innerHTML = '';
+                const resultsContainer = document.getElementById("resultsContainer");
+                resultsContainer.innerHTML = '';
 
-                    if (data.results.length === 0) {
-                        resultsContainer.innerHTML = '<p>No quiz results found.</p>';
-                        return;
-                    }
+                if (data.results.length === 0) {
+                    resultsContainer.innerHTML = '<p>No quiz results found.</p>';
+                    return;
+                }
 
-                    data.results.forEach(result => {
-                        const resultElement = document.createElement('div');
-                        resultElement.classList.add('quiz-result'); // Add a class for styling
-                        resultElement.innerHTML = `
+                data.results.forEach(result => {
+                    const resultElement = document.createElement('div');
+                    resultElement.classList.add('quiz-result'); // Add a class for styling
+                    resultElement.innerHTML = `
                 <p><strong>ID:</strong> ${result.id}</p>
                 <p><strong>Question:</strong> ${result.question}</p>
                 <p><strong>Answer:</strong> ${result.answer}</p>
                 <p><strong>Options:</strong> ${result.options.join(', ')}</p>
-                <button class="delete-btn" data-id="${result.id}">X</button>
+                <button class="delete-btn" data-id="${result.id}"><i class='bx bxs-trash icon'></i></button>
             `;
-                        resultsContainer.appendChild(resultElement);
-                    });
+                    resultsContainer.appendChild(resultElement);
+                });
 
-                    // Add event listener for delete buttons
-                    document.querySelectorAll('.delete-btn').forEach(button => {
-                        button.addEventListener('click', async (event) => {
-                            const id = event.target.getAttribute('data-id');
-                            await deleteQuizResult(id);
-                        });
+                // Add event listener for delete buttons
+                document.querySelectorAll('.delete-btn').forEach(button => {
+                    button.addEventListener('click', async (event) => {
+                        const id = event.target.getAttribute('data-id');
+                        await deleteQuizResult(id);
                     });
-                } catch (error) {
-                    console.error('Error fetching quiz results:', error);
-                    const resultsContainer = document.getElementById("resultsContainer");
-                    resultsContainer.innerHTML = '<p>Failed to load quiz results. Please try again later.</p>';
-                }
+                });
+            } catch (error) {
+                console.error('Error fetching quiz results:', error);
+                const resultsContainer = document.getElementById("resultsContainer");
+                resultsContainer.innerHTML = '<p>Failed to load quiz results. Please try again later.</p>';
             }
+        }
 
-            async function deleteQuizResult(id) {
-                try {
-                    const response = await fetch(`http://localhost:3000/quizzes/${id}`, {
-                        method: 'DELETE',
-                    });
+        async function deleteQuizResult(id) {
+            try {
+                const response = await fetch(`http://localhost:3000/quizzes/${id}`, {
+                    method: 'DELETE',
+                });
 
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-
-                    console.log(`Quiz result with ID ${id} deleted.`);
-                    // Refresh the quiz results after deletion
-                    fetchQuizResults();
-                } catch (error) {
-                    console.error('Error deleting quiz result:', error);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
                 }
+
+                console.log(`Quiz result with ID ${id} deleted.`);
+                // Refresh the quiz results after deletion
+                fetchQuizResults();
+            } catch (error) {
+                console.error('Error deleting quiz result:', error);
             }
+        }
 
 
 
-            let questionCounter = 1; // Start from 1 or another preferred starting value
+        let questionCounter = 1; // Start from 1 or another preferred starting value
 
-            function addQuestion() {
-                const questionsContainer = document.getElementById('questions-container');
+        function addQuestion() {
+            const questionsContainer = document.getElementById('questions-container');
 
-                const questionDiv = document.createElement('div');
-                questionDiv.classList.add('question');
-                questionDiv.innerHTML = `
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question');
+            questionDiv.innerHTML = `
     <input type="number" name="question-id" placeholder="Enter question ID" required>
     <input type="text" name="question" placeholder="Enter question text" required>
     <input type="text" name="answer" placeholder="Enter correct answer" required>
     <textarea name="options" placeholder="Enter options separated by commas" required></textarea>
   `;
-                questionsContainer.appendChild(questionDiv);
+            questionsContainer.appendChild(questionDiv);
 
-                // Add the delete button after appending the question element
-                const deleteButton = document.createElement('button');
-                deleteButton.classList.add('delete-question-btn');
-                deleteButton.textContent = 'Delete Question';
-                questionDiv.appendChild(deleteButton);
+            // Add the delete button after appending the question element
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('delete-question-btn');
+            deleteButton.textContent = 'Delete Question';
+            questionDiv.appendChild(deleteButton);
 
-                questionCounter++;
+            questionCounter++;
 
-                // Update deleteButtons with the newly added button
-                const allDeleteButtons = document.querySelectorAll('.delete-question-btn');
-                deleteButtons = allDeleteButtons; // Reassign the variable
+            // Update deleteButtons with the newly added button
+            const allDeleteButtons = document.querySelectorAll('.delete-question-btn');
+            deleteButtons = allDeleteButtons; // Reassign the variable
 
-                // Add event listener to the newly created button
-                deleteButton.addEventListener('click', function () {
-                    this.parentElement.remove(); // Remove the entire question element
-                });
+            // Add event listener to the newly created button
+            deleteButton.addEventListener('click', function () {
+                this.parentElement.remove(); // Remove the entire question element
+            });
+        }
+
+        document.getElementById('quizForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const questionDivs = document.querySelectorAll('.question');
+            if (questionDivs.length === 0) {
+                alert('Please add at least one question.');
+                return;
             }
 
-            document.getElementById('quizForm').addEventListener('submit', async (e) => {
-                e.preventDefault();
+            const questions = [];
+            for (const questionDiv of questionDivs) {
+                const question = {
+                    id: parseInt(questionDiv.querySelector('input[name="question-id"]').value, 10),
+                    question: questionDiv.querySelector('input[name="question"]').value,
+                    answer: questionDiv.querySelector('input[name="answer"]').value,
+                    options: questionDiv.querySelector('textarea[name="options"]').value.split(',').map(option => option.trim())
+                };
+                questions.push(question);
+            }
 
-                const questionDivs = document.querySelectorAll('.question');
-                if (questionDivs.length === 0) {
-                    alert('Please add at least one question.');
-                    return;
-                }
+            // Send each question individually
+            try {
+                for (const question of questions) {
+                    const response = await fetch('http://localhost:3000/quizzes', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(question) // Send each question individually
+                    });
 
-                const questions = [];
-                for (const questionDiv of questionDivs) {
-                    const question = {
-                        id: parseInt(questionDiv.querySelector('input[name="question-id"]').value, 10),
-                        question: questionDiv.querySelector('input[name="question"]').value,
-                        answer: questionDiv.querySelector('input[name="answer"]').value,
-                        options: questionDiv.querySelector('textarea[name="options"]').value.split(',').map(option => option.trim())
-                    };
-                    questions.push(question);
-                }
+                    console.log('Response Status:', response.status);
 
-                // Send each question individually
-                try {
-                    for (const question of questions) {
-                        const response = await fetch('http://localhost:3000/quizzes', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(question) // Send each question individually
-                        });
-
-                        console.log('Response Status:', response.status);
-
-                        if (!response.ok) {
-                            const errorText = await response.text();
-                            throw new Error(`Network response was not ok: ${response.statusText}. ${errorText}`);
-                        }
-
-                        const result = await response.json();
-                        console.log('Quiz created:', result);
+                    if (!response.ok) {
+                        const errorText = await response.text();
+                        throw new Error(`Network response was not ok: ${response.statusText}. ${errorText}`);
                     }
 
-                    alert('Quiz created successfully!');
-                    document.getElementById('quizForm').reset(); // Reset the form after successful submission
-                    document.getElementById('questions-container').innerHTML = ''; // Clear the container after submission
-                } catch (error) {
-                    console.error('Failed to create quiz:', error);
-                    alert('Failed to create quiz: ' + error.message);
+                    const result = await response.json();
+                    console.log('Quiz created:', result);
                 }
-            });
 
-        </script>
-        <script src="../../scripts/script.js"></script>
+                alert('Quiz created successfully!');
+                document.getElementById('quizForm').reset(); // Reset the form after successful submission
+                document.getElementById('questions-container').innerHTML = ''; // Clear the container after submission
+            } catch (error) {
+                console.error('Failed to create quiz:', error);
+                alert('Failed to create quiz: ' + error.message);
+            }
+        });
+
+    </script>
+    <script src="../../scripts/script.js"></script>
 </body>
 
 </html>

@@ -310,6 +310,9 @@ body.dark .switch::before {
 }
 
 /* ###### Always need to put Section name when new one is made! ###### */
+.sidebar.close~.dashboard-csstaff,
+.sidebar.close~.dashboard-examiner,
+.sidebar.close~.todo-instructor,
 .sidebar.close~.instructor-playlist,
 .sidebar.close~.instructor-update-content,
 .sidebar.close~.instructor-new-content,
@@ -405,8 +408,17 @@ body.dark .switch::before {
     color: #333;
 }
 
+#login-form p {
+    margin-top: 50px;
+}
+
+#login-form p a {
+    color: var(--text-color);
+}
+
 .signinup-wrapper .inner form {
-    width: 50%;
+    /* width: 50%; */
+    width: 100%;
     padding-top: 2px;
     padding-left: 45px;
     padding-right: 45px;
@@ -765,6 +777,16 @@ select option[value=""][disabled] {
     box-shadow: 2px 4px 4px rgb(0, 0, 0, 0.5);
 }
 
+.signinup-wrapper #login-form .forget-password {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.signinup-wrapper #login-form .forget-password a {
+    text-decoration: none;
+    color: var(--text-color);
+}
 
 /* ====== credits.html ====== */
 .credits {
@@ -772,6 +794,7 @@ select option[value=""][disabled] {
     left: 250px;
     width: calc(100% - 250px);
     transition: var(--tran-05);
+    margin-bottom: 50px;
 }
 
 .credits .table-container {
@@ -1003,8 +1026,8 @@ td {
 }
 
 .dashboard-member .courses-container .card-container .card .tutor img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -1072,6 +1095,11 @@ td {
     left: 88px;
     width: calc(100% - 88px);
     margin-top: auto;
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-05);
 }
 
 footer {
@@ -1205,6 +1233,7 @@ footer .footer-container .contact .info li a {
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .member-profile .text {
@@ -1317,6 +1346,7 @@ footer .footer-container .contact .info li a {
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .update-memprofile-container {
@@ -1407,6 +1437,7 @@ input[disabled]::-webkit-input-placeholder {
     transition: var(--tran-05);
     padding: 0 10%;
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .instructors-member .all-instructors {
@@ -1477,6 +1508,7 @@ input[disabled]::-webkit-input-placeholder {
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .quizzes-member .quizzes-member-container {
@@ -1524,6 +1556,7 @@ input[disabled]::-webkit-input-placeholder {
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .courses-member .courses-member-container {
@@ -1545,6 +1578,7 @@ input[disabled]::-webkit-input-placeholder {
     border-radius: .5rem;
     background-color: var(--primary-color-light);
     padding: 15px;
+    color: var(--text-color);
 }
 
 .courses-member .courses-member-container .card-container .card .thumb {
@@ -1572,8 +1606,8 @@ input[disabled]::-webkit-input-placeholder {
 }
 
 .courses-member .courses-member-container .card-container .card .tutor img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -1602,6 +1636,18 @@ input[disabled]::-webkit-input-placeholder {
     padding: 6px 0;
 }
 
+.courses-member .courses-member-container .card-container .buttons {
+    display: none;
+}
+.courses-member .courses-member-container .card-container .view-button {
+    margin-top: 10px;
+}
+
+.courses-member .courses-member-container .card-container .card .date {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
 /* ====== likes.html (member) ====== */
 .likes-member {
     position: relative;
@@ -1609,6 +1655,7 @@ input[disabled]::-webkit-input-placeholder {
     width: calc(100% - 250px);
     transition: var(--tran-05);
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .likes-member .likes-member-container {
@@ -1658,8 +1705,8 @@ input[disabled]::-webkit-input-placeholder {
 }
 
 .likes-member .likes-member-container .card-container .card .tutor img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -1776,7 +1823,7 @@ input[disabled]::-webkit-input-placeholder {
 .contact-us .contactus-form button {
     padding: 10px 15px;
     font-size: 16px;
-    color: var(--text-color);
+    color: white;
     text-transform: capitalize;
     cursor: pointer;
     text-align: center;
@@ -1791,7 +1838,7 @@ input[disabled]::-webkit-input-placeholder {
 
 .contact-us .contactus-form button:hover {
     background-color: var(--secondary-color);
-    color: var(--text-color);
+    color: white;
 }
 
 .contactus-form .form-wrapper {
@@ -1840,6 +1887,7 @@ input[disabled]::-webkit-input-placeholder {
     transition: var(--tran-05);
     padding: 0 10%;
     margin: 0;
+    margin-bottom: 50px;
 }
 
 .aboutus-container .aboutus-img p {
@@ -1888,4 +1936,42 @@ input[disabled]::-webkit-input-placeholder {
     color: var(--text-color);
     font-size: 16px;
     line-height: 1.6;
+}
+
+.company-info {
+    color: var(--text-color);
+}
+
+/* ====== ToDoListScreen.html [gignite feature]====== */
+.todo-instructor {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+    margin-bottom: 50px;
+}
+
+/* ====== quiz.html [Examiner] ====== */
+.dashboard-examiner {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+    margin: 0;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+/* ====== issues.html [CSStaff] ====== */
+.dashboard-csstaff {
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--tran-05);
+    padding: 0 10%;
+    margin: 0;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }

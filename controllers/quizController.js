@@ -5,7 +5,7 @@ const getAllQuizzes = async (req, res) => {
         const quizzes = await Quiz.getAllQuizzes(); // Use the Quiz class
         res.json({ results: quizzes }); // Make sure to wrap results in an object with key 'results'
     } catch (error) {
-        console.error(error);
+        // console.error(error);
         res.status(500).send("Error retrieving quizzes");
     }
 };
