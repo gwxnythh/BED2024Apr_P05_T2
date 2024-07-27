@@ -38,20 +38,20 @@ class User {
   }
 
   static async getUserByUsername(pool, username) {
-    try {
+    const connection = await sql.connect(dbConfig);
 
-      const sqlQuery = `SELECT * FROM Users WHERE username = @username`;
+    const sqlQuery = `SELECT * FROM Users WHERE username = @username`; 
 
-      const request = pool.request();
-      request.input("username", username);
-      const result = await request.query(sqlQuery);
+    const request = connection.request();
+    request.input("username", sql.VarChar, username);
+    const result = await request.query(sqlQuery);
 
-      return result.recordset[0]
-        ? new User(result.recordset[0].username, result.recordset[0].name, result.recordset[0].email, result.recordset[0].password, result.recordset[0].role)
-        : null;
-    } catch (error) {
-      throw error;
+    if (result.recordset.length === 0) {
+      return null; // User not found
     }
+
+    const user = result.recordset[0];
+    return new User(user.username, user.name, user.email, user.password, user.role); // Include password for comparison
   }
 
   static async getAllUsers(pool) {

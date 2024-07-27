@@ -361,17 +361,6 @@ body.dark .switch::before {
     margin: 0;
 }
 
-.signinup-wrapper #login-form .forget-password {
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: center;
-}
-
-.signinup-wrapper #login-form .forget-password a {
-    text-decoration: none;
-    color: var(--text-color);
-}
-
 .image-holder img {
     max-width: 100%;
 }
@@ -788,6 +777,16 @@ select option[value=""][disabled] {
     box-shadow: 2px 4px 4px rgb(0, 0, 0, 0.5);
 }
 
+.signinup-wrapper #login-form .forget-password {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.signinup-wrapper #login-form .forget-password a {
+    text-decoration: none;
+    color: var(--text-color);
+}
 
 /* ====== credits.html ====== */
 .credits {

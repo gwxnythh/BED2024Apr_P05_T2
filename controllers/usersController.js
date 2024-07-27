@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 const jwt = require('jsonwebtoken');
-require ("dotenv").config();
+require("dotenv").config();
 
 const createUser = async (req, res) => {
     const newUser = req.body;
@@ -117,38 +117,55 @@ async function loginUser(req, res) {
     const { username, password } = req.body;
 
     try {
-        // Validate user input
         if (!username || !password) {
             return res.status(400).json({ message: 'Username and password are required' });
         }
 
-        // Retrieve user from database
         const user = await User.getUserByUsername(req.poolPromise, username);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        // Compare hashed password with input password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        // Generate JWT token using dotenv configured JWT_SECRET
         const tokenPayload = {
-            user_id: user.user_id,
+            username: user.username, // Ensure 'username' is included
             role: user.role,
         };
 
-        const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign(tokenPayload, process.env.JWT_SECRET);
 
-        // Return token to the client
-        res.json({ token, username, role: user.role });
+        res.json({ token, username: user.username, role: user.role });
     } catch (error) {
         console.error("Error logging in user:", error);
         res.status(500).json({ message: 'Internal server error' });
     }
 }
+
+
+const getUserInfo = async (req, res) => {
+    const { username } = req.user; // Correctly access the username from the authenticated user
+    const pool = req.poolPromise;
+    console.log(`Received request to fetch profile for username: ${username}`);
+
+    try {
+        const user = await User.getUserByUsername(pool, username);
+
+        if (!user) {
+            console.log(`User ${username} not found`);
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        console.log('User found:', user);
+        res.json(user);
+    } catch (error) {
+        console.error('Internal server error:', error);
+        res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+};
 
 module.exports = {
     createUser,
@@ -158,5 +175,7 @@ module.exports = {
     updateUser,
     deleteUser,
     registerUser,
-    loginUser
+    loginUser,
+    getUserInfo
+
 };

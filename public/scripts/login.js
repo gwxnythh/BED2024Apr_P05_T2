@@ -1,21 +1,36 @@
-const loginBtn = document.getElementById('login-btn');
-if (loginBtn) {
-    loginBtn.addEventListener('click', onLoginClick);
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const loginBtn = document.getElementById('login-btn');
+    if (loginBtn) {
+        loginBtn.addEventListener('click', onLoginClick);
+    }
+});
 
 function onLoginClick (event) {
-    console.log('onloginclick')
+    console.log('onloginclik')
     event.preventDefault();
-    var form = {
-        username: document.getElementById("login-username").value,
-        password: document.getElementById("login-password").value,
+    const usernameElement = document.getElementById("login-username");
+    const passwordElement = document.getElementById("login-password");
+
+    if (!usernameElement || !passwordElement) {
+        console.error('Username or password element not found');
+        return;
     }
+
+    const username = usernameElement.value.trim();
+    const password = passwordElement.value.trim();
+
+    if (!username || !password) {
+        alert('Please enter both username and password');
+        return;
+    }
+
+    const form = { username, password };
+    console.log('Form data:', form);
     invokeLoginUserAPI(form);
 }
 
 function invokeLoginUserAPI(form) {
     const loginURL = 'http://localhost:3000/login';
-    console.log('form: ', form);
     const userData = {
         username: form.username,
         password: form.password
@@ -30,32 +45,26 @@ function invokeLoginUserAPI(form) {
       }
      )
      .then(response => {
-        console.log('response: ', response);
-        return response.json().then(json => {
-            return {
-                status: response.status,
-                body: json
-            }
-        });
+        console.log('response: ', response)
+        if (!response.ok) {
+            return response.json();
+        }
+        return response.json();
     })
-    .then(({status, body}) => {
-        if (status !== 200) {
-            if (body.message === "Invalid username or password") {
-                alert("Invalid username or password. Please try again.");
-            } else {
-                alert("An error occurred: " + body.message);
-            }
+    .then(json => {
+        if (json.errors) {
+            alert(json.errors);
         } else {
-            localStorage.setItem("username", body.username);
-            localStorage.setItem("token", body.token);
-            localStorage.setItem("role", body.role);
-            if (body.role === "Instructor") {
+            localStorage.setItem("username", json.username);
+            localStorage.setItem("token", json.token);
+            localStorage.setItem("role", json.role);
+            if (json.role === "Instructor") {
                 window.location.href = './instructor/instructor-index.html';
-            } else if (body.role === "Member") {
+            } else if (json.role === "Member") {
                 window.location.href = './member/index.html';
-            } else if (body.role === "C.S Staff") {
+            } else if (json.role === "C.S Staff") {
                 window.location.href = './cs-staff/issues.html';
-            } else if (body.role === "Examiner") {
+            } else if (json.role === "Examiner") {
                 window.location.href = './examiner/quiz.html';
             }
             alert("Sign in successfully");
@@ -63,7 +72,6 @@ function invokeLoginUserAPI(form) {
     })
     .catch(error => {
         console.error('Error:', error);
-        alert("An error occurred. Please try again later.");
+        alert(error);
     });
-    return false;
 }
