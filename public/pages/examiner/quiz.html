@@ -169,6 +169,25 @@
             min-width: 350px;
             max-width: 100%;
         }
+         /* See Results Button Styles */
+    .see-results-button {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 10px;
+      margin-top: 5px;
+      padding: 0.375rem 0.75rem;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+
+    .see-results-button:hover {
+      background-color: var(--secondary-color);
+      color: white;
+    }
 
         /* Flex Container for Centering */
         /* .quiz-container {
@@ -376,6 +395,7 @@
                     <p style="margin-bottom: 5px;"><strong>General Knowledge Quiz</strong></p>
                     <p style="margin-bottom: 5px; font-size: 14px;">Taken on: June 12, 2024</p>
                     <button class="see-results-button" onclick="showModal()">See Results</button>
+                    <button id="deleteAllButton" class="see-results-button">Delete All Recent Quizzes</button>
                 </div>
             </div>
 
@@ -471,12 +491,19 @@
 
     <!-- ============ Scripts ============ -->
     <script>
+        //Funtion to delete all quizzes
+        document.getElementById('deleteAllButton').addEventListener('click', function () {
+      const resultsContainer = document.getElementById('resultsContainer');
+      while (resultsContainer.firstChild) {
+        resultsContainer.removeChild(resultsContainer.firstChild);
+      }
+    });
         // Function to show the modal
         function showModal() {
             document.getElementById("resultsModal").style.display = "block";
             fetchQuizResults();
         }
-
+        
         // Function to close the modal
         function closeModal() {
             document.getElementById("resultsModal").style.display = "none";
@@ -550,6 +577,23 @@
                 console.error('Error deleting quiz result:', error);
             }
         }
+
+        async function deleteAllQuizResults() {
+      try {
+        const response = await fetch('http://localhost:3000/quizzes');
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        const data = await response.json();
+        const deletePromises = data.results.map(result => deleteQuizResult(result.id));
+        await Promise.all(deletePromises);
+        fetchQuizResults();
+      } catch (error) {
+        console.error('Error deleting all quiz results:', error);
+      }
+    }
+
+    document.getElementById('deleteAllButton').addEventListener('click', deleteAllQuizResults);
 
 
 
@@ -636,6 +680,7 @@
                 alert('Failed to create quiz: ' + error.message);
             }
         });
+        
 
     </script>
     <script src="../../scripts/script.js"></script>
