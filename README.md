@@ -263,6 +263,10 @@ Output:
 - Express
 - Body-Parser
 - MSSQL
+- Swagger
+- Jest
+- Multer
+- cors
 
 ## Credits
 Content/Media:
