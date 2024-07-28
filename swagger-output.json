@@ -6,11 +6,15 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": ["http"],
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/register": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Register a new user",
         "parameters": [
           {
@@ -30,8 +34,10 @@
       }
     },
     "/login": {
-      "post": {
-        "tags": ["Users"],
+      "get": {
+        "tags": [
+          "Users"
+        ],
         "summary": "Login a user",
         "parameters": [
           {
@@ -50,9 +56,38 @@
         }
       }
     },
+    "/profile": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user profile information",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User profile information retrieved successfully",
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
     "/forgot-password": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Send password reset link",
         "parameters": [
           {
@@ -87,7 +122,9 @@
     },
     "/comments": {
       "get": {
-        "tags": ["Comments"],
+        "tags": [
+          "Comments"
+        ],
         "summary": "Get all comments",
         "responses": {
           "200": {
@@ -96,7 +133,9 @@
         }
       },
       "post": {
-        "tags": ["Comments"],
+        "tags": [
+          "Comments"
+        ],
         "summary": "Create a new comment",
         "parameters": [
           {
@@ -117,7 +156,9 @@
     },
     "/comments/{id}": {
       "get": {
-        "tags": ["Comments"],
+        "tags": [
+          "Comments"
+        ],
         "summary": "Get a comment by ID",
         "parameters": [
           {
@@ -134,7 +175,9 @@
         }
       },
       "delete": {
-        "tags": ["Comments"],
+        "tags": [
+          "Comments"
+        ],
         "summary": "Delete a comment by ID",
         "parameters": [
           {
@@ -153,7 +196,9 @@
     },
     "/playlists": {
       "get": {
-        "tags": ["Playlists"],
+        "tags": [
+          "Playlists"
+        ],
         "summary": "Get all playlists",
         "responses": {
           "200": {
@@ -162,7 +207,9 @@
         }
       },
       "post": {
-        "tags": ["Playlists"],
+        "tags": [
+          "Playlists"
+        ],
         "summary": "Create a new playlist",
         "parameters": [
           {
@@ -193,7 +240,9 @@
     },
     "/playlists/{id}": {
       "get": {
-        "tags": ["Playlists"],
+        "tags": [
+          "Playlists"
+        ],
         "summary": "Get a playlist by ID",
         "parameters": [
           {
@@ -210,7 +259,9 @@
         }
       },
       "put": {
-        "tags": ["Playlists"],
+        "tags": [
+          "Playlists"
+        ],
         "summary": "Update a playlist by ID",
         "parameters": [
           {
@@ -235,7 +286,9 @@
         }
       },
       "delete": {
-        "tags": ["Playlists"],
+        "tags": [
+          "Playlists"
+        ],
         "summary": "Delete a playlist by ID",
         "parameters": [
           {
@@ -254,7 +307,9 @@
     },
     "/playlist/contents/{id}": {
       "get": {
-        "tags": ["Contents"],
+        "tags": [
+          "Contents"
+        ],
         "summary": "Get content by playlist ID",
         "parameters": [
           {
@@ -273,7 +328,9 @@
     },
     "/contents": {
       "get": {
-        "tags": ["Contents"],
+        "tags": [
+          "Contents"
+        ],
         "summary": "Get all contents",
         "responses": {
           "200": {
@@ -282,7 +339,9 @@
         }
       },
       "post": {
-        "tags": ["Contents"],
+        "tags": [
+          "Contents"
+        ],
         "summary": "Create a new content",
         "parameters": [
           {
@@ -325,7 +384,9 @@
     },
     "/contents/{username}": {
       "get": {
-        "tags": ["Contents"],
+        "tags": [
+          "Contents"
+        ],
         "summary": "Get favourite contents by username",
         "parameters": [
           {
@@ -344,7 +405,9 @@
     },
     "/contents/{id}": {
       "get": {
-        "tags": ["Contents"],
+        "tags": [
+          "Contents"
+        ],
         "summary": "Get content by ID",
         "parameters": [
           {
@@ -361,7 +424,9 @@
         }
       },
       "put": {
-        "tags": ["Contents"],
+        "tags": [
+          "Contents"
+        ],
         "summary": "Update content by ID",
         "parameters": [
           {
@@ -386,7 +451,9 @@
         }
       },
       "delete": {
-        "tags": ["Contents"],
+        "tags": [
+          "Contents"
+        ],
         "summary": "Delete content by ID",
         "parameters": [
           {
@@ -405,7 +472,9 @@
     },
     "/contents/{username}/{id}": {
       "get": {
-        "tags": ["Contents"],
+        "tags": [
+          "Contents"
+        ],
         "summary": "Get content by ID and username",
         "parameters": [
           {
@@ -430,7 +499,9 @@
     },
     "/favourite": {
       "post": {
-        "tags": ["Favourites"],
+        "tags": [
+          "Favourites"
+        ],
         "summary": "Add content to favourites",
         "parameters": [
           {
@@ -459,7 +530,9 @@
     },
     "/unfavourite": {
       "delete": {
-        "tags": ["Favourites"],
+        "tags": [
+          "Favourites"
+        ],
         "summary": "Remove content from favourites",
         "parameters": [
           {
@@ -488,7 +561,9 @@
     },
     "/quizzes": {
       "get": {
-        "tags": ["Quizzes"],
+        "tags": [
+          "Quizzes"
+        ],
         "summary": "Get all quizzes",
         "responses": {
           "200": {
@@ -497,7 +572,9 @@
         }
       },
       "post": {
-        "tags": ["Quizzes"],
+        "tags": [
+          "Quizzes"
+        ],
         "summary": "Create a new quiz",
         "parameters": [
           {
@@ -518,7 +595,9 @@
     },
     "/quizzes/{id}": {
       "get": {
-        "tags": ["Quizzes"],
+        "tags": [
+          "Quizzes"
+        ],
         "summary": "Get quiz by ID",
         "parameters": [
           {
@@ -535,7 +614,9 @@
         }
       },
       "put": {
-        "tags": ["Quizzes"],
+        "tags": [
+          "Quizzes"
+        ],
         "summary": "Update quiz by ID",
         "parameters": [
           {
@@ -560,7 +641,9 @@
         }
       },
       "delete": {
-        "tags": ["Quizzes"],
+        "tags": [
+          "Quizzes"
+        ],
         "summary": "Delete quiz by ID",
         "parameters": [
           {
@@ -579,7 +662,9 @@
     },
     "/Issues": {
       "get": {
-        "tags": ["Issues"],
+        "tags": [
+          "Issues"
+        ],
         "summary": "Get all issues",
         "responses": {
           "200": {
@@ -588,7 +673,9 @@
         }
       },
       "post": {
-        "tags": ["Issues"],
+        "tags": [
+          "Issues"
+        ],
         "summary": "Create a new issue",
         "parameters": [
           {
@@ -609,7 +696,9 @@
     },
     "/Issues/{id}": {
       "delete": {
-        "tags": ["Issues"],
+        "tags": [
+          "Issues"
+        ],
         "summary": "Delete issue by ID",
         "parameters": [
           {
