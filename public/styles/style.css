@@ -1549,6 +1549,13 @@ input[disabled]::-webkit-input-placeholder {
     margin: 0;
 }
 
+.quizzes-member .quizzes-member-container p {
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
 /* ====== courses.html (member) ====== */
 .courses-member {
     position: relative;
@@ -1739,6 +1746,13 @@ input[disabled]::-webkit-input-placeholder {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+}
+
+.likes-member .likes-member-container p {
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 

@@ -5,14 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function onLoginClick (event) {
-    console.log('onloginclik')
+function onLoginClick(event) {
+    console.log('onloginclick');
     event.preventDefault();
     const usernameElement = document.getElementById("login-username");
     const passwordElement = document.getElementById("login-password");
 
     if (!usernameElement || !passwordElement) {
         console.error('Username or password element not found');
+        alert("Username or password not found");
         return;
     }
 
@@ -36,20 +37,19 @@ function invokeLoginUserAPI(form) {
         password: form.password
     };
 
-    fetch(
-        loginURL,
-      {            
-          headers: { "Content-Type": "application/json" },            
-          method: "POST",
-          body: JSON.stringify(userData)
-      }
-     )
-     .then(response => {
-        console.log('response: ', response)
-        if (!response.ok) {
-            return response.json();
-        }
-        return response.json();
+    fetch(loginURL, {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify(userData)
+    })
+    .then(response => {
+        console.log('response:', response);
+        return response.json().then(json => {
+            if (!response.ok) {
+                throw new Error(json.message || 'Unknown error');
+            }
+            return json;
+        });
     })
     .then(json => {
         if (json.errors) {
@@ -72,6 +72,10 @@ function invokeLoginUserAPI(form) {
     })
     .catch(error => {
         console.error('Error:', error);
-        alert(error);
+        if (error.message === 'Invalid username or password') {
+            alert('Invalid username or password');
+        } else {
+            alert(error.message);
+        }
     });
 }

@@ -21,7 +21,8 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="../../images/logo-icon.png" alt="episteme-logo">
+                    <img src="../../images/logo-icon.png"
+                        alt="episteme-logo">
                 </span>
 
                 <div class="text header-text">
@@ -46,6 +47,14 @@
                         <a href="./issues.html">
                             <i class='bx bxs-grid-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <!-- ###### Contact Us ###### -->
+                    <li class="nav-link">
+                        <a href="./contactform.html">
+                            <i class='bx bx-support icon icon'></i>
+                            <span class="text nav-text">Contact Us</span>
                         </a>
                     </li>
 
@@ -77,10 +86,13 @@
 
             <div class="bottom-content">
                 <!-- ###### Login/Logout ###### -->
-                <li class="">
+                <li class>
                     <a id="login-logout-link" href="../login.html">
-                        <i id="login-logout-icon" class='bx bx-log-in icon'></i> <!-- <i class='bx bx-log-out icon' ></i> -->
-                        <span id="login-logout-text" class="text nav-text">Login</span>
+                        <i id="login-logout-icon"
+                            class='bx bx-log-in icon'></i>
+                        <!-- <i class='bx bx-log-out icon' ></i> -->
+                        <span id="login-logout-text"
+                            class="text nav-text">Login</span>
                         <!-- Need To Do Code For Verificaiton of Login/Logout -->
                     </a>
                 </li>
@@ -116,8 +128,8 @@
             <div class="profile-info">
                 <!-- User details -->
                 <div class="user-details">
-                    <h2><span>Guest</span></h2>
-                    <p><span>Staff</span></p>
+                    <h2><span id="username">Guest</span></h2>
+                    <!-- <p><span id="role"></span></p> -->
                     <a href="./update-csstaff.html" class="inline-btn">Update Profile</a>
                 </div>
             </div>
@@ -125,7 +137,7 @@
             <!-- Cards section -->
             <div class="csstaff-cards-container">
                 <div class="card">
-                    <h3 class="title"><span>0</span></h3>
+                    <!-- <h3 class="title"><span>Your</span></h3> -->
                     <p class="qap-text">Feedbacks</p>
                     <a href="./issues.html" class="inline-btn">View Issues</a>
                 </div>
@@ -201,6 +213,7 @@
 
     <!-- ============ Scripts ============ -->
     <script src="../../scripts/script.js"></script>
+    <script src="../../scripts/user-profile.js"></script>
 </body>
 
 </html>
