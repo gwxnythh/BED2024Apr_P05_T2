@@ -300,7 +300,7 @@ textarea {
     font-size: 0.875rem;
 }
 
-#issues-submitButton:hover  {
+#issues-submitButton:hover {
     background-color: var(--secondary-color);
     color: white;
 }
@@ -329,4 +329,14 @@ textarea {
     position: absolute;
     left: 10px;
     top: 10px;
+}
+
+.csstaff-profile .csstaff-cards-container .card .qap-text {
+    width: 100%;
+    color: var(--text-color);
+    background-color: var(--sidebar-color);
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: .5rem;
+    text-align: center;
 }
